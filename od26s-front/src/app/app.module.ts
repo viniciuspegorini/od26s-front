@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 
 import {HttpClientModule} from '@angular/common/http';
+import { CadEquipamentoComponent } from './cad-equipamento/cad-equipamento.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CadEquipamentoComponent
   ],
   imports: [
     BrowserModule,
