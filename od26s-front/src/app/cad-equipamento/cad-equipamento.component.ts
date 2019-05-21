@@ -18,6 +18,7 @@ export class CadEquipamentoComponent implements OnInit {
   equipamentoEdit: Equipamento;
   loader = false;
   loaderDelete = false;
+  msgs = [];
 
   constructor(private cadEquipamentoService: CardEquipamentoService) {
   }
@@ -51,9 +52,26 @@ export class CadEquipamentoComponent implements OnInit {
     this.loader = true;
     this.cadEquipamentoService.save(this.equipamentoEdit)
       .subscribe(e => {
-        this.closeForm(frame);
-        this.findAll();
-      });
+          this.closeForm(frame);
+          this.msgs = [
+            {
+              severity: 'success',
+              summary: 'Confirmado',
+              detail: 'Equipamento salvo com sucesso!'
+            }
+          ];
+          this.findAll();
+        },
+        error => {
+          this.loader = false;
+          this.msgs = [
+            {
+              severity: 'error',
+              summary: 'Erro',
+              detail: 'Falha ao salvar o equipamento!'
+            }
+          ];
+        });
   }
 
   showModalDelete(id: number, frame: any) {
@@ -70,8 +88,25 @@ export class CadEquipamentoComponent implements OnInit {
   remove(frame: any) {
     this.loaderDelete = true;
     this.cadEquipamentoService.delete(this.equipamentoEdit.id).subscribe(() => {
-      this.findAll();
-      this.closeModalDelete(frame);
-    });
+        this.findAll();
+        this.closeModalDelete(frame);
+        this.msgs = [
+          {
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Equipamento removido com sucesso!'
+          }
+        ];
+      },
+      error => {
+        this.loaderDelete = false;
+        this.msgs = [
+          {
+            severity: 'error',
+            summary: 'Erro',
+            detail: 'Falha ao remover o equipamento!'
+          }
+        ];
+      });
   }
 }

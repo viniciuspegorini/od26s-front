@@ -8,6 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { CadEquipamentoComponent } from './cad-equipamento/cad-equipamento.component';
 import {FormsModule} from '@angular/forms';
+import {GrowlModule} from 'primeng/growl';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {FormsModule} from '@angular/forms';
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    GrowlModule
   ],
   providers: [],
   bootstrap: [AppComponent]
