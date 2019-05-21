@@ -7,6 +7,7 @@ import {AppRoutingModule} from './app-routing.module';
 
 import {HttpClientModule} from '@angular/common/http';
 import { CadEquipamentoComponent } from './cad-equipamento/cad-equipamento.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CadEquipamentoComponent } from './cad-equipamento/cad-equipamento.compo
     BrowserModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

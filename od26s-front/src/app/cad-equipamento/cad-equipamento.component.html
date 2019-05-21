@@ -1,12 +1,118 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-xl-6 offset-xl-3 col-lg-6 offset-lg-3">
-      <form class="text-center border border-light p-5">
-        <p class="h4 mb-4">Cadastro de Equipamento</p>
-        <input type="number" id="equipamentoId" class="form-control mb-4" placeholder="ID" readonly>
-        <input type="text" id="equipamentoNome" class="form-control mb-4" placeholder="Nome">
-        <button mdbBtn color="info" block="true" class="my-4" type="submit">Salvar</button>
-      </form>
+  <div class="row pt-5">
+    <div class="col-xl-8 offset-xl-2 col-lg-12">
+      <mdb-card>
+        <mdb-card-body>
+          <mdb-card-title>
+            <h4>Equipamentos</h4>
+          </mdb-card-title>
+
+          <mdb-card-text>
+            <table mdbTable>
+              <thead>
+              <tr>
+                <th *ngFor="let head of tableHeaders" scope="col">{{head}} </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr mdbTableCol *ngFor="let equipamento of equipamentos">
+                <th scope="row">{{equipamento.id}}</th>
+                <td>{{equipamento.nome}}</td>
+                <td style="width: 25%">
+                  <div class="btn-group" mdbDropdown>
+                    <button mdbDropdownToggle type="button" mdbBtn color="primary" class="dropdown-toggle waves-light"
+                            mdbWavesEffect>
+                      Ações
+                    </button>
+
+                    <div class="dropdown-menu dropdown-primary">
+                      <a class="dropdown-item" (click)="showForm(equipamento, frame)">Editar</a>
+                      <a class="dropdown-item" (click)="showModalDelete(equipamento.id, framedelete)">Excluir</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </mdb-card-text>
+
+          <button
+            type="button"
+            mdbBtn
+            color="default"
+            rounded="true"
+            data-toggle="modal"
+            data-target="#basicExample"
+            (click)="showForm(null, frame)"
+            mdbWavesEffect
+          >
+            Adicionar
+          </button>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+  </div>
+</div>
+<!--MODAL FORMULÁRIO-->
+<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">
+          {{ equipamentoEdit.id ? 'Editar' : 'Adicionar' }} Equipamento
+        </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeForm(frame)">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="codigo" class="form-control validate" mdbInput readonly [(ngModel)]="equipamentoEdit.id">
+          <label data-error="wrong" data-success="right" for="codigo">Código</label>
+        </div>
+
+        <div class="md-form mb-5">
+          <input type="text" id="nome" class="form-control validate" mdbInput [(ngModel)]="equipamentoEdit.nome">
+          <label data-error="wrong" data-success="right" for="nome">Nome</label>
+        </div>
+      </div>
+
+      <div class="modal-footer d-flex justify-content-center">
+        <button mdbBtn class="waves-light" mdbWavesEffect (click)="closeForm(frame)" [disabled]="loader">
+          Cancelar
+        </button>
+        <div class="spinner-border text-primary" role="status" *ngIf="loader">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <button mdbBtn color="indigo" class="waves-light" mdbWavesEffect (click)="save(frame)" [disabled]="loader">
+          Salvar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--MODAL DELETE-->
+<div mdbModal #framedelete="mdbModal" class="modal fade left" id="frameModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">
+          Tem certeza que deseja remover este item?
+        </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeForm(framedelete)">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-footer d-flex justify-content-center">
+        <button mdbBtn class="waves-light" mdbWavesEffect (click)="closeModalDelete(framedelete)" [disabled]="loaderDelete">Cancelar</button>
+        <div class="spinner-border text-primary" color="red" role="status" *ngIf="loaderDelete">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <button mdbBtn color="red" class="waves-light" mdbWavesEffect (click)="remove(framedelete)" [disabled]="loaderDelete">Remover</button>
+      </div>
     </div>
   </div>
 </div>
