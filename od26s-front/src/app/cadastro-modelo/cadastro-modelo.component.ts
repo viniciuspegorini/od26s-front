@@ -3,6 +3,7 @@ import {ModeloService} from '../services/modelo.service';
 import {Modelo} from '../model/modelo';
 import {ConfirmationService, Message} from 'primeng/api';
 import {DataTable} from 'primeng/primeng';
+import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-cadastro-modelo',
@@ -11,6 +12,8 @@ import {DataTable} from 'primeng/primeng';
 })
 export class CadastroModeloComponent implements OnInit {
 
+  public editor = ClassicEditorBuild;
+
   @ViewChild('dt') dataTable: DataTable;
 
   modelos: Modelo[];
@@ -18,6 +21,8 @@ export class CadastroModeloComponent implements OnInit {
 
   showDialog = false;
   msgs: Message[] = [];
+
+  public componentEvents: string[] = [];
 
   constructor(private modeloService: ModeloService,
               private confirmationService: ConfirmationService) {
@@ -35,6 +40,8 @@ export class CadastroModeloComponent implements OnInit {
     this.modeloEdit = new Modelo();
     this.showDialog = true;
     this.modeloEdit = new Modelo();
+    this.modeloEdit.resultado = '';
+    this.modeloEdit.metodologia = '';
   }
 
   cancel() {
@@ -47,6 +54,7 @@ export class CadastroModeloComponent implements OnInit {
       this.modeloEdit = new Modelo();
       this.dataTable.reset();
       this.findAll();
+      this.showDialog = false;
       this.msgs = [{
         severity: 'success',
         summary: 'Confirmado',
@@ -63,7 +71,7 @@ export class CadastroModeloComponent implements OnInit {
 
   edit(modelo: Modelo) {
     this.modeloEdit = Object.assign({}, modelo);
-    this.showDialog = false;
+    this.showDialog = true;
   }
 
   delete(modelo: Modelo) {

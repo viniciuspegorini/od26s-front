@@ -2,13 +2,11 @@
   <h1 class="d-flex">Cadastro de Modelos</h1>
   <button class="btn btn-primary mb-5" (click)="newEntity()"> Novo</button>
 
-  <p-table #dt [value]="modelos" >
+  <p-table #dt [value]="modelos" styleClass="text-center">
     <ng-template pTemplate="header">
       <tr>
         <th>Código</th>
         <th>Nome</th>
-        <th>Metodologia</th>
-        <th>Resultado</th>
         <th>Ações</th>
       </tr>
     </ng-template>
@@ -16,8 +14,6 @@
       <tr>
         <th>{{modelo.id}}</th>
         <th>{{modelo.nome}}</th>
-        <th>{{modelo.metodologia}}</th>
-        <th>{{modelo.resultado}}</th>
         <th>
           <button type="button" class="btn btn-dark" (click)="edit(modelo)"><i class="fa fa-edit"></i></button>
           <button type="button" class="ml-2 btn btn-danger" (click)="delete(modelo)"><i class="fa fa-trash"></i>
@@ -36,10 +32,22 @@
         <div class="form-group">
           <label for="nome">Nome</label>
           <input type="text" id="nome" name="nome" class="form-control" [(ngModel)]="modeloEdit.nome">
-          <label for="metodologia">Metodologia</label>
-          <input type="text" id="metodologia" name="metodologia" class="form-control" [(ngModel)]="modeloEdit.metodologia">
-          <label for="resultado">Resultado</label>
-          <input type="text" id="resultado" name="resultado" class="form-control" [(ngModel)]="modeloEdit.resultado">
+          <label for="metodologia-editor">Metodologia</label>
+          <ckeditor
+            [data]="modeloEdit.metodologia"
+            [editor]="editor"
+            [(ngModel)]="modeloEdit.metodologia"
+            id="metodologia-editor"
+            name="metodologia-editor">
+          </ckeditor>
+          <label for="resultado-editor">Resultado</label>
+          <ckeditor
+            [data]="modeloEdit.resultado"
+            [editor]="editor"
+            [(ngModel)]="modeloEdit.resultado"
+            id="resultado-editor"
+            name="resultado-editor">
+          </ckeditor>
         </div>
       </div>
     </div>
