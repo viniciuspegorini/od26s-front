@@ -20,6 +20,8 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@ckeditor/ckeditor5-angular": "^1.1.0",
+    "@ckeditor/ckeditor5-build-classic": "^12.1.0",
     "@fortawesome/fontawesome-free": "^5.8.2",
     "@types/chart.js": "^2.7.52",
     "angular-bootstrap-md": "^7.5.2",

@@ -14,6 +14,7 @@ import {AccordionModule, AutoCompleteModule, ConfirmDialogModule, DialogModule, 
 import {TableModule} from 'primeng/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DataViewModule} from 'primeng/dataview';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {DataViewModule} from 'primeng/dataview';
     TableModule,
     DataViewModule,
     AutoCompleteModule,
-    TabViewModule
+    TabViewModule,
+    CKEditorModule
   ],
   providers: [
     ConfirmationService,
