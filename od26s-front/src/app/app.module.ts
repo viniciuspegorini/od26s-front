@@ -6,16 +6,20 @@ import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 
 import {HttpClientModule} from '@angular/common/http';
+import { CadastroModeloComponent } from './cadastro-modelo/cadastro-modelo.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CadastroModeloComponent
   ],
   imports: [
     BrowserModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
