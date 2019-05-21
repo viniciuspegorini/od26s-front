@@ -1,13 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 
 import {HttpClientModule} from '@angular/common/http';
-import { CadastroModeloComponent } from './cadastro-modelo/cadastro-modelo.component';
+import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.component';
 import {FormsModule} from '@angular/forms';
+import {ModeloService} from './services/modelo.service';
+import {ConfirmationService} from 'primeng/api';
+import {AccordionModule, AutoCompleteModule, ConfirmDialogModule, DialogModule, GrowlModule, TabViewModule} from 'primeng/primeng';
+import {TableModule} from 'primeng/table';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {DataViewModule} from 'primeng/dataview';
 
 @NgModule({
   declarations: [
@@ -16,12 +22,26 @@ import {FormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AccordionModule,
+    GrowlModule,
+    DialogModule,
+    TableModule,
+    ConfirmDialogModule,
+    TableModule,
+    DataViewModule,
+    AutoCompleteModule,
+    TabViewModule
   ],
-  providers: [],
+  providers: [
+    ConfirmationService,
+    ModeloService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

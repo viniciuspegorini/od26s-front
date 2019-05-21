@@ -7,9 +7,9 @@ import {Modelo} from '../model/modelo';
 @Injectable({
   providedIn: 'root'
 })
-export class ModelosService extends CrudService<Modelo, number> {
+export class ModeloService extends CrudService<Modelo, number> {
 
   constructor(http: HttpClient) {
-    super(environment.api + '/modelos', http);
+    super(environment.api + '/modelo', http);
   }
 }
