@@ -1,0 +1,88 @@
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">CADASTRO DE INSTITUIÇÕES</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <span class="table-add float-left mb-3 mr-2">
+        <a class="text-success" (click)="newEntity()" (click)="basicModal.show()" mdbWavesEffect>
+          <mdb-icon fas icon="plus" size="2x"></mdb-icon>
+        </a>
+      </span>
+      <table #dt class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+          <th class="text-center">ID</th>
+          <th class="text-center">CNPJ</th>
+          <th class="text-center">Nome Fantasia</th>
+          <th class="text-center">Razão Social</th>
+          <th class="text-center">Ações</th>
+        </tr>
+        <tr *ngFor="let instituicao of instituicoes; let id = index">
+          <td class="pt-3-half">{{instituicao.id}}</td>
+          <td class="pt-3-half">{{instituicao.cnpj}}</td>
+          <td class="pt-3-half">{{instituicao.nomeFantasia}}</td>
+          <td class="pt-3-half">{{instituicao.razaoSocial}}</td>
+
+          <td class="acoes">
+             <span class="table-edit">
+              <button type="button" mdbBtn color="primary" rounded="true" size="sm" class="my-0"
+                      (click)="edit(instituicao)" (click)="basicModal.show()">Editar</button>
+            </span>
+            <span class="table-remove">
+              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0"
+                      (click)="delete(instituicao)">Remover</button>
+            </span>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+<p-growl [(value)]="msgs"></p-growl>
+<p-confirmDialog></p-confirmDialog>
+
+<div>
+  <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+       aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title w-100" id="myModalLabel">Cadastro Instituição</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="razaoSocial">Razão Social</label>
+                <input type="text" id="razaoSocial" name="razaoSocial" class="form-control" required
+                       [(ngModel)]="instituicaoEdit.razaoSocial">
+              </div>
+              <div class="form-group">
+                <label for="nome_fantasia">Nome Fantasia</label>
+                <input type="text" id="nome_fantasia" name="nome_fantasia" class="form-control" required
+                       [(ngModel)]="instituicaoEdit.nomeFantasia">
+              </div>
+              <div class="form-group">
+                <label for="cnpj">CNPJ</label>
+                <input type="text" ng-model="number" id="cnpj" class="form-control" required
+                       [(ngModel)]="instituicaoEdit.cnpj">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
+                      (click)="basicModal.hide()" mdbWavesEffect>Cancelar
+              </button>
+              <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="save()"
+                      (click)="basicModal.hide()" mdbWavesEffect>Salvar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
