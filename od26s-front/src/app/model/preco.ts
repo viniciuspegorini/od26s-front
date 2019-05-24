@@ -2,8 +2,8 @@ import {Equipamento} from './equipamento';
 
 export class Preco {
   id: number;
-  tipoPessoa: string;
-  unMedida: string;
+  tipo_pessoa: string;
+  un_medida: string;
   valor: number;
   equipamento: Equipamento;
 }
