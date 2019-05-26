@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 
 export class PessoaService extends CrudService< Pessoa, number>{
 
-  constructor( http: HttpClient) { 
+  constructor( http: HttpClient) {
     super(environment.api + '/pessoa', http);
   }
 

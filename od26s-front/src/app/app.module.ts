@@ -40,6 +40,7 @@ import { PessoaService } from './pessoa/pessoa.service';
     DialogModule,
     DataViewModule,
     PanelModule,
+    DropdownModule,
 
   ],
   providers: [

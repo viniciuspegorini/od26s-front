@@ -8,7 +8,7 @@ export class Pessoa {
     rg: string;
     telefone: string;
     celular: string;
-    tipo_pessoa: string;
+    tipoPessoa: string;
     departamento: string;
     status: string;
     usuario: Usuario;
