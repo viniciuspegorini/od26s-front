@@ -17,7 +17,7 @@ export class PessoaComponent implements OnInit {
 
   @ViewChild('dt') dataTable: DataTable;
 
-  totalRecords: number = 10;
+  totalRecords = 10;
   pessoas: Pessoa[];
   // maxRecords = 10;
   // currentPage = 1;
@@ -26,9 +26,11 @@ export class PessoaComponent implements OnInit {
   showDialog = false;
   msgs: Message[] = [];
   instituicoes: Instituicao[];
-  //usuarios = new Usuario();
+  // usuarios = new Usuario();
   usuarios: Usuario[];
 
+  tipoPessoa: any;
+  status: any;
   tipoPessoa1: SelectItem[];
   status1: SelectItem[];
 
@@ -65,6 +67,8 @@ export class PessoaComponent implements OnInit {
   save() {
     this.pessoaService.save(this.pessoaEdit).subscribe(e => {
         this.pessoaEdit = new Pessoa();
+        this.pessoaEdit.tipoPessoa = this.tipoPessoa.value;
+        this.pessoaEdit.status = this.status.value;
         this.dataTable.reset();
         this.showDialog = false;
         this.msgs = [{
@@ -78,7 +82,7 @@ export class PessoaComponent implements OnInit {
     );
 
   }
-  //consiste de carregar um conteúdo apenas quando ele é realmente requisitado pelo usuário
+  // consiste de carregar um conteúdo apenas quando ele é realmente requisitado pelo usuário
   // lazyLoad(event: LazyLoadEvent) {
   //   const pageNumber = event.first / event.rows;
   //   this.currentPage = pageNumber;

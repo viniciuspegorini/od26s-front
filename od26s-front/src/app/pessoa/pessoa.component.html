@@ -8,6 +8,7 @@
     <ng-template pTemplate="header">
       <tr>
         <th>Código</th>
+        <th>Email</th>
         <th>Nome</th>
         <th>Cpf</th>
         <th>Rg</th>
@@ -17,7 +18,6 @@
         <th>Dep</th>
         <th>Instituição</th>
         <th>Status</th>
-        <th>Usuário</th>
         <th>Ações</th>
       </tr>
     </ng-template>
@@ -93,9 +93,9 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
-          <label for="status">Tipo de Pessoa</label>
+          <label for="tipoPessoa">Tipo de Pessoa</label>
           <p-dropdown id="tipoPessoa" [options]="tipoPessoa1"
-                      [(ngModel)]="pessoaEdit.tipoPessoa"></p-dropdown>
+                      [(ngModel)]="tipoPessoa"></p-dropdown>
         </div>
       </div>
     </div>
@@ -117,15 +117,13 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="status">Status</label>
-          <p-dropdown id="status" [options]="status1"
-                      [(ngModel)]="pessoaEdit.status"></p-dropdown>
-<!--          <select id="status" name="status" [(ngModel)]="pessoaEdit.status">-->
-<!--            <option value="1" selected="selected">Ativo</option>-->
-<!--            <option value="2">Inativo</option>-->
-<!--          </select>-->
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="status">Status</label>
+            <p-dropdown id="status" [options]="status1"
+                        [(ngModel)]="status"></p-dropdown>
+          </div>
         </div>
       </div>
     </div>
