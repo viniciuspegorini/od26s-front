@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'principal', pathMatch: 'full'}
+  {path: '', redirectTo: 'principal', pathMatch: 'full'},
+  {path: 'equipamento', component: CadEquipamentoComponent},
 ];
 
 @NgModule({

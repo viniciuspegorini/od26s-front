@@ -1,23 +1,40 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 
 import {HttpClientModule} from '@angular/common/http';
+import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.component';
+import {TableModule} from 'primeng/table';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {DialogModule} from 'primeng/dialog';
+import {FormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {GrowlModule} from 'primeng/growl';
+import {ConfirmDialogModule, ProgressSpinnerModule} from 'primeng/primeng';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CadEquipamentoComponent
   ],
   imports: [
     BrowserModule,
-    MDBBootstrapModule.forRoot(),
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TableModule,
+    FontAwesomeModule,
+    DialogModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    GrowlModule,
+    ConfirmDialogModule,
+    ProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
