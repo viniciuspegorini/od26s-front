@@ -1,0 +1,35 @@
+<div class="login_page">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div id="login"
+           class="login loginpage col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-xs-offset-0 col-xs-12 col-sm-6 col-lg-4">
+        <h1><a href="#" title="Login Page" tabindex="-1">Complete Admin</a></h1>
+
+        <form #form="ngForm" (submit)="login()">
+          <p>
+            <label for="user_login">Usuário<br/>
+              <input [(ngModel)]="username" type="text" name="username" id="user_login" class="input"/>
+            </label>
+          </p>
+          <p>
+            <label for="user_pass">Senha<br/>
+              <input [(ngModel)]="password" type="password" name="password" id="user_pass" class="input"/>
+            </label>
+          </p>
+
+          <p class="submit">
+            <input type="submit" name="wp-submit" id="wp-submit" class="btn btn-primary btn-block"
+                   value="Entrar" [disabled]="!form.form.valid"/>
+          </p>
+        </form>
+
+        <p id="nav">
+          <a class="pull-left" href="#" title="Recuperar a senha">Esqueceu a senha?</a>
+          <a class="pull-right" href="#" title="Registrar-se">Registrar-se</a>
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<p-growl [(value)]="msgs"></p-growl>
