@@ -35,7 +35,7 @@ export class PessoaComponent implements OnInit {
   status1: SelectItem[];
 
   constructor(private pessoaService: PessoaService, private confirmationService: ConfirmationService,
-              private institutoService: InstitutoService, private usuarioService: UsuarioService
+              // private institutoService: InstitutoService, private usuarioService: UsuarioService
               ) {
     this.status1 =  [
       {label: 'Ativo', value: 'Ativo'},
@@ -55,8 +55,8 @@ export class PessoaComponent implements OnInit {
   }
 
   carregarCombos() {
-    this.instituicaoService.findAll().subscribe(e => this.instituicoes = e);
-    this.usuarioService.findAll().subscribe(e => this.usuarios = e);
+    // this.instituicaoService.findAll().subscribe(e => this.instituicoes = e);
+    // this.usuarioService.findAll().subscribe(e => this.usuarios = e);
   }
 
   findAllPaged(page: number, size: number) {
