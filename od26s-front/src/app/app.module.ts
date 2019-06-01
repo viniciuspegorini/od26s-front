@@ -1,17 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import {MDBBootstrapModule, TableModule} from 'angular-bootstrap-md';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+
 
 import {HttpClientModule} from '@angular/common/http';
-import { InstituicaoComponent } from './instituicao/instituicao.component';
-import {InstituicaoService} from './service/instituicao.service';
+import {InstituicaoComponent} from './instituicao/instituicao.component';
+import {InstituicaoService} from './instituicao/instituicao.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
-import {GrowlModule} from "primeng/growl";
-import {ConfirmationService, ConfirmDialogModule} from "primeng/primeng";
+import {GrowlModule} from 'primeng/growl';
+import {ConfirmationService, ConfirmDialogModule, DialogModule} from 'primeng/primeng';
+import {TableModule} from 'primeng/table';
+import {fas} from '@fortawesome/free-solid-svg-icons';
+library.add(fas);
 
 
 
@@ -25,15 +32,14 @@ import {ConfirmationService, ConfirmDialogModule} from "primeng/primeng";
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
-
-
-    AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    TableModule,
     GrowlModule,
     ConfirmDialogModule,
+    TableModule,
+    FontAwesomeModule,
+    DialogModule
 
   ],
   providers: [
@@ -42,5 +48,6 @@ import {ConfirmationService, ConfirmDialogModule} from "primeng/primeng";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
 

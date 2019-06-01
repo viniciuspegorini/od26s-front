@@ -2,14 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8ae4534-78c7-4de1-a87d-23b08cfd865c" name="Default Changelist" comment="cadastro instituicao finalizado">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/od26s-front.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/7.0.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/node_modules/.bin/JSONStream" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/node_modules/.bin/JSONStream.cmd" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/node_modules/.bin/atob" afterDir="false" />
@@ -12444,21 +12436,15 @@
       <change afterPath="$PROJECT_DIR$/node_modules/yallist/iterator.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/node_modules/yallist/package.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/node_modules/yallist/yallist.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/od26s-front/src/app/service/instituicao.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/od26s-front/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/od26s-front/e2e/protractor.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/e2e/protractor.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/od26s-front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/od26s-front/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/od26s-front/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/od26s-front/src/app/service/instituicao.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/environments/environment.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -12472,11 +12458,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+            <state relative-caret-position="1003">
+              <caret line="59" column="45" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1173">
+              <caret line="69" selection-start-line="69" selection-end-line="69" />
             </state>
           </provider>
         </entry>
@@ -12514,16 +12524,16 @@
         <option value="$PROJECT_DIR$/od26s-front/e2e/protractor.conf.js" />
         <option value="$PROJECT_DIR$/od26s-front/src/app/app-routing.module.ts" />
         <option value="$PROJECT_DIR$/od26s-front/src/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/od26s-front/src/app/app.component.html" />
-        <option value="$PROJECT_DIR$/od26s-front/src/environments/environment.ts" />
         <option value="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.css" />
         <option value="$PROJECT_DIR$/od26s-front/src/app/instituicao/cnpj.js" />
         <option value="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.service.ts" />
-        <option value="$PROJECT_DIR$/od26s-front/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/od26s-front/angular.json" />
+        <option value="$PROJECT_DIR$/od26s-front/src/environments/environment.ts" />
+        <option value="$PROJECT_DIR$/od26s-front/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/od26s-front/package.json" />
-        <option value="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.html" />
+        <option value="$PROJECT_DIR$/od26s-front/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.ts" />
+        <option value="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.html" />
       </list>
     </option>
   </component>
@@ -12538,11 +12548,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1359" />
+    <option name="width" value="1378" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -12574,6 +12583,21 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="od26s-front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="od26s-front" type="462c0819:PsiDirectoryNode" />
+              <item name="od26s-front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="instituicao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="od26s-front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="od26s-front" type="462c0819:PsiDirectoryNode" />
+              <item name="od26s-front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="environments" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -12596,6 +12620,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Roberto\Documents\6 Periodo\OD26S\od26s-front\od26s-front\src\app\instituicao" />
       <recent name="C:\Users\Roberto\Documents\6 Periodo\OD26S\od26s-front\od26s-front\src\app\service" />
     </key>
   </component>
@@ -12623,22 +12648,35 @@
       <updated>1558390770756</updated>
       <workItem from="1558390771918" duration="9588000" />
       <workItem from="1558444598337" duration="11697000" />
-      <workItem from="1558467037193" duration="14869000" />
+      <workItem from="1558467037193" duration="15265000" />
+      <workItem from="1558994341009" duration="913000" />
+      <workItem from="1558997246767" duration="1460000" />
+      <workItem from="1559326835889" duration="281000" />
+      <workItem from="1559327494894" duration="5931000" />
     </task>
+    <task id="LOCAL-00001" summary="cadastro instituicao finalizado">
+      <created>1558486761173</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1558486761173</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36154000" />
+    <option name="totallyTimeSpent" value="45135000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="1359" y="0" width="1378" height="735" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49874055" visible="true" weight="0.21279761" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49874055" visible="true" weight="0.21343283" />
       <window_info id="Structure" order="1" sideWeight="0.50125945" side_tool="true" weight="0.21279761" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32993197" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3298791" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -12646,8 +12684,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.32993197" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.335034" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49925596" visible="true" weight="0.3402418" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50074404" side_tool="true" weight="0.335034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -12713,22 +12751,6 @@
     <entry file="file://$PROJECT_DIR$/od26s-front/e2e/tsconfig.e2e.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/model/formulario.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -12756,29 +12778,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.service.spec.ts">
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/instituicao/cnpj.js" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/generic/crud.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="-612">
           <folding>
-            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#0#61#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/tslint.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/instituicao/cnpj.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/od26s-front/src/environments/environment.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        <state relative-caret-position="68">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -12792,60 +12805,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/generic/crud.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612">
-          <folding>
-            <element signature="e#0#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/service/instituicao.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.module.ts">
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/angular.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="65" column="22" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-578">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -12859,10 +12822,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/node_modules/primeng/components/table/table.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.service.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/angular.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="65" column="22" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/tslint.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+        <state relative-caret-position="1003">
+          <caret line="59" column="45" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
         </state>
       </provider>
     </entry>
