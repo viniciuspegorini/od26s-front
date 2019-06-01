@@ -12,7 +12,7 @@ import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {GrowlModule} from 'primeng/growl';
-import {ConfirmDialogModule, ProgressSpinnerModule} from 'primeng/primeng';
+import {ConfirmationService, ConfirmDialogModule, ProgressSpinnerModule} from 'primeng/primeng';
 
 
 @NgModule({
@@ -33,7 +33,9 @@ import {ConfirmDialogModule, ProgressSpinnerModule} from 'primeng/primeng';
     ConfirmDialogModule,
     ProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    ConfirmationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
