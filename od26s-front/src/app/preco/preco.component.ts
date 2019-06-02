@@ -1,12 +1,12 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Preco} from "../model/preco";
-import {PrecoService} from "../services/preco.service";;
+import {Preco} from '../model/preco';
+import {PrecoService} from './preco.service';
 
 import {ConfirmationService, Message} from 'primeng/api';
 import {DataTable} from 'primeng/primeng';
-import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
-import {Equipamento} from "../model/equipamento";
-import {EquipamentoService} from "../services/equipamento.service";
+
+import {Equipamento} from '../model/equipamento';
+import {EquipamentoService} from '../services/equipamento.service';
 
 @Component({
   selector: 'app-preco',
@@ -17,7 +17,6 @@ export class PrecoComponent implements OnInit {
 
 
   precos: Preco[];
-
   precoEdit = new Preco();
   showDialog = false;
   msgs: Message[] = [];
@@ -25,7 +24,6 @@ export class PrecoComponent implements OnInit {
 
 
 
-  public editor = ClassicEditorBuild;
   @ViewChild('dt') dataTable: DataTable;
 
   constructor(private precoService: PrecoService,
