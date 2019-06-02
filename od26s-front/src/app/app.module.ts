@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -15,9 +14,18 @@ import {InstituicaoService} from './instituicao/instituicao.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import {GrowlModule} from 'primeng/growl';
-import {ConfirmationService, ConfirmDialogModule, DialogModule} from 'primeng/primeng';
+import {
+  AccordionModule,
+  AutoCompleteModule,
+  ConfirmationService,
+  ConfirmDialogModule,
+  DialogModule, TabViewModule
+} from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
 import {fas} from '@fortawesome/free-solid-svg-icons';
+import { LoginComponent } from './login/login.component';
+import {DataViewModule} from 'primeng/dataview';
+import {LoginService} from './login/login.service';
 library.add(fas);
 
 
@@ -25,11 +33,11 @@ library.add(fas);
 @NgModule({
   declarations: [
     AppComponent,
-    InstituicaoComponent
+    InstituicaoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    MDBBootstrapModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -39,12 +47,18 @@ library.add(fas);
     ConfirmDialogModule,
     TableModule,
     FontAwesomeModule,
-    DialogModule
+    DialogModule,
+
+    AccordionModule,
+    DataViewModule,
+    AutoCompleteModule,
+    TabViewModule,
 
   ],
   providers: [
     InstituicaoService,
-    ConfirmationService
+    ConfirmationService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })
