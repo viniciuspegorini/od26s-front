@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6203c4e-19dd-4c1e-ba84-9f5f537c74af" name="Default Changelist" comment="Arrumado os status e tipo pessoa">
+    <list default="true" id="b6203c4e-19dd-4c1e-ba84-9f5f537c74af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/od26s-front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/od26s-front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/od26s-front/src/app/model/formulario.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/model/formulario.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,22 +15,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="29" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="40" column="45" lean-forward="true" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+            <state relative-caret-position="466">
+              <caret line="51" column="47" lean-forward="true" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
               <folding>
-                <element signature="e#0#50#0" expanded="true" />
+                <element signature="e#0#59#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -43,11 +30,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/od26s-front/src/app/model/formulario.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+            <state relative-caret-position="119">
+              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="96" column="1" lean-forward="true" selection-start-line="96" selection-start-column="1" selection-end-line="100" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -78,8 +74,8 @@
         <option value="$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.ts" />
         <option value="$PROJECT_DIR$/od26s-front/src/app/app-routing.module.ts" />
         <option value="$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.component.html" />
-        <option value="$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.service.ts" />
         <option value="$PROJECT_DIR$/od26s-front/src/app/model/formulario.ts" />
+        <option value="$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.service.ts" />
         <option value="$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.component.ts" />
       </list>
     </option>
@@ -95,6 +91,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -133,6 +130,14 @@
               <item name="od26s-front" type="462c0819:PsiDirectoryNode" />
               <item name="od26s-front" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pessoa" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="od26s-front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="od26s-front" type="462c0819:PsiDirectoryNode" />
+              <item name="od26s-front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -146,7 +151,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -191,7 +195,8 @@
       <workItem from="1558496494630" duration="807000" />
       <workItem from="1558743849219" duration="32236000" />
       <workItem from="1558992370579" duration="8445000" />
-      <workItem from="1559079994794" duration="7209000" />
+      <workItem from="1559079994794" duration="7246000" />
+      <workItem from="1559443852877" duration="7881000" />
     </task>
     <task id="LOCAL-00001" summary="Arrumado os status e tipo pessoa">
       <created>1558998932847</created>
@@ -200,11 +205,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558998932847</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Começado formulário">
+      <created>1559102247642</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1559102247642</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54045000" />
+    <option name="totallyTimeSpent" value="61963000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -267,7 +279,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Arrumado os status e tipo pessoa" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arrumado os status e tipo pessoa" />
+    <MESSAGE value="Começado formulário" />
+    <option name="LAST_COMMIT_MESSAGE" value="Começado formulário" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/model/amostra.spec.ts">
@@ -343,13 +356,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/od26s-front/src/environments/environment.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -363,13 +369,6 @@
     <entry file="file://$PROJECT_DIR$/od26s-front/src/environments/environment.prod.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="100" column="10" lean-forward="true" selection-start-line="100" selection-start-column="10" selection-end-line="100" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -377,16 +376,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario.service.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario.service.ts" />
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.service.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -428,27 +418,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/model/formulario.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        <state relative-caret-position="119">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="46" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="29" selection-end-column="22" />
+        <state relative-caret-position="189">
+          <caret line="96" column="1" lean-forward="true" selection-start-line="96" selection-start-column="1" selection-end-line="100" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-313">
+          <caret line="100" column="10" lean-forward="true" selection-start-line="100" selection-start-column="10" selection-end-line="100" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="40" column="45" lean-forward="true" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+        <state relative-caret-position="466">
+          <caret line="51" column="47" lean-forward="true" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#0#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
