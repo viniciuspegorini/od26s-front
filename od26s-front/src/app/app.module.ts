@@ -12,7 +12,8 @@ import {
   AccordionModule,
   AutoCompleteModule,
   ConfirmDialogModule,
-  DialogModule, Dropdown, DropdownModule,
+  DialogModule,
+  DropdownModule,
   GrowlModule,
   TabViewModule
 } from 'primeng/primeng';
