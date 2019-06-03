@@ -93,13 +93,14 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
-          <label for="tipoPessoa">Tipo de Pessoa</label>
-          <p-dropdown id="tipoPessoa" [options]="tipoPessoa1"
-                      [(ngModel)]="tipoPessoa"></p-dropdown>
+          <label>Tipo de Pessoa</label>
+          <p-dropdown id="tipoPessoa" [options]="tipoPessoa1" (ngModelChange)="onSelectionType($event)"
+                      [(ngModel)]="tipoPess"
+          ></p-dropdown>
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="pessoaEdit.tipoPessoa != 'Externo'">
       <div class="col-sm-12">
         <div class="form-group">
           <label for="departamento">Departamento</label>
@@ -107,7 +108,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="pessoaEdit.tipoPessoa != 'Externo'">
       <div class="col-sm-12">
         <label form="instituicoes">Instituição</label>
         <div class="form-group">
@@ -116,12 +117,11 @@
         </div>
       </div>
     </div>
-<!--    class="row" * ngIf = " show "-->
-    <div class="row">
-      <div class="col-sm-12">
+    <div class="row" >
+      <div class="col-sm-12" [hidden]="this.tipoPess == 'Orientador'" >
         <label form="pessoa">Pessoa</label>
-        <div class="form-group">
-          <p-dropdown [options]="pessoas" optionLabel="nome"
+        <div class="form-group" >
+          <p-dropdown [options]="pessoas" optionLabel="nome" id="pessoaDrop"
                       [(ngModel)]="pessoaEdit.nome"></p-dropdown>
         </div>
       </div>

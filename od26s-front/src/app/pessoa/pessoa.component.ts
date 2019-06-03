@@ -22,21 +22,18 @@ export class PessoaComponent implements OnInit {
   show  =  true;
   totalRecords = 10;
   pessoas: Pessoa[];
-  // maxRecords = 10;
-  // currentPage = 1;
-
   pessoaEdit: Pessoa;
   showDialog = false;
 
   msgs: Message[] = [];
   instituicoes: Instituicao[];
-  // usuarios = new Usuario();
   usuarios: Usuario[];
 
   tipoPessoa: any;
   status: any;
-  tipoPessoa1: SelectItem[];
+  tipoPessoa1: any[];
   status1: SelectItem[];
+  tipoPess: string;
 
   constructor(private pessoaService: PessoaService, private confirmationService: ConfirmationService,
             //  private instituicaoService: InstituicaoService, private usuarioService: UsuarioService
@@ -48,19 +45,19 @@ export class PessoaComponent implements OnInit {
     ];
 
     this.tipoPessoa1 =  [
-      {label: 'Orientador', value: 'Orientador'},
       {label: 'Aluno', value: 'Aluno'},
-      {label: 'Pesquisador', value: 'Pesquisador'},
       {label: 'Externo', value: 'Externo'},
+      {label: 'Orientador', value: 'Orientador'},
+      {label: 'Pesquisador', value: 'Pesquisador'},
     ];
-  }
 
-  // changeTipoTemplate(tipo) {
-  //   this.tipo_template = tipo;
-  // }
+  }
 
   ngOnInit() {
     this.carregarCombos();
+    this.pessoaEdit = new Pessoa();
+    this.tipoPessoa = this.tipoPessoa1;
+    console.log(this.tipoPessoa);
   }
 
   carregarCombos() {
@@ -76,7 +73,7 @@ export class PessoaComponent implements OnInit {
   save() {
     this.pessoaService.save(this.pessoaEdit).subscribe(e => {
         this.pessoaEdit = new Pessoa();
-        this.pessoaEdit.tipoPessoa = this.tipoPessoa.value;
+        // this.pessoaEdit.tipoPessoa = this.tipoPessoa1;
         this.pessoaEdit.status = this.status.value;
         this.dataTable.reset();
         this.showDialog = false;
@@ -91,22 +88,10 @@ export class PessoaComponent implements OnInit {
     );
 
   }
-  // consiste de carregar um conteúdo apenas quando ele é realmente requisitado pelo usuário
-  // lazyLoad(event: LazyLoadEvent) {
-  //   const pageNumber = event.first / event.rows;
-  //   this.currentPage = pageNumber;
-  //
-  //   this.maxRecords = event.rows;
-  //
-  //   setTimeout(() => {
-  //     this.findAllPaged(this.currentPage, this.maxRecords);
-  //   }, 250);
-  // }
 
   newEntity() {
     this.showDialog = true;
     this.pessoaEdit = new Pessoa();
-   // this.pessoaEdit.instituicao = this.instituicoes[0];
   }
 
   edit(pessoa: Pessoa) {
@@ -142,6 +127,14 @@ export class PessoaComponent implements OnInit {
     });
   }
 
+  onSelectionType(event) {
+    if (event) {
+      this.tipoPess = event;
+      this.pessoaEdit.tipoPessoa = this.tipoPess;
+    } else {
+      this.pessoaEdit.tipoPessoa = '';
+    }
+  }
 
 }
 
