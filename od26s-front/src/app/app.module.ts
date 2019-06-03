@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
@@ -42,7 +41,6 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MDBBootstrapModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
