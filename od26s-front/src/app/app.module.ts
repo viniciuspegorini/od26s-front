@@ -8,19 +8,29 @@ import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.compone
 import {FormsModule} from '@angular/forms';
 import {ModeloService} from './services/modelo.service';
 import {ConfirmationService} from 'primeng/api';
-import {AccordionModule, AutoCompleteModule, ConfirmDialogModule, DialogModule, GrowlModule, TabViewModule} from 'primeng/primeng';
+import {
+  AccordionModule,
+  AutoCompleteModule,
+  ConfirmDialogModule,
+  DialogModule, Dropdown, DropdownModule,
+  GrowlModule,
+  TabViewModule
+} from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DataViewModule} from 'primeng/dataview';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.component';
-import { EquipamentoService } from './cad-equipamento/equipamento.service';
+import {EquipamentoService} from './cad-equipamento/equipamento.service';
+import {PrecoComponent} from './preco/preco.component';
+import {PrecoService} from './preco/preco.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroModeloComponent,
-    CadEquipamentoComponent
+    CadEquipamentoComponent,
+    PrecoComponent
   ],
   imports: [
     BrowserModule,
@@ -38,12 +48,14 @@ import { EquipamentoService } from './cad-equipamento/equipamento.service';
     DataViewModule,
     AutoCompleteModule,
     TabViewModule,
-    CKEditorModule
+    CKEditorModule,
+    DropdownModule
   ],
   providers: [
     ConfirmationService,
     ModeloService,
-    EquipamentoService
+    EquipamentoService,
+    PrecoService
   ],
   bootstrap: [AppComponent]
 })
