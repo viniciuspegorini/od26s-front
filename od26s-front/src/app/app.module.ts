@@ -25,13 +25,19 @@ import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.compone
 import {EquipamentoService} from './cad-equipamento/equipamento.service';
 import {PrecoComponent} from './preco/preco.component';
 import {PrecoService} from './preco/preco.service';
+import {InstituicaoComponent} from './instituicao/instituicao.component';
+import {InstituicaoService} from './instituicao/instituicao.service';
+import {LoginService} from './login/login.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroModeloComponent,
     CadEquipamentoComponent,
-    PrecoComponent
+    PrecoComponent,
+    InstituicaoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +62,9 @@ import {PrecoService} from './preco/preco.service';
     ConfirmationService,
     ModeloService,
     EquipamentoService,
-    PrecoService
+    PrecoService,
+    InstituicaoService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

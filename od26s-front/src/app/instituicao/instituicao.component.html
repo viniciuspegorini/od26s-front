@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">CADASTRO DE INSTITUIÇÕES</h3>
+  <button class="btn btn-primary m-3" (click)="newEntity()">Novo</button>
+  <p-table #dt [value]="instituicoes" [paginator]="true" [rows]="5"
+           [rowsPerPageOptions]="[5,10,20]"
+           [lazy]="true" [totalRecords]="totalRecords"
+           (onLazyLoad)="lazyLoad($event)">>
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="text-center">ID</th>
+        <th class="text-center">CNPJ</th>
+        <th class="text-center">Nome Fantasia</th>
+        <th class="text-center">Razão Social</th>
+        <th class="text-center">Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-instituicao>
+      <tr>
+        <td class="text-center">{{instituicao.id}}</td>
+        <td class="text-center">{{instituicao.cnpj}}</td>
+        <td class="text-center">{{instituicao.nomeFantasia}}</td>
+        <td class="text-center">{{instituicao.razaoSocial}}</td>
+        <td class="text-center">
+          <button type="button" class="btn btn-dark m-2" (click)="edit(instituicao)">
+            <i class="fa fa-edit"></i>
+          </button>
+
+          <button type="button" class="btn btn-danger m-2" (click)="delete(instituicao)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-growl [(value)]="msgs"></p-growl>
+<p-confirmDialog></p-confirmDialog>
+
+<p-growl [(value)]="msgs"></p-growl>
+
+<p-dialog header="CADASTRO DE INSTITUIÇÃO" [(visible)]="showDialog" modal="modal"
+          [responsive]="true" [width]="500">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="razaoSocial">Razão Social</label>
+        <input type="text" id="razaoSocial" name="razaoSocial" class="form-control" required
+               [(ngModel)]="instituicaoEdit.razaoSocial">
+      </div>
+      <div class="form-group">
+        <label for="nome_fantasia">Nome Fantasia</label>
+        <input type="text" id="nome_fantasia" name="nome_fantasia" class="form-control" required
+               [(ngModel)]="instituicaoEdit.nomeFantasia">
+      </div>
+      <div class="form-group">
+        <label for="cnpj">CNPJ</label>
+        <input type="text" ng-model="number" id="cnpj" class="form-control" required
+               [(ngModel)]="instituicaoEdit.cnpj">
+      </div>
+    </div>
+  </div>
+
+  <p-footer>
+    <button type="button"  class="btn btn-default" (click)="cancel()">Cancelar</button>
+    <button type="button" class="btn btn-success" (click)="save()">Salvar</button>
+  </p-footer>
+</p-dialog>
+
