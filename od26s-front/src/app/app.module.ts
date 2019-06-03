@@ -1,10 +1,8 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
-
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-
 import {HttpClientModule} from '@angular/common/http';
 import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.component';
 import {FormsModule} from '@angular/forms';
@@ -15,11 +13,14 @@ import {TableModule} from 'primeng/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DataViewModule} from 'primeng/dataview';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
+import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.component';
+import { EquipamentoService } from './cad-equipamento/equipamento.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CadastroModeloComponent
+    CadastroModeloComponent,
+    CadEquipamentoComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,8 @@ import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
   ],
   providers: [
     ConfirmationService,
-    ModeloService
+    ModeloService,
+    EquipamentoService
   ],
   bootstrap: [AppComponent]
 })
