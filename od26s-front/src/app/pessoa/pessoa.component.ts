@@ -5,6 +5,8 @@ import { PessoaService } from './pessoa.service';
 import { Usuario } from '../model/usuario';
 import { Instituicao } from '../model/instituicao';
 import {DataTable} from 'primeng/components/datatable/datatable';
+// import {InstituicaoService} from './instituicao.service';
+// import {UsuarioService} from './usuario.service';
 
 @Component({
   selector: 'app-pessoa',
@@ -17,6 +19,7 @@ export class PessoaComponent implements OnInit {
 
   @ViewChild('dt') dataTable: DataTable;
 
+  show  =  true;
   totalRecords = 10;
   pessoas: Pessoa[];
   // maxRecords = 10;
@@ -24,6 +27,7 @@ export class PessoaComponent implements OnInit {
 
   pessoaEdit: Pessoa;
   showDialog = false;
+
   msgs: Message[] = [];
   instituicoes: Instituicao[];
   // usuarios = new Usuario();
@@ -35,7 +39,8 @@ export class PessoaComponent implements OnInit {
   status1: SelectItem[];
 
   constructor(private pessoaService: PessoaService, private confirmationService: ConfirmationService,
-              private institutoService: InstitutoService, private usuarioService: UsuarioService
+            //  private instituicaoService: InstituicaoService, private usuarioService: UsuarioService
+
               ) {
     this.status1 =  [
       {label: 'Ativo', value: 'Ativo'},
@@ -50,13 +55,17 @@ export class PessoaComponent implements OnInit {
     ];
   }
 
+  // changeTipoTemplate(tipo) {
+  //   this.tipo_template = tipo;
+  // }
+
   ngOnInit() {
     this.carregarCombos();
   }
 
   carregarCombos() {
-    this.instituicaoService.findAll().subscribe(e => this.instituicoes = e);
-    this.usuarioService.findAll().subscribe(e => this.usuarios = e);
+    // this.instituicaoService.findAll().subscribe(e => this.instituicoes = e);
+    // this.usuarioService.findAll().subscribe(e => this.usuarios = e);
   }
 
   findAllPaged(page: number, size: number) {

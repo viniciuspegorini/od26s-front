@@ -13,4 +13,5 @@ export class Pessoa {
     status: string;
     usuario: Usuario;
     instituicao: Instituicao;
+    pessoa: Pessoa;
 }

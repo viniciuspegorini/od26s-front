@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 
-export class PessoaService extends CrudService< Pessoa, number>{
+export class PessoaService extends CrudService< Pessoa, number> {
 
   constructor( http: HttpClient) {
     super(environment.api + '/pessoa', http);

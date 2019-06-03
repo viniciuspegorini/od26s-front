@@ -109,15 +109,24 @@
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <label form="instituicao">Instituição</label>
+        <label form="instituicoes">Instituição</label>
         <div class="form-group">
-          <p-dropdown [options]="instituicoes" optionLabel="nome"
+          <p-dropdown [options]="instituicoes" optionLabel="nomeFantasia"
                       [(ngModel)]="pessoaEdit.instituicao"></p-dropdown>
         </div>
       </div>
     </div>
+<!--    class="row" * ngIf = " show "-->
     <div class="row">
-      <div class="row">
+      <div class="col-sm-12">
+        <label form="pessoa">Pessoa</label>
+        <div class="form-group">
+          <p-dropdown [options]="pessoas" optionLabel="nome"
+                      [(ngModel)]="pessoaEdit.nome"></p-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
             <label for="status">Status</label>
@@ -125,7 +134,6 @@
                         [(ngModel)]="status"></p-dropdown>
           </div>
         </div>
-      </div>
     </div>
     <div class="row">
       <div class="col-sm-6">
