@@ -28,6 +28,7 @@ import {InstituicaoComponent} from './instituicao/instituicao.component';
 import {InstituicaoService} from './instituicao/instituicao.service';
 import {LoginService} from './login/login.service';
 import { LoginComponent } from './login/login.component';
+import { CadServicosComponent } from './cad-servicos/cad-servicos.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LoginComponent } from './login/login.component';
     CadEquipamentoComponent,
     PrecoComponent,
     InstituicaoComponent,
-    LoginComponent
+    LoginComponent,
+    CadServicosComponent
   ],
   imports: [
     BrowserModule,
