@@ -7,7 +7,7 @@ import {Instituicao} from '../model/instituicao';
 import {DataTable} from 'primeng/components/datatable/datatable';
 import {InstituicaoService} from '../services/instituicao.service';
 import {UsuarioService} from '../services/usuario.service';
-import {findAll} from "@angular/compiler-cli/src/ngcc/src/utils";
+import {findAll} from '@angular/compiler-cli/src/ngcc/src/utils';
 // import {InstituicaoService} from './instituicao.service';
 // import {UsuarioService} from './usuario.service';
 
