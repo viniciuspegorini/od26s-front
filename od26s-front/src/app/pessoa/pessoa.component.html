@@ -3,21 +3,17 @@
   <button class="btn btn-primary" (click)="newEntity()">Novo</button>
 
   <p-table #dt [value]="pessoas" [paginator]="true" [rows]="6"
-           [rowsPerPageOptions]="[5,10,20]"
-           [lazy]="true" [totalRecords]="totalRecords">
+           [rowsPerPageOptions]="[5,10,20]">
     <ng-template pTemplate="header">
       <tr>
         <th>Código</th>
-        <th>Email</th>
         <th>Nome</th>
         <th>Cpf</th>
-        <th>Rg</th>
         <th>Telefone</th>
         <th>Celular</th>
         <th>Tipo de pessoa</th>
-        <th>Dep</th>
-        <th>Instituição</th>
         <th>Status</th>
+        <th>Usuário</th>
         <th>Ações</th>
       </tr>
     </ng-template>
@@ -25,15 +21,12 @@
       <tr>
         <td>{{pessoa.id}}</td>
         <td>{{pessoa.nome}}</td>
-        <td>{{pessoa.cpf}}</td>
-        <td>{{pessoa.rg}}</td>
+        <td>{{pessoa.cpfCnpj}}</td>
         <td>{{pessoa.telefone}}</td>
         <td>{{pessoa.celular}}</td>
         <td>{{pessoa.tipoPessoa}}</td>
-        <td>{{pessoa.departamento}}</td>
         <td>{{pessoa.status}}</td>
-        <td>{{pessoa.usuario.id}}</td>
-        <td>{{pessoa.instituicao.nomeFantasia}}</td>
+        <td>{{pessoa.usuario.nome}}</td>
         <td>
           <button type="button" class="btn btn-dark" (click)="edit(pessoa)">
             <i class="fa fa-edit"></i></button>
@@ -62,7 +55,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="cpf">Cpf</label>
-          <input type="text" id="cpf" name="cpf" class="form-control" [(ngModel)]="pessoaEdit.cpf">
+          <input type="text" id="cpf" name="cpf" class="form-control" [(ngModel)]="pessoaEdit.cpfCnpj">
         </div>
       </div>
     </div>
@@ -100,7 +93,7 @@
         </div>
       </div>
     </div>
-    <div class="row" *ngIf="pessoaEdit.tipoPessoa != 'Externo'">
+    <div class="row" *ngIf="pessoaEdit.tipoPessoa != 'Externo' ">
       <div class="col-sm-12">
         <div class="form-group">
           <label for="departamento">Departamento</label>
@@ -117,11 +110,11 @@
         </div>
       </div>
     </div>
-    <div class="row" >
-      <div class="col-sm-12" [hidden]="this.tipoPess == 'Orientador'" >
-        <label form="pessoa">Pessoa</label>
+    <div class="row" *ngIf="pessoaEdit.tipoPessoa != 'Externo' && pessoaEdit.tipoPessoa != 'Orientador'">
+      <div class="col-sm-12">
+        <label form="pessoa">Orientador</label>
         <div class="form-group" >
-          <p-dropdown [options]="pessoas" optionLabel="nome" id="pessoaDrop"
+          <p-dropdown [options]="pessoas" optionLabel="nome"
                       [(ngModel)]="pessoaEdit.nome"></p-dropdown>
         </div>
       </div>
@@ -130,8 +123,8 @@
         <div class="col-sm-6">
           <div class="form-group">
             <label for="status">Status</label>
-            <p-dropdown id="status" [options]="status1"
-                        [(ngModel)]="status"></p-dropdown>
+            <p-dropdown id="status" [options]="status1" (ngModelChange)="onSelectionType2($event)"
+                        [(ngModel)]="tipoStatus"></p-dropdown>
           </div>
         </div>
     </div>
