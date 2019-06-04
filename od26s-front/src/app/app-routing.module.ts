@@ -5,6 +5,7 @@ import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.compone
 import {PrecoComponent} from './preco/preco.component';
 import {InstituicaoComponent} from './instituicao/instituicao.component';
 import {LoginComponent} from './login/login.component';
+import { PessoaComponent } from './pessoa/pessoa.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'principal', pathMatch: 'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'preco', component: PrecoComponent},
   {path: 'instituicao', component: InstituicaoComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'pessoa', component: PessoaComponent}
 ];
 
 @NgModule({
