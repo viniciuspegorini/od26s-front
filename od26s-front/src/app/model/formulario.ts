@@ -10,10 +10,12 @@ export class Formulario {
   status: string;
   metodologiaAmostra: string;
   metodologiaAnalitica: string;
-  departamento: string;
+  naturezaOperacao: string;
   amostra: Amostra;
   modelo: Modelo;
-  servico: Servico;
   pessoa: Pessoa;
   nota: Nota;
+  quantidade: number;
+  valor: number;
+
 }
