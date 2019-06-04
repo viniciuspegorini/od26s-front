@@ -2,10 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {Servico} from '../model/servico';
 import {ConfirmationService, Message} from 'primeng/api';
 import {ServicoService} from './servico.service';
-import {Modelo} from "../model/modelo";
-import {ModeloService} from "../services/modelo.service";
-import {PrecoService} from "../preco/preco.service";
-import {Preco} from "../model/preco";
+import {Modelo} from '../model/modelo';
+import {ModeloService} from '../services/modelo.service';
+import {PrecoService} from '../preco/preco.service';
+import {Preco} from '../model/preco';
 
 @Component({
   selector: 'app-cad-servicos',
