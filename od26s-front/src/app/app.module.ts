@@ -14,7 +14,8 @@ import {
   DialogModule,
   DropdownModule,
   GrowlModule,
-  TabViewModule
+  TabViewModule,
+  PanelModule
 } from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -30,6 +31,8 @@ import {LoginService} from './login/login.service';
 import { LoginComponent } from './login/login.component';
 import { CadServicosComponent } from './cad-servicos/cad-servicos.component';
 import {ServicoService} from './cad-servicos/servico.service';
+import { PessoaComponent } from './pessoa/pessoa.component';
+import { PessoaService } from './pessoa/pessoa.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import {ServicoService} from './cad-servicos/servico.service';
     PrecoComponent,
     InstituicaoComponent,
     LoginComponent,
-    CadServicosComponent
+    CadServicosComponent,
+    PessoaComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,8 @@ import {ServicoService} from './cad-servicos/servico.service';
     AutoCompleteModule,
     TabViewModule,
     CKEditorModule,
-    DropdownModule
+    DropdownModule,
+    PanelModule
   ],
   providers: [
     ConfirmationService,
@@ -66,7 +71,8 @@ import {ServicoService} from './cad-servicos/servico.service';
     PrecoService,
     InstituicaoService,
     LoginService,
-    ServicoService
+    ServicoService,
+    PessoaService
   ],
   bootstrap: [AppComponent]
 })
