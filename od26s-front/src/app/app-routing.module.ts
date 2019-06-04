@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.component';
 import {LoginService} from './login/login.service';
 import {LoginComponent} from './login/login.component';
+import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
