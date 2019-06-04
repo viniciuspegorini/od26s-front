@@ -29,6 +29,7 @@ import {InstituicaoService} from './instituicao/instituicao.service';
 import {LoginService} from './login/login.service';
 import { LoginComponent } from './login/login.component';
 import { CadServicosComponent } from './cad-servicos/cad-servicos.component';
+import {ServicoService} from './cad-servicos/servico.service';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { CadServicosComponent } from './cad-servicos/cad-servicos.component';
     EquipamentoService,
     PrecoService,
     InstituicaoService,
-    LoginService
+    LoginService,
+    ServicoService
   ],
   bootstrap: [AppComponent]
 })
