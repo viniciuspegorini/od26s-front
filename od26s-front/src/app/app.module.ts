@@ -21,11 +21,13 @@ import {DataViewModule} from 'primeng/dataview';
 import {PanelModule} from 'primeng/panel';
 import {TabViewModule} from 'primeng/tabview';
 import { PessoaService } from './pessoa/pessoa.service';
+import { PermissaoService } from './permissao/permissao.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PessoaComponent
+    PessoaComponent,
+    PermissaComponent
   ],
   imports: [
     BrowserModule,
