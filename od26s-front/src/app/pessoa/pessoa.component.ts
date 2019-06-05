@@ -1,10 +1,15 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import { Pessoa } from '../model/pessoa';
+import {Pessoa} from '../model/pessoa';
 import {ConfirmationService, LazyLoadEvent, Message, SelectItem} from 'primeng/api';
-import { PessoaService } from './pessoa.service';
-import { Usuario } from '../model/usuario';
-import { Instituicao } from '../model/instituicao';
+import {PessoaService} from './pessoa.service';
+import {Usuario} from '../model/usuario';
+import {Instituicao} from '../model/instituicao';
 import {DataTable} from 'primeng/components/datatable/datatable';
+import {InstituicaoService} from '../services/instituicao.service';
+import {UsuarioService} from '../services/usuario.service';
+import {findAll} from '@angular/compiler-cli/src/ngcc/src/utils';
+// import {InstituicaoService} from './instituicao.service';
+// import {UsuarioService} from './usuario.service';
 
 @Component({
   selector: 'app-pessoa',
@@ -17,59 +22,70 @@ export class PessoaComponent implements OnInit {
 
   @ViewChild('dt') dataTable: DataTable;
 
+  show = true;
   totalRecords = 10;
   pessoas: Pessoa[];
-  // maxRecords = 10;
-  // currentPage = 1;
-
   pessoaEdit: Pessoa;
   showDialog = false;
+
   msgs: Message[] = [];
   instituicoes: Instituicao[];
-  // usuarios = new Usuario();
   usuarios: Usuario[];
 
   tipoPessoa: any;
   status: any;
-  tipoPessoa1: SelectItem[];
+  tipoPessoa1: any[];
   status1: SelectItem[];
+  tipoPess: string;
+  tipoStatus: string;
 
   constructor(private pessoaService: PessoaService, private confirmationService: ConfirmationService,
-              // private institutoService: InstitutoService, private usuarioService: UsuarioService
-              ) {
-    this.status1 =  [
+              private instituicaoService: InstituicaoService, private usuarioService: UsuarioService
+  ) {
+    this.status1 = [
       {label: 'Ativo', value: 'Ativo'},
       {label: 'Inativo', value: 'Inativo'}
     ];
 
-    this.tipoPessoa1 =  [
-      {label: 'Orientador', value: 'Orientador'},
+    this.tipoPessoa1 = [
       {label: 'Aluno', value: 'Aluno'},
-      {label: 'Pesquisador', value: 'Pesquisador'},
       {label: 'Externo', value: 'Externo'},
+      {label: 'Orientador', value: 'Orientador'},
+      {label: 'Pesquisador', value: 'Pesquisador'},
     ];
   }
 
   ngOnInit() {
+    this.pessoaEdit = new Pessoa();
     this.carregarCombos();
+    this.findAll();
   }
 
   carregarCombos() {
-    // this.instituicaoService.findAll().subscribe(e => this.instituicoes = e);
-    // this.usuarioService.findAll().subscribe(e => this.usuarios = e);
+    this.instituicaoService.findAll().subscribe(e => {
+      this.instituicoes = e;
+
+    });
+    this.usuarioService.findAll().subscribe(e => {
+      this.usuarios = e;
+    });
   }
 
-  findAllPaged(page: number, size: number) {
-    this.pessoaService.getTotalRecords().subscribe(e => this.totalRecords = e);
-    this.pessoaService.findPageable(page, size).subscribe(e => this.pessoas = e.content);
+  // findAllPaged(page: number, size: number) {
+  //   this.pessoaService.getTotalRecords().subscribe(e => this.totalRecords = e);
+  //   this.pessoaService.findPageable(page, size).subscribe(e => this.pessoas = e.content);
+  // }
+
+  findAll() {
+    this.pessoaService.findAll().subscribe(e => this.pessoas = e);
   }
 
   save() {
     this.pessoaService.save(this.pessoaEdit).subscribe(e => {
         this.pessoaEdit = new Pessoa();
-        this.pessoaEdit.tipoPessoa = this.tipoPessoa.value;
-        this.pessoaEdit.status = this.status.value;
+        //  this.pessoaEdit.status = this.status.value;
         this.dataTable.reset();
+        this.findAll();
         this.showDialog = false;
         this.msgs = [{
           severity: 'sucess', summary: 'Confirmado',
@@ -77,27 +93,20 @@ export class PessoaComponent implements OnInit {
         }];
       },
       error => {
-        this.msgs = [{ severity: 'error', summary: 'Erro', detail: 'Falha ao salvar  registro!' }];
+        this.msgs = [{severity: 'error', summary: 'Erro', detail: 'Falha ao salvar  registro!'}];
+        console.log(this.pessoaEdit);
       }
     );
 
   }
-  // consiste de carregar um conteúdo apenas quando ele é realmente requisitado pelo usuário
-  // lazyLoad(event: LazyLoadEvent) {
-  //   const pageNumber = event.first / event.rows;
-  //   this.currentPage = pageNumber;
-  //
-  //   this.maxRecords = event.rows;
-  //
-  //   setTimeout(() => {
-  //     this.findAllPaged(this.currentPage, this.maxRecords);
-  //   }, 250);
-  // }
 
   newEntity() {
     this.showDialog = true;
     this.pessoaEdit = new Pessoa();
-   // this.pessoaEdit.instituicao = this.instituicoes[0];
+    this.pessoaEdit.tipoPessoa = this.tipoPessoa1[0].value;
+    this.pessoaEdit.status = this.status1[0].value;
+    this.pessoaEdit.instituicao = this.instituicoes[0];
+    this.pessoaEdit.usuario = this.usuarios[0];
   }
 
   edit(pessoa: Pessoa) {
@@ -133,6 +142,23 @@ export class PessoaComponent implements OnInit {
     });
   }
 
+  onSelectionType(event) {
+    if (event) {
+      this.tipoPess = event;
+      this.pessoaEdit.tipoPessoa = this.tipoPess;
+    } else {
+      this.pessoaEdit.tipoPessoa = '';
+    }
+  }
+
+  onSelectionType2(event) {
+    if (event) {
+      this.tipoStatus = event;
+      this.pessoaEdit.status = this.tipoStatus;
+    } else {
+      this.pessoaEdit.status = '';
+    }
+  }
 
 }
 

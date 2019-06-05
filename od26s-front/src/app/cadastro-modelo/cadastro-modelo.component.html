@@ -1,0 +1,59 @@
+<div class="container">
+  <h1 class="d-flex">Cadastro de Modelos</h1>
+  <button class="btn btn-primary mb-5" (click)="newEntity()"> Novo</button>
+
+  <p-table #dt [value]="modelos" styleClass="text-center">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-modelo>
+      <tr>
+        <th>{{modelo.id}}</th>
+        <th>{{modelo.nome}}</th>
+        <th>
+          <button type="button" class="btn btn-dark" (click)="edit(modelo)"><i class="fa fa-edit"></i></button>
+          <button type="button" class="ml-2 btn btn-danger" (click)="delete(modelo)"><i class="fa fa-trash"></i>
+          </button>
+        </th>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p-confirmDialog></p-confirmDialog>
+  <p-growl [(value)]="msgs"></p-growl>
+
+  <p-dialog header="Cadastro" [(visible)]="showDialog" modal="modal" [responsive]="true" [width]="1000">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" class="form-control" [(ngModel)]="modeloEdit.nome">
+          <label for="metodologia-editor">Metodologia</label>
+          <ckeditor
+            [data]="modeloEdit.metodologia"
+            [editor]="editor"
+            [(ngModel)]="modeloEdit.metodologia"
+            id="metodologia-editor"
+            name="metodologia-editor">
+          </ckeditor>
+          <label for="resultado-editor">Resultado</label>
+          <ckeditor
+            [data]="modeloEdit.resultado"
+            [editor]="editor"
+            [(ngModel)]="modeloEdit.resultado"
+            id="resultado-editor"
+            name="resultado-editor">
+          </ckeditor>
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
+      <button type="button" class="btn btn-success" (click)="save()">Salvar</button>
+    </p-footer>
+  </p-dialog>
+</div>

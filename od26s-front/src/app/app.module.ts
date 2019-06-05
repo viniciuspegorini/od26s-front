@@ -1,54 +1,79 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
-
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {FormsModule} from "@angular/forms";
-
 import {HttpClientModule} from '@angular/common/http';
-import { PessoaComponent } from './pessoa/pessoa.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
-import {TableModule} from 'primeng/table';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {GrowlModule} from 'primeng/growl';
-import {DialogModule} from 'primeng/dialog';
+import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.component';
+import {FormsModule} from '@angular/forms';
+import {ModeloService} from './services/modelo.service';
 import {ConfirmationService} from 'primeng/api';
-import {DropdownModule} from 'primeng/dropdown';
-import {AutoCompleteModule} from 'primeng/autocomplete';
+import {
+  AccordionModule,
+  AutoCompleteModule,
+  ConfirmDialogModule,
+  DialogModule,
+  DropdownModule,
+  GrowlModule,
+  TabViewModule,
+  PanelModule
+} from 'primeng/primeng';
+import {TableModule} from 'primeng/table';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DataViewModule} from 'primeng/dataview';
-import {PanelModule} from 'primeng/panel';
-import {TabViewModule} from 'primeng/tabview';
+import {CKEditorModule} from "ckeditor4-angular";
+import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.component';
+import {EquipamentoService} from './cad-equipamento/equipamento.service';
+import {PrecoComponent} from './preco/preco.component';
+import {PrecoService} from './preco/preco.service';
+import {InstituicaoComponent} from './instituicao/instituicao.component';
+import {InstituicaoService} from './instituicao/instituicao.service';
+import {LoginService} from './login/login.service';
+import { LoginComponent } from './login/login.component';
+import { PessoaComponent } from './pessoa/pessoa.component';
 import { PessoaService } from './pessoa/pessoa.service';
-import { FormularioComponent } from './formulario/formulario/formulario.component';
+import {FormularioComponent} from './formulario/formulario.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PessoaComponent,
-    FormularioComponent
+    FormularioComponent,
+    CadastroModeloComponent,
+    CadEquipamentoComponent,
+    PrecoComponent,
+    InstituicaoComponent,
+    LoginComponent,
+    PessoaComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MDBBootstrapModule.forRoot(),
     HttpClientModule,
-    FormsModule,
     AppRoutingModule,
-    TableModule,
-    ConfirmDialogModule,
+    FormsModule,
+    AccordionModule,
     GrowlModule,
     DialogModule,
+    TableModule,
+    ConfirmDialogModule,
+    TableModule,
     DataViewModule,
-    PanelModule,
+    AutoCompleteModule,
+    TabViewModule,
+    CKEditorModule,
     DropdownModule,
-
+    PanelModule
   ],
   providers: [
-    PessoaService,
-    ConfirmationService
+    ConfirmationService,
+    ModeloService,
+    EquipamentoService,
+    PrecoService,
+    InstituicaoService,
+    LoginService,
+    PessoaService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
