@@ -17,6 +17,7 @@ import {
   TabViewModule
 } from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
+import {CalendarModule} from 'primeng/calendar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DataViewModule} from 'primeng/dataview';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
@@ -28,6 +29,9 @@ import {InstituicaoComponent} from './instituicao/instituicao.component';
 import {InstituicaoService} from './instituicao/instituicao.service';
 import {LoginService} from './login/login.service';
 import { LoginComponent } from './login/login.component';
+import { AmostraComponent } from './amostra/amostra.component';
+import { AmostraService } from './amostra/amostra.service';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +40,8 @@ import { LoginComponent } from './login/login.component';
     CadEquipamentoComponent,
     PrecoComponent,
     InstituicaoComponent,
-    LoginComponent
+    LoginComponent,
+    AmostraComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,8 @@ import { LoginComponent } from './login/login.component';
     AutoCompleteModule,
     TabViewModule,
     CKEditorModule,
-    DropdownModule
+    DropdownModule,
+    CalendarModule,
   ],
   providers: [
     ConfirmationService,
@@ -62,7 +68,8 @@ import { LoginComponent } from './login/login.component';
     EquipamentoService,
     PrecoService,
     InstituicaoService,
-    LoginService
+    LoginService,
+    AmostraService
   ],
   bootstrap: [AppComponent]
 })
