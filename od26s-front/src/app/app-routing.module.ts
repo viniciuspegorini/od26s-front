@@ -5,8 +5,8 @@ import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.compone
 import {PrecoComponent} from './preco/preco.component';
 import {InstituicaoComponent} from './instituicao/instituicao.component';
 import {LoginComponent} from './login/login.component';
-import {CadServicosComponent} from './cad-servicos/cad-servicos.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
+import {FormsUsuarioExternoComponent} from "./forms-usuario-externo/forms-usuario-externo.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'principal', pathMatch: 'full'},
@@ -14,9 +14,9 @@ const routes: Routes = [
   {path: 'equipamento', component: CadEquipamentoComponent},
   {path: 'preco', component: PrecoComponent},
   {path: 'instituicao', component: InstituicaoComponent},
-  {path: 'servicos', component: CadServicosComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'pessoa', component: PessoaComponent}
+  {path: 'pessoa', component: PessoaComponent},
+  {path: 'forms/:id', component: FormsUsuarioExternoComponent}
 ];
 
 @NgModule({

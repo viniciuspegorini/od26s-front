@@ -29,10 +29,9 @@ import {InstituicaoComponent} from './instituicao/instituicao.component';
 import {InstituicaoService} from './instituicao/instituicao.service';
 import {LoginService} from './login/login.service';
 import { LoginComponent } from './login/login.component';
-import { CadServicosComponent } from './cad-servicos/cad-servicos.component';
-import {ServicoService} from './cad-servicos/servico.service';
 import { PessoaComponent } from './pessoa/pessoa.component';
 import { PessoaService } from './pessoa/pessoa.service';
+import { FormsUsuarioExternoComponent } from './forms-usuario-externo/forms-usuario-externo.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +41,8 @@ import { PessoaService } from './pessoa/pessoa.service';
     PrecoComponent,
     InstituicaoComponent,
     LoginComponent,
-    CadServicosComponent,
-    PessoaComponent
+    PessoaComponent,
+    FormsUsuarioExternoComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +70,6 @@ import { PessoaService } from './pessoa/pessoa.service';
     PrecoService,
     InstituicaoService,
     LoginService,
-    ServicoService,
     PessoaService
   ],
   bootstrap: [AppComponent]

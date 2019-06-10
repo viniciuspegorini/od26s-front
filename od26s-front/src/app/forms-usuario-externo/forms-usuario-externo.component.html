@@ -1,0 +1,90 @@
+<div class="container py-5">
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <h1 class="d-flex">Formulários</h1>
+      <button class="btn btn-primary">Novo</button>
+    </div>
+
+    <div class="ui-g-12">
+      <p-table [value]="formularios">
+        <ng-template pTemplate="header">
+          <tr>
+            <th class="text-center">Status</th>
+            <th class="text-center">Emitido em</th>
+            <th class="text-center">Met. Amostra</th>
+            <th class="text-center">Met. Analítica</th>
+            <th class="text-center">Departamento</th>
+            <th class="text-center">Ações</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-form>
+          <tr>
+            <td class="text-center">{{form.status}}</td>
+            <td class="text-center">{{formatDate(form.dataEmissao)}}</td>
+            <td class="text-center">{{form.metodologiaAmostra}}</td>
+            <td class="text-center">{{form.metodologiaAnalitica}}</td>
+            <td class="text-center">{{form.departamento}}</td>
+            <td class="text-center">
+              <button
+                type="button"
+                class="btn btn-outline-info btn-sm"
+                (click)="showDialogInfo(form)"
+              >
+                Detalhes
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
+
+<p-dialog
+  modal="modal"
+  [width]="500"
+  header="Formulário {{formEdit.id}}"
+  [responsive]="true"
+  [(visible)]="dialogInfo"
+>
+  <div class="row">
+    <div class="col-sm-12">
+      <b>Status: </b>
+      <span>{{formEdit.status}}</span>
+    </div>
+    <div class="col-sm-12">
+      <b>Data de emissão: </b>
+      <span>{{formatDate(formEdit.dataEmissao)}}</span>
+    </div>
+    <div class="col-sm-12">
+      <b>Metodologia Analítica: </b>
+      <span>{{formEdit.metodologiaAnalitica}}</span>
+    </div>
+    <div class="col-sm-12">
+      <b>Metodologia da Amostra: </b>
+      <span>{{formEdit.metodologiaAmostra}}</span>
+    </div>
+    <div class="col-sm-12">
+      <b>Departamento: </b>
+      <span>{{formEdit.departamento}}</span>
+    </div>
+    <div class="col-sm-12">
+      <b>Quantidade de Ensaios: </b>
+      <span>{{formEdit.quantidadeEnsaios}}</span>
+    </div>
+    <div class="col-sm-12">
+      <b>Valor Total: </b>
+      <span>R$ {{formEdit.valorTotal}}</span>
+    </div>
+  </div>
+  <p-footer>
+    <button
+      type="button"
+      (click)="cancel()"
+      class="btn btn-default"
+    >
+      Fechar
+    </button>
+  </p-footer>
+</p-dialog>
