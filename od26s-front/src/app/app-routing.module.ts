@@ -7,6 +7,7 @@ import {InstituicaoComponent} from './instituicao/instituicao.component';
 import {LoginComponent} from './login/login.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
 import {FormsUsuarioExternoComponent} from "./forms-usuario-externo/forms-usuario-externo.component";
+import {FormsManagerComponent} from "./forms-manager/forms-manager.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'principal', pathMatch: 'full'},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'instituicao', component: InstituicaoComponent},
   {path: 'login', component: LoginComponent},
   {path: 'pessoa', component: PessoaComponent},
+  {path: 'forms', component: FormsManagerComponent},
   {path: 'forms/:id', component: FormsUsuarioExternoComponent}
 ];
 

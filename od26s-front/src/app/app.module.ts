@@ -32,6 +32,7 @@ import { LoginComponent } from './login/login.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
 import { PessoaService } from './pessoa/pessoa.service';
 import { FormsUsuarioExternoComponent } from './forms-usuario-externo/forms-usuario-externo.component';
+import { FormsManagerComponent } from './forms-manager/forms-manager.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FormsUsuarioExternoComponent } from './forms-usuario-externo/forms-usua
     InstituicaoComponent,
     LoginComponent,
     PessoaComponent,
-    FormsUsuarioExternoComponent
+    FormsUsuarioExternoComponent,
+    FormsManagerComponent
   ],
   imports: [
     BrowserModule,
