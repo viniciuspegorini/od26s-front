@@ -1,12 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { Permissao } from '../model/permissao';
-import { CrudService } from '../generic/crud.service';
 import {ConfirmationService, LazyLoadEvent, Message, SelectItem} from 'primeng/api';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
-import {DataTable} from 'primeng/components/datatable/datatable';
 import { PermissaoService } from './permissao.service';
-
+import {DataTable} from 'primeng/components/datatable/datatable';
 
 @Component({
   selector: 'app-permissao',
@@ -15,46 +11,103 @@ import { PermissaoService } from './permissao.service';
 })
 
 
-export class PermissaoComponent implements OnInit {
+export class PessoaComponent implements OnInit {
 
   @ViewChild('dt') dataTable: DataTable;
 
   show  =  true;
   totalRecords = 10;
-  permissoes: Permissao[];
-  permissaoEdit: Permissao;
+  pessoas: Pessoa[];
+  pessoaEdit: Pessoa;
   showDialog = false;
 
+  msgs: Message[] = [];
+  instituicoes: Instituicao[];
+  usuarios: Usuario[];
 
-  findAllPaged(page: number, size: number) {
-    this.permissaoService.getTotalRecords().subscribe(e => this.totalRecords = e);
-    this.permissaoService.findPageable(page, size).subscribe(e => this.pessoas = e.content);
+  tipoPessoa: any;
+  status: any;
+  tipoPessoa1: any[];
+  status1: SelectItem[];
+  tipoPess: string;
+
+  constructor(private pessoaService: PessoaService, private confirmationService: ConfirmationService,
+            //  private instituicaoService: InstituicaoService, private usuarioService: UsuarioService
+
+              ) {
+    this.status1 =  [
+      {label: 'Ativo', value: 'Ativo'},
+      {label: 'Inativo', value: 'Inativo'}
+    ];
+
+    this.tipoPessoa1 =  [
+      {label: 'Aluno', value: 'Aluno'},
+      {label: 'Externo', value: 'Externo'},
+      {label: 'Orientador', value: 'Orientador'},
+      {label: 'Pesquisador', value: 'Pesquisador'},
+    ];
+
   }
 
+  ngOnInit() {
+    this.carregarCombos();
+    this.pessoaEdit = new Pessoa();
+    this.tipoPessoa = this.tipoPessoa1;
+    console.log(this.tipoPessoa);
+  }
+
+  carregarCombos() {
+    // this.instituicaoService.findAll().subscribe(e => this.instituicoes = e);
+    // this.usuarioService.findAll().subscribe(e => this.usuarios = e);
+  }
+
+  findAllPaged(page: number, size: number) {
+    this.pessoaService.getTotalRecords().subscribe(e => this.totalRecords = e);
+    this.pessoaService.findPageable(page, size).subscribe(e => this.pessoas = e.content);
+  }
+
+  save() {
+    this.pessoaService.save(this.pessoaEdit).subscribe(e => {
+        this.pessoaEdit = new Pessoa();
+        // this.pessoaEdit.tipoPessoa = this.tipoPessoa1;
+        this.pessoaEdit.status = this.status.value;
+        this.dataTable.reset();
+        this.showDialog = false;
+        this.msgs = [{
+          severity: 'sucess', summary: 'Confirmado',
+          detail: 'Registro salvo com sucesso!'
+        }];
+      },
+      error => {
+        this.msgs = [{ severity: 'error', summary: 'Erro', detail: 'Falha ao salvar  registro!' }];
+      }
+    );
+
+  }
 
   newEntity() {
     this.showDialog = true;
-    this.permissaoEdit = new Permissao();
+    this.pessoaEdit = new Pessoa();
   }
 
-  edit(permissao: Permissao) {
-    this.permissaoEdit = Object.assign({}, permissao);
+  edit(pessoa: Pessoa) {
+    this.pessoaEdit = Object.assign({}, pessoa);
     this.showDialog = true;
   }
 
   cancel() {
     this.showDialog = false;
-    this.permissaoEdit = new Permissao();
+    this.pessoaEdit = new Pessoa();
   }
 
-  delete(pessoa: Permissao) {
+  delete(pessoa: Pessoa) {
     this.confirmationService.confirm({
       message: 'Esta ação não poderá ser desfeita',
       header: 'Deseja remover o registro?',
       acceptLabel: 'Confirmar',
       rejectLabel: 'Cancelar',
       accept: () => {
-        this.permissaoService.delete(permissao.id).subscribe(() => {
+        this.pessoaService.delete(pessoa.id).subscribe(() => {
           this.msgs = [{
             severity: 'success', summary: 'Confirmado',
             detail: 'Registro removido com sucesso!'
@@ -70,25 +123,15 @@ export class PermissaoComponent implements OnInit {
     });
   }
 
-  constructor(private pessoaService: PermissaoService, private confirmationService: ConfirmationService,
-    //  private instituicaoService: InstituicaoService, private usuarioService: UsuarioService
-
-      ) {
-this.status1 =  [
-{label: 'Ativo', value: 'Ativo'},
-{label: 'Inativo', value: 'Inativo'}
-];
-
-
-
-  msgs: Message[] = [];
+  onSelectionType(event) {
+    if (event) {
+      this.tipoPess = event;
+      this.pessoaEdit.tipoPessoa = this.tipoPess;
+    } else {
+      this.pessoaEdit.tipoPessoa = '';
+    }
+  }
 
 }
-
-status: any;
-status1: SelectItem[];
-
-
-
 
 
