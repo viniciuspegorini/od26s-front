@@ -28,7 +28,9 @@ export class LoginComponent implements OnInit {
         summary: 'Seja Bem Vindo!!',
         detail: 'Usuário Logado com Sucesso!!'
       }];
-      this.router.navigate(['/modelo']);
+      setTimeout(() => {
+        this.router.navigate(['/modelo']);
+      }, 2000);
     }, error => {
       // alert(error.error.error_description);
       this.msgs = [{

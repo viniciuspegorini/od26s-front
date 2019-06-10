@@ -15,8 +15,8 @@ import {TableModule} from 'primeng/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DataViewModule} from 'primeng/dataview';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
-import {LoginService} from "./login/login.service";
-import {LoginComponent} from "./login/login.component";
+import {LoginService} from './login/login.service';
+import {LoginComponent} from './login/login.component';
 
 @NgModule({
   declarations: [
