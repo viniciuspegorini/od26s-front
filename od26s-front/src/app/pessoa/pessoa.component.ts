@@ -1,10 +1,13 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import { Pessoa } from '../model/pessoa';
+import {Pessoa} from '../model/pessoa';
 import {ConfirmationService, LazyLoadEvent, Message, SelectItem} from 'primeng/api';
-import { PessoaService } from './pessoa.service';
-import { Usuario } from '../model/usuario';
-import { Instituicao } from '../model/instituicao';
+import {PessoaService} from './pessoa.service';
+import {Usuario} from '../model/usuario';
+import {Instituicao} from '../model/instituicao';
 import {DataTable} from 'primeng/components/datatable/datatable';
+import {InstituicaoService} from '../services/instituicao.service';
+import {UsuarioService} from '../services/usuario.service';
+import {findAll} from '@angular/compiler-cli/src/ngcc/src/utils';
 // import {InstituicaoService} from './instituicao.service';
 // import {UsuarioService} from './usuario.service';
 
@@ -19,7 +22,7 @@ export class PessoaComponent implements OnInit {
 
   @ViewChild('dt') dataTable: DataTable;
 
-  show  =  true;
+  show = true;
   totalRecords = 10;
   pessoas: Pessoa[];
   pessoaEdit: Pessoa;
@@ -34,48 +37,55 @@ export class PessoaComponent implements OnInit {
   tipoPessoa1: any[];
   status1: SelectItem[];
   tipoPess: string;
+  tipoStatus: string;
 
   constructor(private pessoaService: PessoaService, private confirmationService: ConfirmationService,
-            //  private instituicaoService: InstituicaoService, private usuarioService: UsuarioService
-
-              ) {
-    this.status1 =  [
+              private instituicaoService: InstituicaoService, private usuarioService: UsuarioService
+  ) {
+    this.status1 = [
       {label: 'Ativo', value: 'Ativo'},
       {label: 'Inativo', value: 'Inativo'}
     ];
 
-    this.tipoPessoa1 =  [
+    this.tipoPessoa1 = [
       {label: 'Aluno', value: 'Aluno'},
       {label: 'Externo', value: 'Externo'},
       {label: 'Orientador', value: 'Orientador'},
       {label: 'Pesquisador', value: 'Pesquisador'},
     ];
-
   }
 
   ngOnInit() {
-    this.carregarCombos();
     this.pessoaEdit = new Pessoa();
-    this.tipoPessoa = this.tipoPessoa1;
-    console.log(this.tipoPessoa);
+    this.carregarCombos();
+    this.findAll();
   }
 
   carregarCombos() {
-    // this.instituicaoService.findAll().subscribe(e => this.instituicoes = e);
-    // this.usuarioService.findAll().subscribe(e => this.usuarios = e);
+    this.instituicaoService.findAll().subscribe(e => {
+      this.instituicoes = e;
+
+    });
+    this.usuarioService.findAll().subscribe(e => {
+      this.usuarios = e;
+    });
   }
 
-  findAllPaged(page: number, size: number) {
-    this.pessoaService.getTotalRecords().subscribe(e => this.totalRecords = e);
-    this.pessoaService.findPageable(page, size).subscribe(e => this.pessoas = e.content);
+  // findAllPaged(page: number, size: number) {
+  //   this.pessoaService.getTotalRecords().subscribe(e => this.totalRecords = e);
+  //   this.pessoaService.findPageable(page, size).subscribe(e => this.pessoas = e.content);
+  // }
+
+  findAll() {
+    this.pessoaService.findAll().subscribe(e => this.pessoas = e);
   }
 
   save() {
     this.pessoaService.save(this.pessoaEdit).subscribe(e => {
         this.pessoaEdit = new Pessoa();
-        // this.pessoaEdit.tipoPessoa = this.tipoPessoa1;
-        this.pessoaEdit.status = this.status.value;
+        //  this.pessoaEdit.status = this.status.value;
         this.dataTable.reset();
+        this.findAll();
         this.showDialog = false;
         this.msgs = [{
           severity: 'sucess', summary: 'Confirmado',
@@ -83,7 +93,8 @@ export class PessoaComponent implements OnInit {
         }];
       },
       error => {
-        this.msgs = [{ severity: 'error', summary: 'Erro', detail: 'Falha ao salvar  registro!' }];
+        this.msgs = [{severity: 'error', summary: 'Erro', detail: 'Falha ao salvar  registro!'}];
+        console.log(this.pessoaEdit);
       }
     );
 
@@ -92,6 +103,10 @@ export class PessoaComponent implements OnInit {
   newEntity() {
     this.showDialog = true;
     this.pessoaEdit = new Pessoa();
+    this.pessoaEdit.tipoPessoa = this.tipoPessoa1[0].value;
+    this.pessoaEdit.status = this.status1[0].value;
+    this.pessoaEdit.instituicao = this.instituicoes[0];
+    this.pessoaEdit.usuario = this.usuarios[0];
   }
 
   edit(pessoa: Pessoa) {
@@ -133,6 +148,15 @@ export class PessoaComponent implements OnInit {
       this.pessoaEdit.tipoPessoa = this.tipoPess;
     } else {
       this.pessoaEdit.tipoPessoa = '';
+    }
+  }
+
+  onSelectionType2(event) {
+    if (event) {
+      this.tipoStatus = event;
+      this.pessoaEdit.status = this.tipoStatus;
+    } else {
+      this.pessoaEdit.status = '';
     }
   }
 

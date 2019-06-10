@@ -4,7 +4,7 @@ import { Instituicao } from './instituicao';
 export class Pessoa {
     id: number;
     nome: string;
-    cpf: string;
+    cpfCnpj: string;
     rg: string;
     telefone: string;
     celular: string;
