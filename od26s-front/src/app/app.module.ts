@@ -16,7 +16,7 @@ import {
   AutoCompleteModule,
   ConfirmationService,
   ConfirmDialogModule,
-  DialogModule, TabViewModule
+  DialogModule, DropdownModule, TabViewModule
 } from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
 import {fas} from '@fortawesome/free-solid-svg-icons';
@@ -31,6 +31,8 @@ import {ProgressSpinnerModule} from 'primeng/primeng';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.component';
 import {ModeloService} from './services/modelo.service';
+import {PrecoComponent} from './preco/preco.component';
+import {PrecoService} from './preco/preco.service';
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import {ModeloService} from './services/modelo.service';
     LoginComponent,
     MenuComponent,
     CadEquipamentoComponent,
-    CadastroModeloComponent
+    CadastroModeloComponent,
+    PrecoComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ import {ModeloService} from './services/modelo.service';
     AutoCompleteModule,
     TabViewModule,
     CKEditorModule,
+    DropdownModule
   ],
   providers: [
     InstituicaoService,
@@ -77,7 +81,8 @@ import {ModeloService} from './services/modelo.service';
     GrowlModule,
     ConfirmDialogModule,
     ProgressSpinnerModule,
-    ModeloService
+    ModeloService,
+    PrecoService
   ],
   bootstrap: [AppComponent]
 })
