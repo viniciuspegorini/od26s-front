@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Amostra} from '../model/amostra';
 import {AmostraService} from './amostra.service';
-//import {UsuarioService} from './usuario.service';
+// import {UsuarioService} from './usuario.service';
 import {ConfirmationService, Message, LazyLoadEvent} from 'primeng/api';
 import {DataTable} from 'primeng/primeng';
 
@@ -42,6 +42,9 @@ export class AmostraComponent implements OnInit {
     this.amostraService.findPageable(page, size).subscribe(e => {
       this.amostras = e.content;
       this.totalRecords = e.totalElements;
+      // this.amostras.forEach( a => {
+      //   this.usuarioService.findById( a.createdBy ).subscribe(u => a.usuario = u );
+      // });
     });
   }
 
@@ -101,14 +104,14 @@ export class AmostraComponent implements OnInit {
     );
   }
 
-  delete(id: number) {
+  delete(amostra: Amostra) {
     this.confirmationService.confirm({
       message: 'Esta ação não poderá ser desfeita!',
       header: 'Deseja remover esta amostra?',
-      acceptLabel: 'Remover',
+      acceptLabel: 'Confirma',
       rejectLabel: 'Cancelar',
       accept: () => {
-        this.amostraService.delete(id).subscribe(() => {
+        this.amostraService.delete(amostra.id).subscribe(() => {
           this.findAll();
           this.msgs = [{
             severity: 'success',

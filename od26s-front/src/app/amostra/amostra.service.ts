@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { CrudService } from '../generic/crud.service';
+import {Injectable} from '@angular/core';
+import {CrudService} from '../generic/crud.service';
 import {Amostra} from '../model/amostra';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';

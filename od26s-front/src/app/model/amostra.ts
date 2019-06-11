@@ -1,5 +1,9 @@
+import { Usuario } from './usuario';
+
 export class Amostra {
     id: number;
     descricao_amostra: string;
-    dt_recebimento: Date;
+    data_recebimento: Date;
+    createdBy : number;
+    usuario : Usuario;
 }
