@@ -6,6 +6,7 @@ import {InstituicaoComponent} from './instituicao/instituicao.component';
 import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.component';
 import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.component';
 import {PrecoComponent} from './preco/preco.component';
+import { PessoaComponent } from './pessoa/pessoa.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -15,7 +16,8 @@ const routes: Routes = [
       {path: 'instituicao', component: InstituicaoComponent},
       {path: 'equipamento', component: CadEquipamentoComponent},
       {path: 'modelo', component: CadastroModeloComponent},
-      {path: 'preco', component: PrecoComponent}
+      {path: 'preco', component: PrecoComponent},
+      {path: 'pessoa', component: PessoaComponent}
     ]
   },
   {path: 'login', component: LoginComponent}

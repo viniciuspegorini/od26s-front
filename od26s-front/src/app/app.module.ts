@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-import {AppComponent} from './app.component';
+import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -33,6 +33,8 @@ import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.compone
 import {ModeloService} from './services/modelo.service';
 import {PrecoComponent} from './preco/preco.component';
 import {PrecoService} from './preco/preco.service';
+import { PessoaService } from './pessoa/pessoa.service';
+import { PessoaComponent } from './pessoa/pessoa.component';
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import {PrecoService} from './preco/preco.service';
     MenuComponent,
     CadEquipamentoComponent,
     CadastroModeloComponent,
-    PrecoComponent
+    PrecoComponent,
+    PessoaComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +85,8 @@ import {PrecoService} from './preco/preco.service';
     ConfirmDialogModule,
     ProgressSpinnerModule,
     ModeloService,
-    PrecoService
+    PrecoService,
+    PessoaService
   ],
   bootstrap: [AppComponent]
 })

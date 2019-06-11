@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="b8ae4534-78c7-4de1-a87d-23b08cfd865c" name="Default Changelist" comment="cadastro instituição com tela de login">
       <change afterPath="$PROJECT_DIR$/od26s-front/src/app/menu/menu.component.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/od26s-front/src/app/menu/menu.component.html" afterDir="false" />
@@ -22,6 +23,11 @@
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/login/login.service.spec.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/login/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/login/login.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/environments/environment.ts" afterDir="false" />
+=======
+    <list default="true" id="b6203c4e-19dd-4c1e-ba84-9f5f537c74af" name="Default Changelist" comment="Teeerminei">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.ts" afterDir="false" />
+>>>>>>> s1-cad-pessoa
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,6 +56,7 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app-routing.module.ts">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -60,11 +67,30 @@
 =======
             <state relative-caret-position="34">
               <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+=======
+        <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1483">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="e#0#59#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="10" column="64" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+>>>>>>> s1-cad-pessoa
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/od26s-front/src/app/preco/preco.service.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -72,11 +98,20 @@
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
 >>>>>>> s1-cad-preco
+=======
+        <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.service.spec.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+>>>>>>> s1-cad-pessoa
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/od26s-front/src/app/http-client.interceptor.ts">
@@ -159,14 +194,27 @@
             <state relative-caret-position="2516">
               <caret line="148" column="2" selection-start-line="148" selection-start-column="2" selection-end-line="148" selection-end-column="2" />
 >>>>>>> s1-cad-preco
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2016">
+              <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+>>>>>>> s1-cad-pessoa
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.css">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <find>cliente</find>
       <find>produtoras</find>
@@ -177,11 +225,11 @@
       <find>typ</find>
       <find>inst</find>
       <find>rout</find>
+=======
+      <find>InstituicaoS</find>
+      <find>nome</find>
+>>>>>>> s1-cad-pessoa
     </findStrings>
-    <replaceStrings>
-      <replace>instituicao</replace>
-      <replace>Instituicao</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -190,6 +238,7 @@
         <entry key="$PROJECT_DIR$" value="S1-cad-instituicao" />
       </map>
     </option>
+<<<<<<< HEAD
 =======
       <find>novo</find>
       <find>nome</find>
@@ -198,10 +247,46 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
 >>>>>>> s1-cad-preco
+=======
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="dev" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+>>>>>>> s1-cad-pessoa
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <option value="$PROJECT_DIR$/od26s-front/src/app/model/instituicao/instituicao.component.html" />
         <option value="$PROJECT_DIR$/od26s-front/e2e/protractor.conf.js" />
@@ -230,10 +315,24 @@
         <option value="$PROJECT_DIR$/od26s-front/src/app/login/login.component.ts" />
         <option value="$PROJECT_DIR$/od26s-front/src/app/app-routing.module.ts" />
         <option value="$PROJECT_DIR$/od26s-front/src/app/app.component.html" />
+=======
+        <option value="$PROJECT_DIR$/od26s-front/src/environments/environment.ts" />
+        <option value="$PROJECT_DIR$/od26s-front/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/od26s-front/src/app/pessoa/usuario.service.ts" />
+        <option value="$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.service.ts" />
+        <option value="$PROJECT_DIR$/od26s-front/src/app/pessoa/instituto.service.ts" />
+        <option value="$PROJECT_DIR$/od26s-front/src/app/pessoa/instituicao.service.ts" />
+        <option value="$PROJECT_DIR$/od26s-front/src/app/services/instituicao.service.ts" />
+        <option value="$PROJECT_DIR$/od26s-front/src/app/services/usuario.service.ts" />
+        <option value="$PROJECT_DIR$/od26s-front/src/app/model/pessoa.ts" />
+        <option value="$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.html" />
+        <option value="$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.ts" />
+>>>>>>> s1-cad-pessoa
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+<<<<<<< HEAD
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -265,6 +364,12 @@
     <option name="width" value="1400" />
     <option name="height" value="1000" />
 >>>>>>> s1-cad-preco
+=======
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
+>>>>>>> s1-cad-pessoa
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -308,6 +413,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
 <<<<<<< HEAD
+<<<<<<< HEAD
               <item name="instituicao" type="462c0819:PsiDirectoryNode" />
 =======
               <item name="generic" type="462c0819:PsiDirectoryNode" />
@@ -339,6 +445,9 @@
               <item name="od26s-front" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="environments" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="pessoa" type="462c0819:PsiDirectoryNode" />
+>>>>>>> s1-cad-pessoa
             </path>
           </expand>
           <select />
@@ -352,12 +461,17 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/od26s-front/src/app" />
     <property name="node.js.detected.package.tslint" value="true" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+>>>>>>> s1-cad-pessoa
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+<<<<<<< HEAD
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Users\Roberto\Documents\6 Periodo\OD26S\od26s-front\od26s-front\node_modules\typescript\lib" />
   </component>
@@ -388,6 +502,9 @@
       <recent name="C:\Users\Tainan\Documents\quimica\od26s-front\od26s-front\src\app\preco" />
 >>>>>>> s1-cad-preco
     </key>
+=======
+    <property name="ts.external.directory.path" value="C:\Users\user\Documents\Topicos Avancados Em Programacao Para Web\od26s-front\od26s-front\node_modules\typescript\lib" />
+>>>>>>> s1-cad-pessoa
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -401,11 +518,17 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="NodeJSConfigurationType" nameIsGenerated="true" working-dir="$PROJECT_DIR$/od26s-front">
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
 <<<<<<< HEAD
       <changelist id="b8ae4534-78c7-4de1-a87d-23b08cfd865c" name="Default Changelist" comment="" />
       <created>1558390770756</created>
@@ -456,10 +579,66 @@
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="74180000" />
+=======
+      <changelist id="b6203c4e-19dd-4c1e-ba84-9f5f537c74af" name="Default Changelist" comment="" />
+      <created>1558494655928</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1558494655928</updated>
+      <workItem from="1558494659639" duration="327000" />
+      <workItem from="1558496494630" duration="807000" />
+      <workItem from="1558743849219" duration="32236000" />
+      <workItem from="1558992370579" duration="5821000" />
+      <workItem from="1559615817956" duration="539000" />
+    </task>
+    <task id="LOCAL-00001" summary="Arrumado os status e tipo pessoa">
+      <created>1559536670669</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1559536670669</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Arrumado os dropdown">
+      <created>1559600050449</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1559600050449</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Teeerminei">
+      <created>1559612612599</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1559612612599</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Teeerminei">
+      <created>1559612619923</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1559612619923</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="76534000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+>>>>>>> s1-cad-pessoa
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49874055" visible="true" weight="0.24627976" />
       <window_info id="Structure" order="1" sideWeight="0.50125945" side_tool="true" weight="0.21279761" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -519,6 +698,23 @@
       <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4989339" visible="true" weight="0.29577464" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50053304" side_tool="true" weight="0.32936078" />
       <window_info anchor="bottom" id="GitHub Pull Requests" order="13" weight="0.32936078" />
+=======
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" order="0" weight="0.32993197" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4955357" weight="0.3282313" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32993197" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49925596" weight="0.3282313" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49702382" visible="true" weight="0.32312927" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5029762" side_tool="true" weight="0.25510204" />
+>>>>>>> s1-cad-pessoa
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -530,6 +726,7 @@
       <window_info anchor="right" id="Database" order="8" />
     </layout>
     <layout-to-restore>
+<<<<<<< HEAD
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15991472" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
@@ -562,10 +759,32 @@
       <window_info anchor="right" id="Database" order="8" />
     </layout-to-restore>
 >>>>>>> s1-cad-preco
+=======
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" order="0" weight="0.32993197" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4955357" weight="0.3282313" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32993197" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49925596" weight="0.3282313" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49702382" visible="true" weight="0.21428572" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5029762" side_tool="true" weight="0.25510204" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+>>>>>>> s1-cad-pessoa
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -636,10 +855,65 @@
         <state relative-caret-position="-612">
           <folding>
             <element signature="e#0#61#0" expanded="true" />
+=======
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Arrumado os status e tipo pessoa" />
+    <MESSAGE value="Arrumado os dropdown" />
+    <MESSAGE value="Teeerminei" />
+    <option name="LAST_COMMIT_MESSAGE" value="Teeerminei" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/model/amostra.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/environments/environment.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="30" lean-forward="true" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+>>>>>>> s1-cad-pessoa
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/od26s-front/node_modules/primeng/components/table/table.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-187">
@@ -755,9 +1029,24 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.spec.ts">
+=======
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/environments/environment.prod.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/model/instituicao.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="102">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/generic/crud.service.ts">
+>>>>>>> s1-cad-pessoa
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#0#73#0" expanded="true" />
 =======
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/services/equipamento.service.ts">
@@ -767,10 +1056,14 @@
           <folding>
             <element signature="e#0#43#0" expanded="true" />
 >>>>>>> s1-cad-preco
+=======
+            <element signature="e#0#61#0" expanded="true" />
+>>>>>>> s1-cad-pessoa
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/od26s-front/angular.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -849,16 +1142,33 @@
         </state>
       </provider>
     </entry>
+=======
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/tsconfig.app.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/angular.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-317" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+>>>>>>> s1-cad-pessoa
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.component.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
             <element signature="e#0#55#0" expanded="true" />
+<<<<<<< HEAD
 >>>>>>> s1-cad-preco
+=======
+>>>>>>> s1-cad-pessoa
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -889,10 +1199,44 @@
           <caret line="32" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/usuario.service.spec.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/usuario.service.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/amostra.service.spec.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/amostra.service.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.component.html" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.component.spec.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.component.css" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.service.spec.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.component.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/formulario.service.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/modelo.service.spec.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/modelo.service.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/notas.service.spec.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/servico.service.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/servico.service.spec.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/formulario/notas.service.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/model/instituicao.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+>>>>>>> s1-cad-pessoa
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/menu/menu.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -901,12 +1245,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/od26s-front/src/environments/environment.prod.ts">
+=======
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.module.ts">
+>>>>>>> s1-cad-pessoa
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="18" />
+        <state relative-caret-position="150">
+          <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/od26s-front/src/environments/environment.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -927,6 +1275,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
           <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+=======
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/instituicao.service.spec.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/instituicao.service.ts" />
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.component.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/services/instituicao.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="49" lean-forward="true" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/services/usuario.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+>>>>>>> s1-cad-pessoa
           <folding>
             <element signature="e#0#48#0" expanded="true" />
 =======
@@ -937,6 +1303,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/od26s-front/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
@@ -958,10 +1325,19 @@
           <folding>
             <element signature="e#0#43#0" expanded="true" />
 >>>>>>> s1-cad-preco
+=======
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/model/pessoa.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+>>>>>>> s1-cad-pessoa
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -986,24 +1362,54 @@
           <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
         </state>
       </provider>
+=======
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/model/usuario.ts">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.component.html">
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        <state relative-caret-position="102">
+          <caret line="10" column="64" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app-routing.module.ts">
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.css">
+      <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> s1-cad-pessoa
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.service.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="17">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+=======
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+>>>>>>> s1-cad-pessoa
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="238">
           <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+=======
+        <state relative-caret-position="-1483">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+>>>>>>> s1-cad-pessoa
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/http-client.interceptor.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
@@ -1036,6 +1442,12 @@
         <state relative-caret-position="-418">
           <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
 >>>>>>> s1-cad-preco
+=======
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2016">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+>>>>>>> s1-cad-pessoa
         </state>
       </provider>
     </entry>

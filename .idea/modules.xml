@@ -4,6 +4,7 @@
     <modules>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/od26s-front.iml" filepath="$PROJECT_DIR$/.idea/od26s-front.iml" />
 =======
       <module fileurl="file://$PROJECT_DIR$/.idea/ChemistsInControl - Front.iml" filepath="$PROJECT_DIR$/.idea/ChemistsInControl - Front.iml" />
@@ -11,6 +12,9 @@
 =======
       <module fileurl="file://$PROJECT_DIR$/.idea/od26s-front.iml" filepath="$PROJECT_DIR$/.idea/od26s-front.iml" />
 >>>>>>> s1-cad-preco
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/od26s-front.iml" filepath="$PROJECT_DIR$/.idea/od26s-front.iml" />
+>>>>>>> s1-cad-pessoa
     </modules>
   </component>
 </project>
