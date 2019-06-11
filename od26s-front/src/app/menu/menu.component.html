@@ -1,0 +1,38 @@
+<header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Central de Análises</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active" >
+          <a class="nav-link" href="#"  routerLink="instituicao">Instituição</a>
+        </li>
+        <li class="nav-item" *ngIf="hasRole('USER')">
+          <a class="nav-link" href="#" routerLink="amostra">Amostras</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="equipamento">Equipamentos</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" href="#" routerLink="formulario">Formulários</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" href="#" routerLink="modelo">Modelo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="nota">Nota</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="Resultado">Resultado</a>
+        </li>
+      </ul>
+      <form class="form-inline mt-2 mt-md-0">
+        <a href="#" class="btn btn-outline-success"><i class="fa fa-sign-in"></i>Entrar</a>
+        <a href="#" class="btn btn-outline-success" (click)=loginService.logout()><i class="fa fa-sign-in"></i>Sair</a>
+      </form>
+    </div>
+  </nav>
+</header>

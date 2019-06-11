@@ -17,18 +17,27 @@ export class LoginComponent implements OnInit {
               private router: Router) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.loginService.isAuthenticated.next(false);
   }
 
   login() {
-    this.loginService.loggin(this.username, this.password).subscribe(e => {
-      this.router.navigate(['/']);
+    this.loginService.login(this.username, this.password).subscribe(e => {
+      this.msgs = [{
+        severity: 'success',
+        summary: 'Seja Bem Vindo!!',
+        detail: 'Usuário Logado com Sucesso!!'
+      }];
+      setTimeout(() => {
+        this.router.navigate(['/instituicao']);
+      }, 2000);
     }, error => {
       // alert(error.error.error_description);
-      this.msgs = [{severity: 'error', summary: 'Erro',
-        detail: 'Usuário e/ou senha incorreto(s)!'}];
+      this.msgs = [{
+        severity: 'error',
+        summary: 'Erro',
+        detail: 'Usuário e/ou senha incorreto(s)!'
+      }];
     });
   }
-
 }

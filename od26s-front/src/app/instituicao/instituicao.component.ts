@@ -79,10 +79,6 @@ export class InstituicaoComponent implements OnInit {
   }
 
 
-  // cancel() {
-  //   this.instituicaoEdit = new Instituicao();
-  //   this.showDialog = false;
-  // }
 
   edit(instituicao: Instituicao) {
     // this.instituicaoEdit = instituicao;
@@ -111,21 +107,4 @@ export class InstituicaoComponent implements OnInit {
     });
   }
 
-  // delete(instituicao: Instituicao) {
-  //   this.confirmationService.confirm({
-  //     message: 'Esta ação não poderá ser desfeita"',
-  //     header: 'Deseja remover o registro?',
-  //     acceptLabel: 'Confirmar',
-  //     rejectLabel: 'Cancelar',
-  //     accept: () => {
-  //       this.instituicaoService.delete(instituicao.id).subscribe(() => {
-  //           this.findAll();
-  //           this.msgs = [{severity: 'success', summary: 'Confirmado', detail: 'Registro salvo com sucesso!'}];
-  //         },
-  //         error => {
-  //           this.msgs = [{severity: 'error', summary: 'Erro', detail: 'Falha ao salvar o registro!'}];
-  //         });
-  //     }
-  //   });
-  // }
 }

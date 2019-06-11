@@ -8,7 +8,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 
 
 
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {InstituicaoComponent} from './instituicao/instituicao.component';
 import {InstituicaoService} from './instituicao/instituicao.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -26,6 +26,8 @@ import {fas} from '@fortawesome/free-solid-svg-icons';
 import { LoginComponent } from './login/login.component';
 import {DataViewModule} from 'primeng/dataview';
 import {LoginService} from './login/login.service';
+import {HttpClientInterceptor} from './http-client.interceptor';
+import {MenuComponent} from './menu/menu.component';
 library.add(fas);
 
 
@@ -34,7 +36,8 @@ library.add(fas);
   declarations: [
     AppComponent,
     InstituicaoComponent,
-    LoginComponent
+    LoginComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,13 @@ library.add(fas);
   providers: [
     InstituicaoService,
     ConfirmationService,
-    LoginService
+    LoginService,
+
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpClientInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
