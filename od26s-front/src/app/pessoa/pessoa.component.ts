@@ -5,11 +5,10 @@ import {PessoaService} from './pessoa.service';
 import {Usuario} from '../model/usuario';
 import {Instituicao} from '../model/instituicao';
 import {DataTable} from 'primeng/components/datatable/datatable';
-import {InstituicaoService} from '../services/instituicao.service';
-import {UsuarioService} from '../services/usuario.service';
 import {findAll} from '@angular/compiler-cli/src/ngcc/src/utils';
-// import {InstituicaoService} from './instituicao.service';
-// import {UsuarioService} from './usuario.service';
+import {InstituicaoService} from '../instituicao/instituicao.service';
+import {UsuarioService} from '../services/usuario.service';
+
 
 @Component({
   selector: 'app-pessoa',
@@ -27,13 +26,12 @@ export class PessoaComponent implements OnInit {
   pessoas: Pessoa[];
   pessoaEdit: Pessoa;
   showDialog = false;
-
   msgs: Message[] = [];
   instituicoes: Instituicao[];
   usuarios: Usuario[];
 
-  tipoPessoa: any;
-  status: any;
+  // tipoPessoa: any;
+  // status: any;
   tipoPessoa1: any[];
   status1: SelectItem[];
   tipoPess: string;
@@ -71,11 +69,6 @@ export class PessoaComponent implements OnInit {
     });
   }
 
-  // findAllPaged(page: number, size: number) {
-  //   this.pessoaService.getTotalRecords().subscribe(e => this.totalRecords = e);
-  //   this.pessoaService.findPageable(page, size).subscribe(e => this.pessoas = e.content);
-  // }
-
   findAll() {
     this.pessoaService.findAll().subscribe(e => this.pessoas = e);
   }
@@ -83,9 +76,7 @@ export class PessoaComponent implements OnInit {
   save() {
     this.pessoaService.save(this.pessoaEdit).subscribe(e => {
         this.pessoaEdit = new Pessoa();
-        //  this.pessoaEdit.status = this.status.value;
         this.dataTable.reset();
-        this.findAll();
         this.showDialog = false;
         this.msgs = [{
           severity: 'sucess', summary: 'Confirmado',

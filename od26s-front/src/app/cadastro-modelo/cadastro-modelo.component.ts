@@ -3,7 +3,7 @@ import {ModeloService} from '../services/modelo.service';
 import {Modelo} from '../model/modelo';
 import {ConfirmationService, Message} from 'primeng/api';
 import {DataTable} from 'primeng/primeng';
-import * as ClassicEditorBuild from 'ckeditor4-angular'
+import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-cadastro-modelo',

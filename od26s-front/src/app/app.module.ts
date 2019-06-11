@@ -17,10 +17,11 @@ import {
   TabViewModule,
   PanelModule
 } from 'primeng/primeng';
+import {CheckboxModule} from 'primeng/checkbox';
+import {RadioButtonModule} from 'primeng/radiobutton';
 import {TableModule} from 'primeng/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DataViewModule} from 'primeng/dataview';
-import {CKEditorModule} from "ckeditor4-angular";
 import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.component';
 import {EquipamentoService} from './cad-equipamento/equipamento.service';
 import {PrecoComponent} from './preco/preco.component';
@@ -32,6 +33,7 @@ import { LoginComponent } from './login/login.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
 import { PessoaService } from './pessoa/pessoa.service';
 import {FormularioComponent} from './formulario/formulario.component';
+import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
 
 
 @NgModule({
@@ -43,7 +45,7 @@ import {FormularioComponent} from './formulario/formulario.component';
     PrecoComponent,
     InstituicaoComponent,
     LoginComponent,
-    PessoaComponent
+    PessoaComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,9 @@ import {FormularioComponent} from './formulario/formulario.component';
     TabViewModule,
     CKEditorModule,
     DropdownModule,
-    PanelModule
+    RadioButtonModule,
+    PanelModule,
+    CheckboxModule
   ],
   providers: [
     ConfirmationService,

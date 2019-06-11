@@ -9,7 +9,12 @@ import {Servico} from '../model/servico';
 import {Nota} from '../model/nota';
 import {Formulario} from '../model/formulario';
 import {DataTable} from 'primeng/primeng';
-
+import {NotaService} from './nota.service';
+import {ModeloService} from '../services/modelo.service';
+import * as ClassicEditorBuild from '@ckeditor/ckeditor5-angular';
+import {LoginService} from '../login/login.service';
+import {EquipamentoService} from '../cad-equipamento/equipamento.service';
+import {Equipamento} from '../model/equipamento';
 
 @Component({
   selector: 'app-formulario',
@@ -18,28 +23,66 @@ import {DataTable} from 'primeng/primeng';
 })
 export class FormularioComponent implements OnInit {
 
+  public editor = ClassicEditorBuild;
+
   @ViewChild('dt') dataTable: DataTable;
 
-  formularioEdit: Formulario;
+  formularioEdit = new Formulario();
   showDialog = false;
   msgs: Message[] = [];
+  selectedValue: string;
   amostras: Amostra[];
   modelos: Modelo[];
+  equipamentos: Equipamento[];
   servicos: Servico[];
   pessoas: Pessoa[];
   notas: Nota[];
 
   constructor(private formularioService: FormularioService, private confirmationService: ConfirmationService,
-              private pessoaService: PessoaService,
-             ) { }
+              private pessoaService: PessoaService, private notaService: NotaService,
+              private modeloService: ModeloService, private loginService: LoginService,
+              private equipamentoService: EquipamentoService
+  ) {
+  }
 
   ngOnInit() {
+    this.formularioEdit = new Formulario();
+    this.carregarCombos();
+    // if ( ! this.hasRole('ADMIN') ) {
+    //   // carrega o this.formularioEdit.pessoa
+    //
+    // } else {
+    //   this.pessoaService.findAll().subscribe(e => {
+    //     this.pessoas = e;
+    //     this.formularioEdit.pessoa = this.pessoas[0];
+    //   });
+    // }
+  }
+
+  hasRole(permissao: string) {
+    this.loginService.hasRole(permissao);
+  }
+
+  carregarCombos() {
+    this.modeloService.findAll().subscribe(e => {
+      this.modelos = e;
+    });
+    this.equipamentoService.findAll().subscribe(e => {
+      this.equipamentos = e;
+    });
   }
 
   newEntity() {
     this.showDialog = true;
+    //   this.formularioEdit = new Formulario();
+    //   this.formularioEdit.pessoa = this.pessoas[0];
+    //   this.formularioEdit.modelo = this.modelos[0];
+    this.formularioEdit.modelo.preco.equipamento = this.equipamentos[0];
+  }
+
+  cancel() {
+    this.showDialog = false;
     this.formularioEdit = new Formulario();
-    // this.pessoaEdit.instituicao = this.instituicoes[0];
   }
 
   save() {
@@ -53,43 +96,19 @@ export class FormularioComponent implements OnInit {
         }];
       },
       error => {
-        this.msgs = [{ severity: 'error', summary: 'Erro', detail: 'Falha ao salvar  registro!' }];
+        this.msgs = [{severity: 'error', summary: 'Erro', detail: 'Falha ao salvar  registro!'}];
       }
     );
 
   }
 
-  edit(formulario: Formulario) {
-    this.formularioEdit = Object.assign({}, formulario);
-    this.showDialog = true;
-  }
-
-  cancel() {
-    this.showDialog = false;
-    this.formularioEdit = new Formulario();
-  }
-
-  delete(formulario: Formulario) {
-    this.confirmationService.confirm({
-      message: 'Esta ação não poderá ser desfeita',
-      header: 'Deseja remover o registro?',
-      acceptLabel: 'Confirmar',
-      rejectLabel: 'Cancelar',
-      accept: () => {
-        this.formularioService.delete(formulario.id).subscribe(() => {
-          this.msgs = [{
-            severity: 'success', summary: 'Confirmado',
-            detail: 'Registro removido com sucesso!'
-          }];
-          this.dataTable.reset();
-        }, error => {
-          this.msgs = [{
-            severity: 'error', summary: 'Erro',
-            detail: 'Falha ao remover o registro!'
-          }];
-        });
+  onSelectionType(event) {
+    if (event) {
+      if (this.selectedValue !== 'Outro') {
+        this.formularioEdit.naturezaOperacao = this.selectedValue;
+      } else {
+        this.formularioEdit.naturezaOperacao = '';
       }
-    });
+    }
   }
-
 }

@@ -16,6 +16,6 @@ export class Formulario {
   pessoa: Pessoa;
   nota: Nota;
   quantidade: number;
-  valor: number;
+  valorTotal: number;
 
 }
