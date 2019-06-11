@@ -3,13 +3,15 @@ import {RouterModule, Routes} from '@angular/router';
 import {LoginService} from './login/login.service';
 import {LoginComponent} from './login/login.component';
 import {InstituicaoComponent} from './instituicao/instituicao.component';
+import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {
     path: '', canActivate: [LoginService], children: [
       {path: '', redirectTo: 'login', pathMatch: 'full'},
-      {path: 'instituicao', component: InstituicaoComponent}
+      {path: 'instituicao', component: InstituicaoComponent},
+      {path: 'equipamento', component: CadEquipamentoComponent},
     ]
   },
   {path: 'login', component: LoginComponent}
