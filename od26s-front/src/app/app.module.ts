@@ -28,6 +28,9 @@ import {MenuComponent} from './menu/menu.component';
 library.add(fas);
 import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.component';
 import {ProgressSpinnerModule} from 'primeng/primeng';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
+import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.component';
+import {ModeloService} from './services/modelo.service';
 
 
 @NgModule({
@@ -36,7 +39,8 @@ import {ProgressSpinnerModule} from 'primeng/primeng';
     InstituicaoComponent,
     LoginComponent,
     MenuComponent,
-    CadEquipamentoComponent
+    CadEquipamentoComponent,
+    CadastroModeloComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +58,7 @@ import {ProgressSpinnerModule} from 'primeng/primeng';
     DataViewModule,
     AutoCompleteModule,
     TabViewModule,
+    CKEditorModule,
   ],
   providers: [
     InstituicaoService,
@@ -71,10 +76,10 @@ import {ProgressSpinnerModule} from 'primeng/primeng';
     BrowserAnimationsModule,
     GrowlModule,
     ConfirmDialogModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    ModeloService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
-

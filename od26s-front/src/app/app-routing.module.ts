@@ -4,6 +4,7 @@ import {LoginService} from './login/login.service';
 import {LoginComponent} from './login/login.component';
 import {InstituicaoComponent} from './instituicao/instituicao.component';
 import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.component';
+import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -12,6 +13,7 @@ const routes: Routes = [
       {path: '', redirectTo: 'login', pathMatch: 'full'},
       {path: 'instituicao', component: InstituicaoComponent},
       {path: 'equipamento', component: CadEquipamentoComponent},
+      {path: 'modelo', component: CadastroModeloComponent}
     ]
   },
   {path: 'login', component: LoginComponent}
