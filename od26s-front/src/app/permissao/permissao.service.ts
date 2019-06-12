@@ -13,4 +13,3 @@ export class PermissaoService extends CrudService< Permissao, number> {
     super(environment.api + '/permissao', http);
   }
 }
-
