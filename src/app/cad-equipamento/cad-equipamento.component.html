@@ -1,0 +1,85 @@
+<div class="container py-5">
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <h1 class="d-flex">Cadastro de Equipamentos</h1>
+      <button class="btn btn-primary" (click)="openDialog()">Novo</button>
+    </div>
+
+    <div class="ui-g-12">
+      <p-table [value]="equipamentos">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Ações</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-equipamento>
+          <tr>
+            <td>{{equipamento.id}}</td>
+            <td>{{equipamento.nome}}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-dark mr-1"
+                (click)="openDialog(equipamento)"
+              >
+                Editar
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="delete(equipamento.id)"
+              >
+                Remover
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
+
+<p-dialog
+  modal="modal"
+  [width]="500"
+  header="Cadastro"
+  [responsive]="true"
+  [(visible)]="showDialog"
+>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          class="form-control"
+          [(ngModel)]="equipamentoEdit.nome"
+        >
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <button
+      type="button"
+      (click)="cancel()"
+      class="btn btn-default"
+    >
+      Cancelar
+    </button>
+    <button
+      type="button"
+      (click)="save()"
+      class="btn btn-success"
+    >
+      Salvar
+    </button>
+  </p-footer>
+</p-dialog>
+
+<p-confirmDialog></p-confirmDialog>
+<p-growl [(value)]="msgs"></p-growl>

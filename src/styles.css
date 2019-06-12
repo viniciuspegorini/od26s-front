@@ -1,0 +1,161 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*----------------------------------------------------------------
+    Login and Registration Page - Transparent Background Style
+------------------------------------------------------------------*/
+.loginpage {
+  padding: 0 50px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .loginpage {
+    padding: 0 90px;
+  }
+}
+
+@media (max-width: 992px) {
+  .loginpage {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .loginpage {
+    padding: 0 30px;
+  }
+}
+
+.loginpage h1 a {
+  height: 92px;
+  margin: 0px auto 0px auto;
+  padding: 0;
+  text-decoration: none;
+  -moz-background-size: 345px 92px;
+  -o-background-size: 345px 92px;
+  background-size: 345px 92px;
+  background-color: transparent;
+  min-height: 92px;
+  width: auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  outline: 0;
+  overflow: hidden;
+  display: block;
+}
+
+.loginpage form {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  margin-left: 0;
+  font-weight: 400;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.loginpage form .forgetmenot {
+  width: 100%;
+  display: block;
+  margin: 12px 0 11px 0 !important;
+  font-weight: 400;
+  float: left;
+  margin-bottom: 0px;
+}
+
+.loginpage form p.submit {
+  display: inline-block;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.loginpage label {
+  font-size: 14px;
+  line-height: 23px;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.loginpage form .input, .loginpage form input[type=checkbox], .loginpage input[type=text] {
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+  -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+  -ms-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+  -o-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+  font-weight: 500;
+}
+
+.loginpage form .input, .loginpage input[type=text] {
+  font-size: 19px;
+  width: 100%;
+  padding: 9px;
+  line-height: 25px;
+  margin: 5px 0 15px 0;
+  border: 1px solid transparent !important;
+}
+
+.loginpage form .input, .loginpage form input[type=checkbox], .loginpage input[type=text] {
+  color: rgb(79, 80, 79);
+  background: #fbfbfb;
+}
+
+.loginpage #nav a, .loginpage a {
+  color: rgba(255, 255, 255, 1)
+  /*#ffffff*/;
+  font-size: 15px;
+  color: #dddddd;
+}
+
+.loginpage #nav a:hover, .loginpage a:hover, .loginpage #nav a:active, .loginpage a:active {
+  color: rgba(255, 255, 255, 1)
+  /*#ffffff*/;
+}
+
+.loginpage, .loginpage form label, .loginpage form, .loginpage .message {
+  color: rgba(255, 255, 255, 1)
+  /*#ffffff*/;
+}
+
+.loginpage form .input, .loginpage form input[type=checkbox], .loginpage input[type=text] {
+  background-color: rgba(255, 255, 255, 0.6)
+  /*#ffffff*/;
+}
+
+.loginpage form .input:hover, .loginpage form input[type=checkbox]:hover, .loginpage input[type=text]:hover, .loginpage form .input:focus, .loginpage form input[type=checkbox]:focus, .loginpage input[type=text]:focus {
+  background-color: rgba(255, 255, 255, 0.8)
+  /*#ffffff*/;
+}
+
+.loginpage #login_error, .loginpage .message {
+  background-color: rgba(255, 255, 255, 0.6)
+  /*#ffffff*/;
+}
+
+.loginpage .message, .loginpage .message a, .loginpage #login_error, .loginpage #login_error a {
+  color:  rgb(79, 80, 79);
+}
+
+.login_page {
+  background: rgb(79, 80, 79) url('assets/images/login-bg.png') fixed;
+  height: 100vh;
+  min-height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+body.lockscreen {
+  background-color: #eeeeee;
+  background-image: none;
+}
+
+.login-wrapper {
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
