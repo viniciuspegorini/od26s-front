@@ -1,7 +1,7 @@
 export class AccessToken {
-  access_token = '';
-  expires_in = 0;
-  refresh_token = '';
-  scope = '';
-  token_type = '';
+  access_token: string;
+  expires_in: number;
+  refresh_token: string;
+  scope: string;
+  token_type: string;
 }

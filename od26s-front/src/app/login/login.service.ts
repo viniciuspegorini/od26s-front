@@ -25,7 +25,7 @@ export class LoginService implements CanActivate {
           return true;
         }),
         catchError(err => {
-          this.loggout();
+          this.logout();
           return throwError(new Error('O usuário não está autenticado'));
         })
       );
@@ -42,14 +42,14 @@ export class LoginService implements CanActivate {
     return false;
   }
 
-  loggout() {
+  logout() {
     Object.keys(new AccessToken()).forEach(key => localStorage.removeItem(key));
     this.isAuthenticated.next(false);
     this.userInfo = null;
     this.router.navigate(['/login']);
   }
 
-  loggin(username: string, password: string): Observable<AccessToken> {
+  login(username: string, password: string): Observable<AccessToken> {
     const params = new URLSearchParams();
     params.append('username', username);
     params.append('password', password);

@@ -1,24 +1,34 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.component';
-import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.component';
-import {PrecoComponent} from './preco/preco.component';
-import {InstituicaoComponent} from './instituicao/instituicao.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {LoginService} from './login/login.service';
 import {LoginComponent} from './login/login.component';
+import {InstituicaoComponent} from './instituicao/instituicao.component';
+import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.component';
+import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.component';
+import {PrecoComponent} from './preco/preco.component';
+import { PessoaComponent } from './pessoa/pessoa.component';
 import {AmostraComponent} from './amostra/amostra.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'principal', pathMatch: 'full'},
-  {path: 'modelo', component: CadastroModeloComponent},
-  {path: 'equipamento', component: CadEquipamentoComponent},
-  {path: 'preco', component: PrecoComponent},
-  {path: 'instituicao', component: InstituicaoComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'amostra', component: AmostraComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {
+    path: '', canActivate: [LoginService], children: [
+      {path: '', redirectTo: 'login', pathMatch: 'full'},
+      {path: 'instituicao', component: InstituicaoComponent},
+      {path: 'equipamento', component: CadEquipamentoComponent},
+      {path: 'modelo', component: CadastroModeloComponent},
+      {path: 'preco', component: PrecoComponent},
+      {path: 'pessoa', component: PessoaComponent},
+      {path: 'amostra', component: AmostraComponent},
+    ]
+  },
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  declarations: [],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
