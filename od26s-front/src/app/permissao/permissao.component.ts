@@ -74,4 +74,6 @@ export class PermissaoComponent implements OnInit {
     this.permissaoService.save(this.permissaoEdit).subscribe(e => {
         this.permissaoEdit = new Permissao();
         this.dataTable.reset();
-        this.showDialog = false};
+        this.showDialog = false; 
+    } );
+  }  }
