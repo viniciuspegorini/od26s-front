@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Permissao} from '../model/permissao';
+import {Router} from '@angular/router';
 import {PermissaoService} from '../permissao/permissao.service';
 import {ConfirmationService, Message, LazyLoadEvent} from 'primeng/api';
 import {DataTable} from 'primeng/primeng';
@@ -76,4 +77,6 @@ export class PermissaoComponent implements OnInit {
         this.dataTable.reset();
         this.showDialog = false; 
     } );
-  }  }
+  }  
+
+}

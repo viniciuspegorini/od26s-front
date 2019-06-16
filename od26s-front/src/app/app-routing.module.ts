@@ -7,6 +7,7 @@ import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.compone
 import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.component';
 import {PrecoComponent} from './preco/preco.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
+import { PermissaoComponent } from './permissao/permissao.component';?
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -17,6 +18,7 @@ const routes: Routes = [
       {path: 'equipamento', component: CadEquipamentoComponent},
       {path: 'modelo', component: CadastroModeloComponent},
       {path: 'preco', component: PrecoComponent},
+      {path: 'permissao', component: PermissaoComponent},
       {path: 'pessoa', component: PessoaComponent}
     ]
   },
