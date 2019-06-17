@@ -55,6 +55,7 @@ export class PermissaoComponent implements OnInit {
 
   findAll() {
     this.permissaoService.findAll().subscribe(items => {
+      console.log(items);
       this.permissoes = items;
     });
   }
@@ -69,6 +70,11 @@ export class PermissaoComponent implements OnInit {
   openDialog(item: Permissao = new Permissao()) {
     this.permissaoEdit = Object.assign({}, item);
     this.showDialog = true;
+  }
+
+  cancel() {
+    this.showDialog = false;
+    this.permissaoEdit = new Permissao();
   }
 
   save() {

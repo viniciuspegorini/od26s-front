@@ -2,7 +2,7 @@
   <h1 class="d-flex">Cadastro de Permissões</h1>
   <button class="btn btn-primary" (click)="newEntity()">Novo</button>
 
-  <p-table #dt [value]="permissaos" [paginator]="true" [rows]="6"
+  <p-table #dt [value]="permissoes" [paginator]="true" [rows]="6"
            [rowsPerPageOptions]="[5,10,20]"
            [lazy]="true" [totalRecords]="totalRecords">
     <ng-template pTemplate="header">

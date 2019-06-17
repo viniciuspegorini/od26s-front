@@ -35,6 +35,8 @@ import {PrecoComponent} from './preco/preco.component';
 import {PrecoService} from './preco/preco.service';
 import { PessoaService } from './pessoa/pessoa.service';
 import { PessoaComponent } from './pessoa/pessoa.component';
+import { PermissaoComponent } from './permissao/permissao.component';
+import { PermissaoService } from './permissao/permissao.service';
 
 
 @NgModule({
@@ -46,7 +48,8 @@ import { PessoaComponent } from './pessoa/pessoa.component';
     CadEquipamentoComponent,
     CadastroModeloComponent,
     PrecoComponent,
-    PessoaComponent
+    PessoaComponent,
+    PermissaoComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +89,8 @@ import { PessoaComponent } from './pessoa/pessoa.component';
     ProgressSpinnerModule,
     ModeloService,
     PrecoService,
-    PessoaService
+    PessoaService,
+    PermissaoService
   ],
   bootstrap: [AppComponent]
 })
