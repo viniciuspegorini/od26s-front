@@ -1,7 +1,8 @@
 import { Usuario } from './usuario';
 import { Instituicao } from './instituicao';
 
-export class Pessoa {
+export class
+Pessoa {
     id: number;
     nome: string;
     cpfCnpj: string;

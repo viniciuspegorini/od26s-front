@@ -28,12 +28,12 @@ export class FormularioComponent implements OnInit {
 
   @ViewChild('dt') dataTable: DataTable;
 
+  msgs: Message[] = [];
   formularioEdit = new Formulario();
   showDialog = false;
   equipamentoSelected = new Equipamento();
   // orientadorEdit = new Pessoa;
   modeloEdit = new Modelo();
-  msgs: Message[] = [];
   selectedValue: string;
   amostras: Amostra[];
   modelos: Modelo[];
@@ -56,31 +56,29 @@ export class FormularioComponent implements OnInit {
     this.formularioEdit = new Formulario();
     this.formularioEdit.pessoa = new Pessoa();
     this.formularioEdit.modelo = new Modelo();
-   // this.equipamentoSelected = new Equipamento();
+    this.formularioEdit.pessoa.usuario = new Usuario();
+    // this.equipamentoSelected = new Equipamento();
     this.carregaUsuario();
   }
 
   carregaUsuario() {
     this.formularioService.getLoggedUser().subscribe(e => {
       this.usuario = e;
-      this.formularioEdit = new Formulario();
-      this.formularioEdit.pessoa = new Pessoa();
       this.carregarCombos();
       this.modeloEdit = new Modelo();
       if (this.hasRole('ADMIN')) {
         // carrega o this.formularioEdit.pessoa
-        // this.carregaUsuario();
-        this.pessoaService.findAll().subscribe(e => {
-          this.pessoas = e;
+        this.pessoaService.findAll().subscribe(p => {
+          this.pessoas = p;
           console.log(this.pessoas);
           this.formularioEdit.pessoa = this.pessoas[0];
-          // this.orientadorEdit = this.formularioEdit.pessoa.pessoa;
           console.log(this.formularioEdit);
         });
       } else {
-        this.carregaUsuario();
-        this.formularioService.findByUsuarioId(this.usuario.id);
-        // console.log(this.usuario.id);
+        this.formularioService.findByUsuarioId(this.usuario.id).subscribe(pessoa => {
+          this.formularioEdit.pessoa = pessoa;
+          this.formularioEdit.pessoa.usuario = this.usuario;
+        });
       }
     });
   }
@@ -101,10 +99,6 @@ export class FormularioComponent implements OnInit {
 
   newEntity() {
     this.showDialog = true;
-    //   this.formularioEdit = new Formulario();
-    //   this.formularioEdit.pessoa = this.pessoas[0];
-    //   this.formularioEdit.modelo = this.modelos[0];
-
   }
 
   cancel() {
@@ -113,14 +107,28 @@ export class FormularioComponent implements OnInit {
   }
 
   save() {
+    this.formularioEdit.status = 'Solicitado';
+
+    if (this.hasRole('ADMIN')) {
+      this.formularioEdit.pessoa = this.pessoas[0];
+    }
+
+    this.formularioEdit.modelo = this.modeloEdit;
+
     this.formularioService.save(this.formularioEdit).subscribe(e => {
-        this.formularioEdit = new Formulario();
-        this.formularioEdit.status = 'Solicitado';
-        this.dataTable.reset();
-        this.showDialog = false;
+
+        if (this.hasRole('ADMIN')) {
+          this.formularioEdit = new Formulario();
+          this.formularioEdit.pessoa = new Pessoa();
+          this.formularioEdit.pessoa.usuario = new Usuario();
+        }
+
+        this.formularioEdit.modelo = new Modelo();
+        this.formularioEdit.naturezaOperacao = '';
+
         this.msgs = [{
           severity: 'sucess', summary: 'Confirmado',
-          detail: 'Registro salvo com sucesso!'
+          detail: 'Formulário salvo com sucesso!'
         }];
       },
       error => {

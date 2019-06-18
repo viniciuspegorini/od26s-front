@@ -1,15 +1,7 @@
 
-<!--<p-dialog header="Pessoa" [(visible)]="showDialog" modal="modal" [responsive]="true" [width]="500">-->
-<!--  <div class="row">-->
-<!--   -->
-<!--  </div>-->
-<!--  <p-footer>-->
-<!--    <button type="button" class="btn btn-success" >Selecionar</button>-->
-<!--  </p-footer>-->
-<!--</p-dialog>-->
-
-<div class="container" >
+<div class="container">
   <h5 class="d-flex mt-5 mb-4">Formulário Central de Análises</h5>
+
   <div class="col-sm-12" *ngIf="hasRole('ADMIN')">
     <label form="pessoas">Pessoa</label>
     <div class="form-group">
@@ -17,12 +9,13 @@
                   [(ngModel)]="formularioEdit.pessoa"></p-dropdown>
     </div>
   </div>
+
   <div class="row">
     <div class="col-sm-12">
       <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" id="nome" name="nome" class="form-control"
-                 value="{{formularioEdit.pessoa.nome}}"   [(ngModel)]="formularioEdit.pessoa.nome"  readonly>
+               [(ngModel)]="formularioEdit.pessoa.nome" readonly>
       </div>
     </div>
   </div>
@@ -31,23 +24,23 @@
       <div class="form-group">
         <label for="email">Email</label>
         <input type="text" id="email" name="email" class="form-control"
-               value="{{formularioEdit.pessoa.usuario.username}}"  [(ngModel)]="formularioEdit.pessoa.usuario.username" readonly>
+               [(ngModel)]="formularioEdit.pessoa.usuario.username" readonly>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="form-group">
         <label for="telefone">Telefone</label>
-        <input type="text" id="telefone" name="telefone" class="form-control" value="{{formularioEdit.pessoa.telefone}}"
-               [(ngModel)]="formularioEdit.pessoa.telefone" readonly >
+        <input type="text" id="telefone" name="telefone" class="form-control"
+               [(ngModel)]="formularioEdit.pessoa.telefone" readonly>
       </div>
     </div>
   </div>
-  <div class="row" *ngIf="formularioEdit.pessoa.pessoa" >
+  <div class="row" *ngIf="formularioEdit.pessoa.pessoa">
     <div class="col-sm-12">
       <div class="form-group">
         <label for="orientador">Orientador</label>
         <input type="text" id="orientador" name="orientador" class="form-control"
-                [(ngModel)]="formularioEdit.pessoa.pessoa.nome" readonly >
+               [(ngModel)]="formularioEdit.pessoa.pessoa.nome" readonly>
       </div>
     </div>
   </div>
@@ -56,7 +49,7 @@
       <div class="form-group">
         <label for="emailOrientador">Email</label>
         <input type="text" id="emailOrientador" name="emailOrientador" class="form-control"
-               [(ngModel)]="formularioEdit.pessoa.pessoa.usuario.username" readonly>
+               [(ngModel)]="formularioEdit.pessoa.pessoa.nome" readonly>
       </div>
     </div>
     <div class="col-sm-6" *ngIf="formularioEdit.pessoa.pessoa">
@@ -76,57 +69,68 @@
       </div>
     </div>
   </div>
-    <div class="row mt-5">
-      <h5 class="naturezaProjeto ml-2">Natureza do Projeto</h5>
-      <div class="" style="">
-        <div class="ui-g-12">
-          <p-radioButton name="naturezaOp" value="Iniciacao" label="Iniciação Científica ou Tecnológica (programas PIBIC/PIBIT)"
-                         (ngModelChange)="onSelectionType($event)"></p-radioButton>
-        </div>
-        <div class="ui-g-12">
-          <p-radioButton name="naturezaOp" value="TCC" label="Trabalho de Conclusão de Curso (TCC)"
-                         (ngModelChange)="onSelectionType($event)"></p-radioButton>
-        </div>
-        <div class="ui-g-12">
-          <p-radioButton name="naturezaOp" value="Mestrado" label="Mestrado- Sigla do Programa/Instituição"
-                         (onClick)="onSelectionType($event)"
-                         [(ngModel)]="selectedValue"></p-radioButton>
-        </div>
+  <div class="row mt-3">
+    <h5 class="naturezaProjeto ml-2">Natureza do Projeto</h5>
+    <div class="" style="">
+      <div class="ui-g-12">
+        <p-radioButton name="naturezaOp" value="Iniciacao"
+                       label="Iniciação Científica ou Tecnológica (programas PIBIC/PIBIT)"
+                       (onClick)="onSelectionType($event)"
+                       [(ngModel)]="selectedValue"
+        ></p-radioButton>
+      </div>
+      <div class="ui-g-12">
+        <p-radioButton name="naturezaOp" value="TCC" label="Trabalho de Conclusão de Curso (TCC)"
+                       (onClick)="onSelectionType($event)"
+                       [(ngModel)]="selectedValue">
 
-        <div class="ui-g-12">
-          <p-radioButton name="naturezaOp" value="Doutorado" label="Doutorado – Sigla do Programa/Instituição"
-                         [(ngModel)]="selectedValue" (onClick)="onSelectionType($event)"></p-radioButton>
-        </div>
+        </p-radioButton>
+      </div>
+      <div class="ui-g-12">
+        <p-radioButton name="naturezaOp" value="Mestrado" label="Mestrado- Sigla do Programa/Instituição"
+                       (onClick)="onSelectionType($event)"
+                       [(ngModel)]="selectedValue">
 
-        <div class="row ui-g-10" >
-          <p-radioButton name="naturezaOp" value="Outro" label="Outro" class="ml-3"
-                         [(ngModel)]="selectedValue" inputId=""
-                         (onClick)="onSelectionType($event)">
-          </p-radioButton>
+        </p-radioButton>
+      </div>
 
-          <div *ngIf="selectedValue=='Outro'" class="ml-2">
+      <div class="ui-g-12">
+        <p-radioButton name="naturezaOp" value="Doutorado" label="Doutorado – Sigla do Programa/Instituição"
+                       (onClick)="onSelectionType($event)"
+                       [(ngModel)]="selectedValue">
+        </p-radioButton>
+      </div>
+
+      <div class="row ui-g-10">
+        <p-radioButton name="naturezaOp" value="Outro" label="Outro" class="ml-3"
+                       [(ngModel)]="selectedValue" inputId=""
+                       (onClick)="onSelectionType($event)">
+        </p-radioButton>
+
+        <div *ngIf="selectedValue=='Outro'" class="ml-2">
           <input
             type="text" id="naturezaOperacao" name="naturezaOperacao" class="form-control"
-                        [(ngModel)]="formularioEdit.naturezaOperacao">
-          </div>
+            [(ngModel)]="formularioEdit.naturezaOperacao">
         </div>
       </div>
     </div>
+  </div>
   <div class="row mt-3">
     <div class="col-sm-12">
       <div class="form-group">
-        <label  form="equipamentos">Equipamento</label>
-        <p-dropdown class="ml-2" [options]="equipamentos"  [style]="{'width': '40%'}" optionLabel="nome"
+        <label form="equipamentos"><h5>Equipamento</h5></label>
+        <p-dropdown class="ml-2" [options]="equipamentos" [style]="{'width': '40%'}" optionLabel="nome"
                     [(ngModel)]="equipamentoSelected" (click)="selectModelo()"></p-dropdown>
       </div>
     </div>
-   <input type="text" id="modelo" name="modelo" class="form-control" [(ngModel)]="modeloEdit.metodologia">
+    <input type="text" id="modelo" name="modelo" class="form-control" [(ngModel)]="modeloEdit.metodologia">
 
   </div>
 
-
-  <div class="row">
+  <div class="row mt-3 mb-3 ">
     <button type="button" class="btn btn-danger ml-2" (click)="cancel()">Cancelar</button>
     <button type="button" class="btn btn-success ml-2" (click)="save()">Salvar</button>
   </div>
 </div>
+
+<p-growl [(value)]="msgs"></p-growl>

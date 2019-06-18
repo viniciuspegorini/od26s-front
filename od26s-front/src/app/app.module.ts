@@ -18,6 +18,8 @@ import {
   ConfirmDialogModule,
   DialogModule, DropdownModule, TabViewModule
 } from 'primeng/primeng';
+import {CheckboxModule} from 'primeng/checkbox';
+import {RadioButtonModule} from 'primeng/radiobutton';
 import {TableModule} from 'primeng/table';
 import {fas} from '@fortawesome/free-solid-svg-icons';
 import { LoginComponent } from './login/login.component';
@@ -35,6 +37,8 @@ import {PrecoComponent} from './preco/preco.component';
 import {PrecoService} from './preco/preco.service';
 import { PessoaService } from './pessoa/pessoa.service';
 import { PessoaComponent } from './pessoa/pessoa.component';
+import {FormularioService} from './formulario/formulario.service';
+import {FormularioComponent} from './formulario/formulario.component';
 
 
 @NgModule({
@@ -43,6 +47,7 @@ import { PessoaComponent } from './pessoa/pessoa.component';
     InstituicaoComponent,
     LoginComponent,
     MenuComponent,
+    FormularioComponent,
     CadEquipamentoComponent,
     CadastroModeloComponent,
     PrecoComponent,
@@ -65,7 +70,9 @@ import { PessoaComponent } from './pessoa/pessoa.component';
     AutoCompleteModule,
     TabViewModule,
     CKEditorModule,
-    DropdownModule
+    DropdownModule,
+    RadioButtonModule,
+    CheckboxModule
   ],
   providers: [
     InstituicaoService,
@@ -86,7 +93,8 @@ import { PessoaComponent } from './pessoa/pessoa.component';
     ProgressSpinnerModule,
     ModeloService,
     PrecoService,
-    PessoaService
+    PessoaService,
+    FormularioService
   ],
   bootstrap: [AppComponent]
 })
