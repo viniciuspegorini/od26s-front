@@ -35,6 +35,8 @@ import {ModeloService} from './services/modelo.service';
 import {PrecoComponent} from './preco/preco.component';
 import {PrecoService} from './services/preco.service';
 import { LoginComponent } from './login/login.component';
+import {InputMaskModule} from 'primeng/inputmask';
+
 
 
 @NgModule({
@@ -66,6 +68,7 @@ import { LoginComponent } from './login/login.component';
     CKEditorModule,
     DropdownModule,
     CalendarModule,
+    InputMaskModule
   ],
   providers: [
     ConfirmationService,
