@@ -1,9 +1,9 @@
 import { Formulario } from './formulario'
 
 export class Resultado {
-  id: Number;
-  laudo: String;
-  usuario: String;
+  id: number;
+  laudo: string;
+  usuario: string;
   dtAlteracao: Date;
   arquivo: Array<any>;
   formulario: Formulario;

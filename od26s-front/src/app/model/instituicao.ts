@@ -1,6 +1,6 @@
 export class Instituicao {
-  id: Number;
-  cnpj: String;
-  razaoSocial: String;
-  nomeFantasia: String;
+  id: number;
+  cnpj: string;
+  razaoSocial: string;
+  nomeFantasia: string;
 }

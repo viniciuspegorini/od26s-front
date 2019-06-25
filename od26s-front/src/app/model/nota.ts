@@ -1,10 +1,10 @@
 import { Usuario } from './usuario'
 
 export class Nota {
-  id: Number;
-  valor: Number;
-  numero: String;
-  tipoNota: String;
+  id: number;
+  valor: number;
+  numero: string;
+  tipoNota: string;
   usuario: Usuario;
   dataEmissao: Date;
   anexo: Array<any>;

@@ -4,15 +4,15 @@ import { Amostra } from './amostra'
 import { Usuario } from './usuario'
 
 export class Formulario {
-  id: Number;
+  id: number;
   nota: Nota;
-  status: String;
+  status: string;
   modelo: Modelo;
   amostra: Amostra;
   usuario: Usuario;
-  valor_total: Number;
-  metodologia: String;
-  departamento: String;
-  naturezaOperacao: String;
-  quantidade_ensaios: Number;
+  valor_total: number;
+  metodologia: string;
+  departamento: string;
+  naturezaOperacao: string;
+  quantidade_ensaios: number;
 }

@@ -1,8 +1,8 @@
 import { Usuario } from './usuario'
 
 export class Amostra {
-  id: Number;
+  id: number;
   usuario: Usuario;
-  descricao: String;
+  descricao: string;
   dataRecebimento: Date;
 }

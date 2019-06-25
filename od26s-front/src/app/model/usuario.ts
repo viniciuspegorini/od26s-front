@@ -2,19 +2,19 @@ import { Permissao } from './permissao'
 import { Instituicao } from './instituicao'
 
 export class Usuario {
-  id: Number;
-  rg: String;
-  nome: String;
-  email: String;
-  status: String;
-  cpfCnpj: String;
-  celular: String;
+  id: number;
+  rg: string;
+  nome: string;
+  email: string;
+  status: string;
+  cpfCnpj: string;
+  celular: string;
   dtCriacao: Date;
-  telefone: String;
-  password: String;
-  tipoPessoa: String;
+  telefone: string;
+  password: string;
+  tipoPessoa: string;
   orientador: Usuario;
-  departamento: String;
+  departamento: string;
   instituicao: Instituicao;
   permissao: Array<Permissao>;
 }

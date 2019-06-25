@@ -1,4 +1,4 @@
 export class Permissao {
-  id: Number;
-  nome: String;
+  id: number;
+  nome: string;
 }

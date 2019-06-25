@@ -1,9 +1,9 @@
 import { Preco } from './preco'
 
 export class Modelo {
-  id: Number;
-  nome: String;
+  id: number;
+  nome: string;
   preco: Preco;
-  resultado: String;
-  metodologia: String;
+  resultado: string;
+  metodologia: string;
 }

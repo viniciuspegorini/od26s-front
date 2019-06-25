@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CrudService } from '../generic/crud.service';
 import { Equipamento } from '../model/equipamento';
-import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

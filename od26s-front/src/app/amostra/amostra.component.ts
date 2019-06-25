@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Amostra} from '../model/amostra';
-import {AmostraService} from './amostra.service';
+import {AmostraService} from '../services/amostra.service';
 // import {UsuarioService} from './usuario.service';
 import {ConfirmationService, Message, LazyLoadEvent} from 'primeng/api';
 import {DataTable} from 'primeng/primeng';
