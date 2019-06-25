@@ -34,8 +34,6 @@ import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.compone
 import {ModeloService} from './services/modelo.service';
 import {PrecoComponent} from './preco/preco.component';
 import {PrecoService} from './preco/preco.service';
-import { PessoaService } from './pessoa/pessoa.service';
-import { PessoaComponent } from './pessoa/pessoa.component';
 import { LoginComponent } from './login/login.component';
 
 
@@ -48,7 +46,6 @@ import { LoginComponent } from './login/login.component';
     CadEquipamentoComponent,
     CadastroModeloComponent,
     PrecoComponent,
-    PessoaComponent,
     AmostraComponent
   ],
   imports: [
@@ -87,8 +84,7 @@ import { LoginComponent } from './login/login.component';
     ConfirmDialogModule,
     ProgressSpinnerModule,
     ModeloService,
-    PrecoService,
-    PessoaService
+    PrecoService
   ],
   bootstrap: [AppComponent]
 })

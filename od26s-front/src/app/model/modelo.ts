@@ -1,5 +1,9 @@
+import { Preco } from './preco'
+
 export class Modelo {
-  id: number;
-  metodologia: string;
-  resultado: string;
+  id: Number;
+  nome: String;
+  preco: Preco;
+  resultado: String;
+  metodologia: String;
 }

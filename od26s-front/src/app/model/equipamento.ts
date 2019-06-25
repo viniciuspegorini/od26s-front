@@ -1,4 +1,4 @@
 export class Equipamento {
-  id: number;
-  nome: string;
+  id: Number;
+  nome: String;
 }

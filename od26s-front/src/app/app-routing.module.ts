@@ -6,7 +6,6 @@ import {InstituicaoComponent} from './instituicao/instituicao.component';
 import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.component';
 import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.component';
 import {PrecoComponent} from './preco/preco.component';
-import { PessoaComponent } from './pessoa/pessoa.component';
 import {AmostraComponent} from './amostra/amostra.component';
 
 const routes: Routes = [
@@ -18,7 +17,6 @@ const routes: Routes = [
       {path: 'equipamento', component: CadEquipamentoComponent},
       {path: 'modelo', component: CadastroModeloComponent},
       {path: 'preco', component: PrecoComponent},
-      {path: 'pessoa', component: PessoaComponent},
       {path: 'amostra', component: AmostraComponent},
     ]
   },

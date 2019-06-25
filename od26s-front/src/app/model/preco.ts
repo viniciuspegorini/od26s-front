@@ -1,9 +1,9 @@
-import {Equipamento} from './equipamento';
+import { Equipamento } from './equipamento'
 
 export class Preco {
-  id: number;
-  tipo_pessoa: string;
-  un_medida: string;
-  valor: number;
+  id: Number;
+  valor: Number;
+  unMedida: String;
+  tipoPessoa: String;
   equipamento: Equipamento;
 }
