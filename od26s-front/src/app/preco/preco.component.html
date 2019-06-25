@@ -1,31 +1,31 @@
-<div class="container-fluid">
+<div class="container-fluid py-5">
   <h3 class="card-header text-center font-weight-bold text-uppercase py-4">CADASTRO DE PRECOS</h3>
-  <button class="btn btn-primary" (click)="newEntity()">Novo</button>
+  <button class="btn btn-primary m-3" (click)="newEntity()">Novo</button>
   <p-table #dt [value]="precos" [rows]="5"
            [rowsPerPageOptions]="[5,10,20]">
     <ng-template pTemplate="header">
       <tr>
-        <th>ID</th>
-        <th>CNPJ</th>
-        <th>Nome Fantasia</th>
-        <th>Razão Social</th>
-        <th>Equipamento</th>
-        <th>Ações</th>
+        <th class="text-center">ID</th>
+        <th class="text-center">CNPJ</th>
+        <th class="text-center">Nome Fantasia</th>
+        <th class="text-center">Razão Social</th>
+        <th class="text-center">Equipamento</th>
+        <th class="text-center">Ações</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-preco>
       <tr>
-        <td>{{preco.id}}</td>
-        <td>{{preco.tipoPessoa}}</td>
-        <td>{{preco.unMedida}}</td>
-        <td>{{preco.valor}}</td>
-        <td>{{preco.equipamento.nome}}</td>
-        <td class="acoes">
-          <button type="button" class="btn btn-dark" (click)="edit(preco)">
+        <td class="text-center">{{preco.id}}</td>
+        <td class="text-center">{{preco.tipoPessoa}}</td>
+        <td class="text-center">{{preco.unMedida}}</td>
+        <td class="text-center">{{preco.valor}}</td>
+        <td class="text-center">{{preco.equipamento.nome}}</td>
+        <td class="text-center">
+          <button type="button" class="btn btn-dark m-2" (click)="edit(preco)">
             <i class="fa fa-edit"></i>
           </button>
 
-          <button type="button" class="btn btn-danger" (click)="delete(preco)">
+          <button type="button" class="btn btn-danger m-2" (click)="delete(preco)">
             <i class="fa fa-trash"></i>
           </button>
         </td>

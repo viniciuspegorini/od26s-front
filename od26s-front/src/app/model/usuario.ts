@@ -1,5 +1,5 @@
-import { Permissao } from './permissao'
-import { Instituicao } from './instituicao'
+import { Permissao } from './permissao';
+import { Instituicao } from './instituicao';
 
 export class Usuario {
   id: number;

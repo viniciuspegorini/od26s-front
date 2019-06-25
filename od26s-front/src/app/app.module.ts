@@ -38,6 +38,7 @@ import { LoginComponent } from './login/login.component';
 import {InputMaskModule} from 'primeng/inputmask';
 import { PermissaoService } from './services/permissao.service';
 import { PermissaoComponent } from './permissao/permissao.component';
+import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 
 
 
@@ -51,7 +52,8 @@ import { PermissaoComponent } from './permissao/permissao.component';
     CadastroModeloComponent,
     PrecoComponent,
     AmostraComponent,
-    PermissaoComponent
+    PermissaoComponent,
+    RegistroUsuarioComponent
   ],
   imports: [
     BrowserModule,

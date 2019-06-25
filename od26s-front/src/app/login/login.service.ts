@@ -46,6 +46,7 @@ export class LoginService implements CanActivate {
     Object.keys(new AccessToken()).forEach(key => localStorage.removeItem(key));
     this.isAuthenticated.next(false);
     this.userInfo = null;
+    window.localStorage.clear();
     this.router.navigate(['/login']);
   }
 

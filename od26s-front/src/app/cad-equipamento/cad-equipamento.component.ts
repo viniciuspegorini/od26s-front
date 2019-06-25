@@ -12,7 +12,7 @@ export class CadEquipamentoComponent implements OnInit {
 
   equipamentoEdit: Equipamento;
   equipamentos: Array<Equipamento>;
-
+  totalRecords: number;
   msgs: Array<Message>;
   showDialog = false;
 

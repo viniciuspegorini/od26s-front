@@ -8,6 +8,7 @@ import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.compone
 import {PrecoComponent} from './preco/preco.component';
 import {AmostraComponent} from './amostra/amostra.component';
 import { PermissaoComponent } from './permissao/permissao.component';
+import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -22,7 +23,8 @@ const routes: Routes = [
       {path: 'permissao', component: PermissaoComponent}
     ]
   },
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'registro', component: RegistroUsuarioComponent}
 ];
 
 @NgModule({
@@ -30,5 +32,4 @@ const routes: Routes = [
   declarations: [],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

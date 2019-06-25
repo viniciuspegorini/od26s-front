@@ -1,25 +1,25 @@
-<div class="container">
-  <h1 class="d-flex">Cadastro de Permissões</h1>
-  <button class="btn btn-primary" (click)="newEntity()">Novo</button>
-
+<div class="container-fluid py-5">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Cadastro de Permissões</h3>
+  <button class="btn btn-primary m-3" (click)="newEntity()">Novo</button>
   <p-table #dt [value]="permissoes" [paginator]="true" [rows]="6"
            [rowsPerPageOptions]="[5,10,20]"
            [lazy]="true" [totalRecords]="totalRecords">
     <ng-template pTemplate="header">
       <tr>
-        <th>Código</th>
-        <th>Permissão</th>
+        <th class="text-center">Código</th>
+        <th class="text-center">Permissão</th>
+        <th class="text-center">Ações</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-permissao>
       <tr>
-        <td>{{permissao.id}}</td>
-        <td>{{permissao.nome}}</td>
-        <td>
-          <button type="button" class="btn btn-dark" (click)="openDialog(permissao)">
+        <td class="text-center">{{permissao.id}}</td>
+        <td class="text-center">{{permissao.nome}}</td>
+        <td class="text-center">
+          <button type="button" class="btn btn-dark m-2" (click)="openDialog(permissao)">
             <i class="fa fa-edit"></i></button>
 
-          <button type="button" class="btn btn-danger" (click)="delete(permissao)">
+          <button type="button" class="btn btn-danger m-2" (click)="delete(permissao)">
             <i class="fa fa-trash"></i></button>
         </td>
       </tr>
