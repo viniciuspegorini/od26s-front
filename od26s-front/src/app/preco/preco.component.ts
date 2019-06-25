@@ -1,10 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Preco} from '../model/preco';
-import {PrecoService} from './preco.service';
-
+import {PrecoService} from '../services/preco.service';
 import {ConfirmationService, Message} from 'primeng/api';
 import {DataTable} from 'primeng/primeng';
-
 import {Equipamento} from '../model/equipamento';
 import {EquipamentoService} from '../cad-equipamento/equipamento.service';
 
@@ -22,8 +20,6 @@ export class PrecoComponent implements OnInit {
   msgs: Message[] = [];
   equipamento: Equipamento[];
 
-
-
   @ViewChild('dt') dataTable: DataTable;
 
   constructor(private precoService: PrecoService,
@@ -32,12 +28,15 @@ export class PrecoComponent implements OnInit {
 
   ngOnInit() {
     this.findAll();
-
+    this.findAllEquipamentos();
   }
 
 
   findAll() {
     this.precoService.findAll().subscribe(e => this.precos = e);
+  }
+
+  findAllEquipamentos() {
     this.equipamentoService.findAll().subscribe(e => this.equipamento = e);
   }
 
@@ -45,7 +44,6 @@ export class PrecoComponent implements OnInit {
     this.precoEdit = new Preco();
     this.showDialog = true;
     this.precoEdit.equipamento = this.equipamento[0];
-
   }
 
   cancel() {

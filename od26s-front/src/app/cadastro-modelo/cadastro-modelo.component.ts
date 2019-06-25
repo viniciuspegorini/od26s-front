@@ -5,7 +5,7 @@ import {ConfirmationService, Message} from 'primeng/api';
 import {DataTable} from 'primeng/primeng';
 import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
 import { Preco } from '../model/preco';
-import { PrecoService } from '../preco/preco.service';
+import { PrecoService } from '../services/preco.service';
 
 @Component({
   selector: 'app-cadastro-modelo',

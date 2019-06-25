@@ -16,8 +16,8 @@
     <ng-template pTemplate="body" let-preco>
       <tr>
         <td>{{preco.id}}</td>
-        <td>{{preco.tipo_pessoa}}</td>
-        <td>{{preco.un_medida}}</td>
+        <td>{{preco.tipoPessoa}}</td>
+        <td>{{preco.unMedida}}</td>
         <td>{{preco.valor}}</td>
         <td>{{preco.equipamento.nome}}</td>
         <td class="acoes">
@@ -46,12 +46,12 @@
       <div class="ui-g-12 ui-fluid">
         <label for="tipo_pesssoa">Tipo de Pessoa</label>
         <input type="text" id="tipo_pessoa" name="tipo_pessoa" class="form-control" required
-               [(ngModel)]="precoEdit.tipo_pessoa">
+               [(ngModel)]="precoEdit.tipoPessoa">
       </div>
       <div class="ui-g-12 ui-fluid">
         <label for="un_medida">Unidade de Medida</label>
         <input type="text" id="un_medida" name="un_medida" class="form-control" required
-               [(ngModel)]="precoEdit.un_medida">
+               [(ngModel)]="precoEdit.unMedida">
       </div>
       <div class="ui-g-12 ui-fluid">
         <label for="valor">Valor</label>
@@ -63,7 +63,12 @@
     <div>
       <div class="ui-g-12 ui-fluid">
         <label for="equipamento">Equipamento</label>
-        <p-dropdown [style]="{'width':'100%'}" [options]="equipamento" [(ngModel)]="precoEdit.genero" optionLabel="nome"></p-dropdown>
+        <p-dropdown 
+          [style]="{'width':'100%'}" 
+          [options]="equipamento" 
+          [(ngModel)]="precoEdit.equipamento" 
+          optionLabel="nome"
+        ></p-dropdown>
       </div>
     </div>
   </div>
