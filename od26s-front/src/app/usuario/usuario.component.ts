@@ -1,5 +1,4 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Pessoa} from '../model/pessoa';
 import {ConfirmationService, LazyLoadEvent, Message, SelectItem} from 'primeng/api';
 import {Usuario} from '../model/usuario';
 import {Instituicao} from '../model/instituicao';

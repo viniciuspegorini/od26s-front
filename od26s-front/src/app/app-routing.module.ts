@@ -8,6 +8,7 @@ import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.compone
 import {PrecoComponent} from './preco/preco.component';
 import {AmostraComponent} from './amostra/amostra.component';
 import { PermissaoComponent } from './permissao/permissao.component';
+import {FormularioComponent} from "./formulario/formulario.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -19,7 +20,8 @@ const routes: Routes = [
       {path: 'modelo', component: CadastroModeloComponent},
       {path: 'preco', component: PrecoComponent},
       {path: 'amostra', component: AmostraComponent},
-      {path: 'permissao', component: PermissaoComponent}
+      {path: 'permissao', component: PermissaoComponent},
+      {path: 'formulario', component: FormularioComponent}
     ]
   },
   {path: 'login', component: LoginComponent}

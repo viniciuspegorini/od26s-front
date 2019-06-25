@@ -25,8 +25,6 @@ export class CadastroModeloComponent implements OnInit {
   showDialog = false;
   msgs: Message[] = [];
 
-  public componentEvents: string[] = [];
-
   constructor(private modeloService: ModeloService,
               private precoService: PrecoService,
               private confirmationService: ConfirmationService) {

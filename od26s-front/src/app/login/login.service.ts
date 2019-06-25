@@ -58,10 +58,10 @@ export class LoginService implements CanActivate {
 
     const headers = new HttpHeaders({
       'Content-type': 'application/x-www-form-urlencoded',
-      'Authorization': 'Basic ' + btoa(`app:utfpr`)
+      Authorization: 'Basic ' + btoa(`app:utfpr`)
     });
 
-    return this.http.post<AccessToken>(`${environment.api}/oauth/token`, params.toString(), { headers: headers })
+    return this.http.post<AccessToken>(`${environment.api}/oauth/token`, params.toString(), { headers })
       .pipe(
         map(e => {
           Object.keys(e).forEach(key => localStorage.setItem(key, e[key]));
