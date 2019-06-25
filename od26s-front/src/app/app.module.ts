@@ -3,10 +3,8 @@ import {NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import { library } from '@fortawesome/fontawesome-svg-core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {InstituicaoComponent} from './instituicao/instituicao.component';
-import {InstituicaoService} from './services/instituicao.service';
 import {FormsModule} from '@angular/forms';
 import {
   AccordionModule,
@@ -16,7 +14,7 @@ import {
   DropdownModule,
   GrowlModule,
   TabViewModule,
-  ConfirmationService
+  ConfirmationService, RadioButtonModule
 } from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
 import {CalendarModule} from 'primeng/calendar';
@@ -39,6 +37,7 @@ import {InputMaskModule} from 'primeng/inputmask';
 import { PermissaoService } from './services/permissao.service';
 import { PermissaoComponent } from './permissao/permissao.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
+import {FormularioComponent} from './formulario/formulario.component';
 
 
 
@@ -53,7 +52,8 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
     PrecoComponent,
     AmostraComponent,
     PermissaoComponent,
-    RegistroUsuarioComponent
+    RegistroUsuarioComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +73,8 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
     CKEditorModule,
     DropdownModule,
     CalendarModule,
-    InputMaskModule
+    InputMaskModule,
+    RadioButtonModule
   ],
   providers: [
     ConfirmationService,
