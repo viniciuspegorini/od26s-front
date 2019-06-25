@@ -1,35 +1,36 @@
   <div class="container-fluid py-5">
     <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Cadastro de Equipamentos</h3>
-  <div class="ui-g">
-    <div class="ui-g-12">
-      <button class="btn btn-primary" (click)="openDialog()">Novo</button>
-    </div>
 
-    <div class="ui-g-12">
-      <p-table [value]="equipamentos">
+    <button class="btn btn-primary m-3" (click)="openDialog()">Novo</button>
+
+    <p-table #dt [value]="equipamentos" [paginator]="true" [rows]="5"
+             [rowsPerPageOptions]="[5,10,20]"
+             [lazy]="true" [totalRecords]="totalRecords"
+             (onLazyLoad)="lazyLoad($event)">>
+
         <ng-template pTemplate="header">
           <tr>
-            <th>Código</th>
-            <th>Nome</th>
-            <th>Ações</th>
+            <th class="text-center">Código</th>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Ações</th>
           </tr>
         </ng-template>
 
         <ng-template pTemplate="body" let-equipamento>
           <tr>
-            <td>{{equipamento.id}}</td>
-            <td>{{equipamento.nome}}</td>
+            <td class="text-center">{{equipamento.id}}</td>
+            <td class="text-center">{{equipamento.nome}}</td>
             <td>
               <button
                 type="button"
-                class="btn btn-dark mr-1"
+                class="btn btn-dark m-2"
                 (click)="openDialog(equipamento)"
               >
                 <i class="fa fa-edit"></i>
               </button>
               <button
                 type="button"
-                class="btn btn-danger"
+                class="btn btn-danger m-2"
                 (click)="delete(equipamento.id)"
               >
                 <i class="fa fa-trash"></i>
@@ -39,8 +40,6 @@
         </ng-template>
       </p-table>
     </div>
-  </div>
-</div>
 
 <p-dialog
   modal="modal"

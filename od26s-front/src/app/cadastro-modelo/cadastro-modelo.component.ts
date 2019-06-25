@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ModeloService} from '../services/modelo.service';
 import {Modelo} from '../model/modelo';
-import {ConfirmationService, Message} from 'primeng/api';
+import {ConfirmationService, LazyLoadEvent, Message} from 'primeng/api';
 import {DataTable} from 'primeng/primeng';
 import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
 import { Preco } from '../model/preco';
@@ -21,13 +21,33 @@ export class CadastroModeloComponent implements OnInit {
   modelos: Modelo[];
   precos: Preco[];
   modeloEdit = new Modelo();
-
+  totalRecords: number;
+  maxRecords = 10;
+  currentPage = 1;
   showDialog = false;
   msgs: Message[] = [];
 
   constructor(private modeloService: ModeloService,
               private precoService: PrecoService,
               private confirmationService: ConfirmationService) {
+  }
+
+  lazyLoad(event: LazyLoadEvent) {
+    const pageNumber = event.first / event.rows;
+    this.currentPage = pageNumber;
+
+    this.maxRecords = event.rows;
+
+    setTimeout( () => {
+      this.findAllPaged(this.currentPage, this.maxRecords);
+    }, 250);
+  }
+
+  findAllPaged(page: number, size: number) {
+    this.modeloService.findPageable(page, size).subscribe(e => {
+      this.modelos = e.content;
+      this.totalRecords = e.totalElements;
+    });
   }
 
   ngOnInit() {
