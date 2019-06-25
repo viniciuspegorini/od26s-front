@@ -37,8 +37,9 @@ import {PrecoComponent} from './preco/preco.component';
 import {PrecoService} from './preco/preco.service';
 import { PessoaService } from './pessoa/pessoa.service';
 import { PessoaComponent } from './pessoa/pessoa.component';
-import {FormularioService} from './formulario/formulario.service';
-import {FormularioComponent} from './formulario/formulario.component';
+// import {FormularioService} from './formulario/formulario.service';
+// import {FormularioComponent} from './formulario/formulario.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 
 @NgModule({
@@ -47,11 +48,12 @@ import {FormularioComponent} from './formulario/formulario.component';
     InstituicaoComponent,
     LoginComponent,
     MenuComponent,
-    FormularioComponent,
+   // FormularioComponent,
     CadEquipamentoComponent,
     CadastroModeloComponent,
     PrecoComponent,
-    PessoaComponent
+    PessoaComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +96,7 @@ import {FormularioComponent} from './formulario/formulario.component';
     ModeloService,
     PrecoService,
     PessoaService,
-    FormularioService
+   // FormularioService
   ],
   bootstrap: [AppComponent]
 })

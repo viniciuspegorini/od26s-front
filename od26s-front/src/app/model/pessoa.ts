@@ -12,7 +12,10 @@ Pessoa {
     tipoPessoa: string;
     departamento: string;
     status: string;
-    usuario: Usuario;
+    email: string;
+    senha: string;
+    dtCricao: string;
+    saldo: number;
     instituicao: Instituicao;
     pessoa: Pessoa;
 }

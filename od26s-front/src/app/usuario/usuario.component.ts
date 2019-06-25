@@ -1,33 +1,28 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Pessoa} from '../model/pessoa';
 import {ConfirmationService, LazyLoadEvent, Message, SelectItem} from 'primeng/api';
-import {PessoaService} from './pessoa.service';
 import {Usuario} from '../model/usuario';
 import {Instituicao} from '../model/instituicao';
 import {DataTable} from 'primeng/components/datatable/datatable';
 import {InstituicaoService} from '../services/instituicao.service';
+import {UsuarioService} from './usuario.service';
 
 @Component({
-  selector: 'app-pessoa',
-  templateUrl: './pessoa.component.html',
-  styleUrls: ['./pessoa.component.css']
+  selector: 'app-usuario',
+  templateUrl: './usuario.component.html',
+  styleUrls: ['./usuario.component.css']
 })
-
-
-export class PessoaComponent implements OnInit {
+export class UsuarioComponent implements OnInit {
 
   @ViewChild('dt') dataTable: DataTable;
 
   show = true;
   totalRecords = 10;
-  pessoas: Pessoa[];
-  pessoaEdit: Pessoa;
+  usuarios: Usuario[];
+  usuarioEdit: Usuario;
   showDialog = false;
-
   msgs: Message[] = [];
   instituicoes: Instituicao[];
-  usuarios: Usuario[];
-
   tipoPessoa: any;
   status: any;
   tipoPessoa1: any[];
@@ -35,7 +30,7 @@ export class PessoaComponent implements OnInit {
   tipoPess: string;
   tipoStatus: string;
 
-  constructor(private pessoaService: PessoaService, private confirmationService: ConfirmationService,
+  constructor(private usuarioService: UsuarioService, private confirmationService: ConfirmationService,
               private instituicaoService: InstituicaoService
   ) {
     this.status1 = [
@@ -52,7 +47,7 @@ export class PessoaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pessoaEdit = new Pessoa();
+    this.usuarioEdit = new Usuario();
     this.carregarCombos();
     this.findAll();
   }
@@ -60,18 +55,16 @@ export class PessoaComponent implements OnInit {
   carregarCombos() {
     this.instituicaoService.findAll().subscribe(e => {
       this.instituicoes = e;
-
     });
   }
 
   findAll() {
-    this.pessoaService.findAll().subscribe(e => this.pessoas = e);
+    this.usuarioService.findAll().subscribe(e => this.usuarios = e);
   }
 
   save() {
-    this.pessoaService.save(this.pessoaEdit).subscribe(e => {
-        this.pessoaEdit = new Pessoa();
-        //  this.pessoaEdit.status = this.status.value;
+    this.usuarioService.save(this.usuarioEdit).subscribe(e => {
+        this.usuarioEdit = new Usuario();
         this.dataTable.reset();
         this.findAll();
         this.showDialog = false;
@@ -82,7 +75,7 @@ export class PessoaComponent implements OnInit {
       },
       error => {
         this.msgs = [{severity: 'error', summary: 'Erro', detail: 'Falha ao salvar  registro!'}];
-        console.log(this.pessoaEdit);
+        console.log(this.usuarioEdit);
       }
     );
 
@@ -90,30 +83,30 @@ export class PessoaComponent implements OnInit {
 
   newEntity() {
     this.showDialog = true;
-    this.pessoaEdit = new Pessoa();
-    this.pessoaEdit.tipoPessoa = this.tipoPessoa1[0].value;
-    this.pessoaEdit.status = this.status1[0].value;
-    this.pessoaEdit.instituicao = this.instituicoes[0];
+    this.usuarioEdit = new Usuario();
+    this.usuarioEdit.tipoPessoa = this.tipoPessoa1[0].value;
+    this.usuarioEdit.status = this.status1[0].value;
+    this.usuarioEdit.instituicao = this.instituicoes[0];
   }
 
-  edit(pessoa: Pessoa) {
-    this.pessoaEdit = Object.assign({}, pessoa);
+  edit(usuario: Usuario) {
+    this.usuarioEdit = Object.assign({}, usuario);
     this.showDialog = true;
   }
 
   cancel() {
     this.showDialog = false;
-    this.pessoaEdit = new Pessoa();
+    this.usuarioEdit = new Usuario();
   }
 
-  delete(pessoa: Pessoa) {
+  delete(usuario: Usuario) {
     this.confirmationService.confirm({
       message: 'Esta ação não poderá ser desfeita',
       header: 'Deseja remover o registro?',
       acceptLabel: 'Confirmar',
       rejectLabel: 'Cancelar',
       accept: () => {
-        this.pessoaService.delete(pessoa.id).subscribe(() => {
+        this.usuarioService.delete(usuario.id).subscribe(() => {
           this.msgs = [{
             severity: 'success', summary: 'Confirmado',
             detail: 'Registro removido com sucesso!'
@@ -132,18 +125,18 @@ export class PessoaComponent implements OnInit {
   onSelectionType(event) {
     if (event) {
       this.tipoPess = event;
-      this.pessoaEdit.tipoPessoa = this.tipoPess;
+      this.usuarioEdit.tipoPessoa = this.tipoPess;
     } else {
-      this.pessoaEdit.tipoPessoa = '';
+      this.usuarioEdit.tipoPessoa = '';
     }
   }
 
   onSelectionType2(event) {
     if (event) {
       this.tipoStatus = event;
-      this.pessoaEdit.status = this.tipoStatus;
+      this.usuarioEdit.status = this.tipoStatus;
     } else {
-      this.pessoaEdit.status = '';
+      this.usuarioEdit.status = '';
     }
   }
 

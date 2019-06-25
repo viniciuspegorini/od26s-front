@@ -2,7 +2,7 @@
   <h1 class="d-flex">Cadastro de Pessoa</h1>
   <button class="btn btn-primary" (click)="newEntity()">Novo</button>
 
-  <p-table #dt [value]="pessoas" [paginator]="true" [rows]="6"
+  <p-table #dt [value]="usuarios" [paginator]="true" [rows]="6"
            [rowsPerPageOptions]="[5,10,20]">
     <ng-template pTemplate="header">
       <tr>
@@ -15,19 +15,19 @@
         <th>Ações</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-pessoa>
+    <ng-template pTemplate="body" let-usuario>
       <tr>
-        <td>{{pessoa.nome}}</td>
-        <td>{{pessoa.cpfCnpj}}</td>
-        <td>{{pessoa.celular}}</td>
-        <td>{{pessoa.tipoPessoa}}</td>
-        <td>{{pessoa.status}}</td>
-        <td>{{pessoa.saldo}}</td>
+        <td>{{usuario.nome}}</td>
+        <td>{{usuario.cpfCnpj}}</td>
+        <td>{{usuario.celular}}</td>
+        <td>{{usuario.tipoPessoa}}</td>
+        <td>{{usuario.status}}</td>
+        <td>{{usuario.saldo}}</td>
         <td>
-          <button type="button" class="btn btn-dark" (click)="edit(pessoa)">
+          <button type="button" class="btn btn-dark" (click)="edit(usuario)">
             <i class="fa fa-edit"></i></button>
 
-          <button type="button" class="btn btn-danger" (click)="delete(pessoa)">
+          <button type="button" class="btn btn-danger" (click)="delete(usuario)">
             <i class="fa fa-trash"></i></button>
         </td>
       </tr>
@@ -43,7 +43,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" class="form-control" [(ngModel)]="pessoaEdit.nome">
+          <input type="text" id="nome" name="nome" class="form-control" [(ngModel)]="usuarioEdit.nome">
         </div>
       </div>
     </div>
@@ -51,7 +51,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="cpf">Cpf</label>
-          <input type="text" id="cpf" name="cpf" class="form-control" [(ngModel)]="pessoaEdit.cpfCnpj">
+          <input type="text" id="cpf" name="cpf" class="form-control" [(ngModel)]="usuarioEdit.cpfCnpj">
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="rg">Rg</label>
-          <input type="text" id="rg" name="rg" class="form-control" [(ngModel)]="pessoaEdit.rg">
+          <input type="text" id="rg" name="rg" class="form-control" [(ngModel)]="usuarioEdit.rg">
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="telefone">Telefone</label>
-          <input type="text" id="telefone" name="telefone" class="form-control" [(ngModel)]="pessoaEdit.telefone">
+          <input type="text" id="telefone" name="telefone" class="form-control" [(ngModel)]="usuarioEdit.telefone">
         </div>
       </div>
     </div>
@@ -75,7 +75,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="celular">Celular</label>
-          <input type="text" id="celular" name="celular" class="form-control" [(ngModel)]="pessoaEdit.celular">
+          <input type="text" id="celular" name="celular" class="form-control" [(ngModel)]="usuarioEdit.celular">
         </div>
       </div>
     </div>
@@ -89,46 +89,46 @@
         </div>
       </div>
     </div>
-    <div class="row" *ngIf="pessoaEdit.tipoPessoa != 'Externo' ">
+    <div class="row" *ngIf="usuarioEdit.tipoPessoa != 'Externo' ">
       <div class="col-sm-12">
         <div class="form-group">
           <label for="departamento">Departamento</label>
-          <input type="text" id="departamento" name="departamento" class="form-control" [(ngModel)]="pessoaEdit.departamento">
+          <input type="text" id="departamento" name="departamento" class="form-control" [(ngModel)]="usuarioEdit.departamento">
         </div>
       </div>
     </div>
-    <div class="row" *ngIf="pessoaEdit.tipoPessoa != 'Externo'">
+    <div class="row" *ngIf="usuarioEdit.tipoPessoa != 'Externo'">
       <div class="col-sm-12">
         <label form="instituicoes">Instituição</label>
         <div class="form-group">
           <p-dropdown [options]="instituicoes" optionLabel="nomeFantasia"
-                      [(ngModel)]="pessoaEdit.instituicao"></p-dropdown>
+                      [(ngModel)]="usuarioEdit.instituicao"></p-dropdown>
         </div>
       </div>
     </div>
-    <div class="row" *ngIf="pessoaEdit.tipoPessoa != 'Externo' && pessoaEdit.tipoPessoa != 'Orientador'">
+    <div class="row" *ngIf="usuarioEdit.tipoPessoa != 'Externo' && usuarioEdit.tipoPessoa != 'Orientador'">
       <div class="col-sm-12">
         <label form="pessoa">Orientador</label>
         <div class="form-group" >
-          <p-dropdown [options]="pessoas" optionLabel="nome"
-                      [(ngModel)]="pessoaEdit.nome"></p-dropdown>
+          <p-dropdown [options]="usuarios" optionLabel="nome"
+                      [(ngModel)]="usuarioEdit.nome"></p-dropdown>
         </div>
       </div>
     </div>
     <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="status">Status</label>
-            <p-dropdown id="status" [options]="status1" (ngModelChange)="onSelectionType2($event)"
-                        [(ngModel)]="tipoStatus"></p-dropdown>
-          </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="status">Status</label>
+          <p-dropdown id="status" [options]="status1" (ngModelChange)="onSelectionType2($event)"
+                      [(ngModel)]="tipoStatus"></p-dropdown>
         </div>
+      </div>
     </div>
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" class="form-control" [(ngModel)]="pessoaEdit.email">
+          <input type="email" id="email" name="email" class="form-control" [(ngModel)]="usuarioEdit.email">
         </div>
       </div>
     </div>
@@ -136,7 +136,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="senha">Senha</label>
-          <input type="password" id="senha" name="senha" class="form-control" [(ngModel)]="pessoaEdit.senha">
+          <input type="password" id="senha" name="senha" class="form-control" [(ngModel)]="usuarioEdit.password">
         </div>
       </div>
     </div>
@@ -144,7 +144,7 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="saldo">Saldo</label>
-          <input type="text" id="saldo" name="saldo" class="form-control" [(ngModel)]="pessoaEdit.saldo">
+          <input type="text" id="saldo" name="saldo" class="form-control" [(ngModel)]="usuarioEdit.saldo">
         </div>
       </div>
     </div>
