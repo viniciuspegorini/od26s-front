@@ -1,19 +1,18 @@
-
-import {Modelo} from './modelo';
-import {Pessoa} from './pessoa';
-import {Nota} from './nota';
-import {Amostra} from './amostra';
+import { Nota } from './nota'
+import { Modelo } from './modelo'
+import { Amostra } from './amostra'
+import { Usuario } from './usuario'
 
 export class Formulario {
   id: number;
-  status: string;
-  metodologia: string;
-  naturezaOperacao: string;
-  amostra: Amostra;
-  modelo: Modelo;
-  pessoa: Pessoa;
   nota: Nota;
-  quantidadeEnsaios: number;
-  valorTotal: number;
-
+  status: string;
+  modelo: Modelo;
+  amostra: Amostra;
+  usuario: Usuario;
+  valor_total: number;
+  metodologia: string;
+  departamento: string;
+  naturezaOperacao: string;
+  quantidade_ensaios: number;
 }

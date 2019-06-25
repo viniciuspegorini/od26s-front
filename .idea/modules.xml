@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
 <<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/.idea/od26s-front.iml" filepath="$PROJECT_DIR$/.idea/od26s-front.iml" />
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/od26s-front.iml" filepath="$PROJECT_DIR$/.idea/od26s-front.iml" />
@@ -15,6 +18,7 @@
 =======
       <module fileurl="file://$PROJECT_DIR$/.idea/od26s-front.iml" filepath="$PROJECT_DIR$/.idea/od26s-front.iml" />
 >>>>>>> s1-cad-pessoa
+>>>>>>> dev
     </modules>
   </component>
 </project>

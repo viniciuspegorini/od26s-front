@@ -32,6 +32,7 @@
         <div class="form-group">
           <label for="nome">Nome</label>
           <input type="text" id="nome" name="nome" class="form-control" [(ngModel)]="modeloEdit.nome">
+
           <label for="metodologia-editor">Metodologia</label>
           <ckeditor
             [data]="modeloEdit.metodologia"
@@ -40,6 +41,7 @@
             id="metodologia-editor"
             name="metodologia-editor">
           </ckeditor>
+
           <label for="resultado-editor">Resultado</label>
           <ckeditor
             [data]="modeloEdit.resultado"
@@ -48,6 +50,15 @@
             id="resultado-editor"
             name="resultado-editor">
           </ckeditor>
+
+          <label for="selectPreco" class="mt-5">Preço</label>
+          <br>
+          <p-dropdown 
+            id="selectPreco" 
+            [options]="precos" 
+            [(ngModel)]="modeloEdit.preco" 
+            optionLabel="equipamento.nome">
+          </p-dropdown>
         </div>
       </div>
     </div>

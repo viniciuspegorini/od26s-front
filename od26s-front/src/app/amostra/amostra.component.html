@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Cadastro de Amostras</h3>
+  <button class="btn btn-primary m-3" (click)="newEntity()">Novo</button>
+  <p-table #dt [value]="amostras" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,20]" [lazy]="true"
+    [totalRecords]="totalRecords" (onLazyLoad)="lazyLoad($event)">>
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="text-center">Código</th>
+        <th class="text-center">Descrição</th>
+        <th class="text-center">Data de Recebimento</th>
+        <th class="text-center">Usuário</th>
+        <th class="text-center">Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-amostra>
+      <tr>
+        <td class="text-center">{{amostra.id}}</td>
+        <td class="text-center">{{amostra.descricao}}</td>
+        <td class="text-center">{{amostra.dataRecebimento}}</td>
+        <td class="text-center"></td>
+        <td class="text-center">
+          <button type="button" class="btn btn-dark m-2" (click)="edit(amostra)">
+            <i class="fa fa-edit"></i>
+          </button>
+
+          <button type="button" class="btn btn-danger m-2" (click)="delete(amostra)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-growl [(value)]="msgs"></p-growl>
+<p-confirmDialog></p-confirmDialog>
+<p-growl [(value)]="msgs"></p-growl>
+
+<p-dialog header="Cadastro de Amostras" [(visible)]="showDialog" modal="modal" [responsive]="true" [width]="800"
+  [contentStyle]="{'min-height':'400px'}">
+  <p-tabView>
+    <p-tabPanel header="Cadastro">
+      <div class="row">
+        <div class="ui-g-12 ui-fluid">
+          <div class="ui-g-12 ui-fluid">
+            <label for="descricao">Descrição</label>
+            <input type="text" id="descricao" name="descricao" class="form-control" required
+              [(ngModel)]="amostraEdit.descricao">
+          </div>
+          <div class="ui-g-12 ui-fluid">
+            <label for="data_recebimento">Data Recebimento</label><br />
+            <p-calendar [locale]="br" id="data_recebimento" 
+              [style]="{'width':'50%'}" [inputStyle]="{'width':'100%'}"
+              dateFormat="dd/mm/yy" dataType="string" [(ngModel)]="amostraEdit.dataRecebimento"></p-calendar>
+          </div>
+        </div>
+
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+  <p-footer>
+    <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
+    <button type="button" class="btn btn-success" (click)="save()">Salvar</button>
+  </p-footer>
+</p-dialog>

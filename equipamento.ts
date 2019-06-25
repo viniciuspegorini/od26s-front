@@ -1,4 +1,4 @@
-export class Permissao {
+export class Equipamento {
   id: number;
   nome: string;
 }

@@ -6,9 +6,8 @@ import {InstituicaoComponent} from './instituicao/instituicao.component';
 import {CadEquipamentoComponent} from './cad-equipamento/cad-equipamento.component';
 import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.component';
 import {PrecoComponent} from './preco/preco.component';
-import { PessoaComponent } from './pessoa/pessoa.component';
-import {UsuarioComponent} from './usuario/usuario.component';
-// import { FormularioComponent } from './formulario/formulario.component';
+import {AmostraComponent} from './amostra/amostra.component';
+import { PermissaoComponent } from './permissao/permissao.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -18,9 +17,9 @@ const routes: Routes = [
       {path: 'instituicao', component: InstituicaoComponent},
       {path: 'equipamento', component: CadEquipamentoComponent},
       {path: 'modelo', component: CadastroModeloComponent},
-      // {path: 'formulario', component: FormularioComponent},
       {path: 'preco', component: PrecoComponent},
-      {path: 'usuario', component: UsuarioComponent}
+      {path: 'amostra', component: AmostraComponent},
+      {path: 'permissao', component: PermissaoComponent}
     ]
   },
   {path: 'login', component: LoginComponent}

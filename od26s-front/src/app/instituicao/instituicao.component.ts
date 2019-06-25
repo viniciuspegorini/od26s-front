@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Instituicao} from '../model/instituicao';
-import {InstituicaoService} from './instituicao.service';
+import {InstituicaoService} from '../services/instituicao.service';
 import {ConfirmationService, Message, LazyLoadEvent} from 'primeng/api';
 import {DataTable} from 'primeng/primeng';
 

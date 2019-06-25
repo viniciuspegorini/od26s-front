@@ -1,20 +1,20 @@
-import { Instituicao } from './instituicao';
+import { Permissao } from './permissao'
+import { Instituicao } from './instituicao'
 
-export class
-Usuario {
+export class Usuario {
   id: number;
-  nome: string;
-  cpfCnpj: string;
   rg: string;
-  telefone: string;
-  celular: string;
-  tipoPessoa: string;
-  departamento: string;
-  status: string;
+  nome: string;
   email: string;
-  senha: string;
-  dtCricao: string;
-  saldo: number;
+  status: string;
+  cpfCnpj: string;
+  celular: string;
+  dtCriacao: Date;
+  telefone: string;
+  password: string;
+  tipoPessoa: string;
+  orientador: Usuario;
+  departamento: string;
   instituicao: Instituicao;
-  idOrientador: Usuario;
+  permissao: Array<Permissao>;
 }

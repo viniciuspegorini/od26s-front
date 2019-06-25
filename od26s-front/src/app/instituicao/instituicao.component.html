@@ -22,11 +22,11 @@
         <td class="text-center">{{instituicao.razaoSocial}}</td>
         <td class="text-center">
           <button type="button" class="btn btn-dark m-2" (click)="edit(instituicao)">
-            <fa-icon [icon]="['fas','edit']"></fa-icon>
+            <i class="fa fa-edit"></i>
           </button>
 
           <button type="button" class="btn btn-danger m-2" (click)="delete(instituicao)">
-            <fa-icon [icon]="['fas','trash']"></fa-icon>
+            <i class="fa fa-trash"></i>
           </button>
         </td>
       </tr>
@@ -55,8 +55,8 @@
       </div>
       <div class="form-group">
         <label for="cnpj">CNPJ</label>
-        <input type="text" ng-model="number" id="cnpj" class="form-control" required
-               [(ngModel)]="instituicaoEdit.cnpj">
+        <br>
+        <p-inputMask [(ngModel)]="instituicaoEdit.cnpj" mask="99.999.999/9999-99"></p-inputMask>
       </div>
     </div>
   </div>

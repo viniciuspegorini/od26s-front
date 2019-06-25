@@ -2,17 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
 <<<<<<< HEAD
+    <list default="true" id="d8d59d32-55db-4e10-aaae-405b9f8dcb91" name="Default Changelist" comment="">
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
     <list default="true" id="b8ae4534-78c7-4de1-a87d-23b08cfd865c" name="Default Changelist" comment="cadastro instituição com tela de login">
       <change afterPath="$PROJECT_DIR$/od26s-front/src/app/menu/menu.component.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/od26s-front/src/app/menu/menu.component.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/od26s-front/src/app/menu/menu.component.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/od26s-front/src/app/menu/menu.component.ts" afterDir="false" />
+>>>>>>> dev
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/app.module.ts" afterDir="false" />
+<<<<<<< HEAD
+=======
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/http-client.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/http-client.interceptor.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/login/access.token.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/login/access.token.ts" afterDir="false" />
@@ -40,13 +46,17 @@
       <change beforePath="$PROJECT_DIR$/od26s-front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/app.module.ts" afterDir="false" />
+>>>>>>> dev
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/preco/preco.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/preco/preco.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/preco/preco.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/preco/preco.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/services/preco.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/preco/preco.service.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/od26s-front/src/app/services/preco.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/od26s-front/src/app/preco/preco.service.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/od26s-front/node_modules/" />
+<<<<<<< HEAD
+=======
 >>>>>>> s1-cad-preco
+>>>>>>> dev
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,18 +155,24 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-418">
               <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+<<<<<<< HEAD
+=======
 >>>>>>> s1-cad-preco
+>>>>>>> dev
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/od26s-front/src/app/login/login.service.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="612">
               <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
 =======
+>>>>>>> dev
         <entry file="file://$PROJECT_DIR$/od26s-front/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="262">
@@ -203,17 +219,22 @@
 >>>>>>> s1-cad-pessoa
             </state>
           </provider>
+<<<<<<< HEAD
+=======
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/od26s-front/src/app/pessoa/pessoa.component.css">
           <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> dev
         </entry>
       </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
       <find>cliente</find>
@@ -240,12 +261,15 @@
     </option>
 <<<<<<< HEAD
 =======
+>>>>>>> dev
       <find>novo</find>
       <find>nome</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+<<<<<<< HEAD
+=======
 >>>>>>> s1-cad-preco
 =======
     <favorite-branches>
@@ -282,10 +306,13 @@
       </branch-storage>
     </excluded-from-favorite>
 >>>>>>> s1-cad-pessoa
+>>>>>>> dev
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
         <option value="$PROJECT_DIR$/od26s-front/src/app/model/instituicao/instituicao.component.html" />
@@ -338,6 +365,7 @@
     <option name="width" value="1382" />
     <option name="height" value="744" />
 =======
+>>>>>>> dev
         <option value="$PROJECT_DIR$/od26s-front/src/environments/environment.ts" />
         <option value="$PROJECT_DIR$/od26s-front/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/od26s-front/src/app/model/preco.ts" />
@@ -363,6 +391,8 @@
     <option name="y" value="20" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
+<<<<<<< HEAD
+=======
 >>>>>>> s1-cad-preco
 =======
     <option name="x" value="10" />
@@ -370,6 +400,7 @@
     <option name="width" value="1346" />
     <option name="height" value="688" />
 >>>>>>> s1-cad-pessoa
+>>>>>>> dev
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -380,7 +411,10 @@
 =======
       <pane id="Scope" />
       <pane id="PackagesPane" />
+<<<<<<< HEAD
+=======
 >>>>>>> s1-cad-preco
+>>>>>>> dev
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -458,6 +492,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
+=======
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
@@ -486,6 +522,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+>>>>>>> dev
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559086454435" />
@@ -500,7 +537,10 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Tainan\Documents\quimica\od26s-front\od26s-front\src\app\preco" />
+<<<<<<< HEAD
+=======
 >>>>>>> s1-cad-preco
+>>>>>>> dev
     </key>
 =======
     <property name="ts.external.directory.path" value="C:\Users\user\Documents\Topicos Avancados Em Programacao Para Web\od26s-front\od26s-front\node_modules\typescript\lib" />
@@ -528,6 +568,8 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
       <changelist id="b8ae4534-78c7-4de1-a87d-23b08cfd865c" name="Default Changelist" comment="" />
@@ -646,6 +688,7 @@
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3298791" />
 =======
+>>>>>>> dev
       <changelist id="d8d59d32-55db-4e10-aaae-405b9f8dcb91" name="Default Changelist" comment="" />
       <created>1558652931212</created>
       <option name="number" value="Default" />
@@ -675,11 +718,16 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
+<<<<<<< HEAD
+=======
 >>>>>>> s1-cad-preco
+>>>>>>> dev
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
@@ -691,6 +739,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
 =======
+>>>>>>> dev
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49946696" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
@@ -758,6 +807,8 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
     </layout-to-restore>
+<<<<<<< HEAD
+=======
 >>>>>>> s1-cad-preco
 =======
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
@@ -780,10 +831,13 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout-to-restore>
 >>>>>>> s1-cad-pessoa
+>>>>>>> dev
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
   <component name="VcsManagerConfiguration">
@@ -943,6 +997,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/instituicao/instituicao.service.spec.ts">
 =======
+>>>>>>> dev
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
       <list>
@@ -1021,6 +1076,8 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/od26s-front/src/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1049,12 +1106,19 @@
 <<<<<<< HEAD
             <element signature="e#0#73#0" expanded="true" />
 =======
+>>>>>>> dev
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/services/equipamento.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
+<<<<<<< HEAD
+          </folding>
+        </state>
+      </provider>
+    </entry>
+=======
 >>>>>>> s1-cad-preco
 =======
             <element signature="e#0#61#0" expanded="true" />
@@ -1092,6 +1156,7 @@
           <folding>
             <element signature="e#0#55#0" expanded="true" />
 =======
+>>>>>>> dev
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/model/equipamento.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1108,6 +1173,12 @@
           <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+<<<<<<< HEAD
+          </folding>
+        </state>
+      </provider>
+    </entry>
+=======
 >>>>>>> s1-cad-preco
           </folding>
         </state>
@@ -1193,6 +1264,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> dev
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -1236,6 +1308,8 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/menu/menu.component.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -1296,6 +1370,7 @@
           <folding>
             <element signature="e#0#48#0" expanded="true" />
 =======
+>>>>>>> dev
     <entry file="file://$PROJECT_DIR$/od26s-front/angular.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2516">
@@ -1337,6 +1412,9 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.module.ts">
+=======
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -1411,6 +1489,7 @@
     </entry>
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/od26s-front/src/app/http-client.interceptor.ts">
+>>>>>>> dev
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="42" selection-start-line="42" selection-end-line="42" />
