@@ -5,6 +5,7 @@ import { Usuario } from '../model/usuario';
 import { InstituicaoService } from '../services/instituicao.service';
 import { Instituicao } from '../model/instituicao';
 import { Permissao } from '../model/permissao';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -13,11 +14,12 @@ import { Permissao } from '../model/permissao';
 })
 export class RegistroUsuarioComponent implements OnInit {
 
+  msgs: Array<Message>;
   usuario: Usuario;
+  tiposPessoa: Array<any>;
   usuarios: Array<Usuario>;
   permissoes: Array<Permissao>;
   instituicoes: Array<Instituicao>;
-  tiposPessoa: Array<any>;
 
   constructor(
     private usuarioService: UsuarioService,
@@ -60,7 +62,7 @@ export class RegistroUsuarioComponent implements OnInit {
   }
 
   backPage() {
-    window.history.back();
+    location.replace('/login');
   }
 
   removeNonDigit(value: string) {
@@ -90,9 +92,18 @@ export class RegistroUsuarioComponent implements OnInit {
     usuario.telefone = this.removeNonDigit(usuario.telefone);
 
     this.usuarioService.save(usuario).subscribe(() => {
-      console.log('success');
+      this.msgs = [{
+        severity: 'success',
+        summary: 'Confirmado',
+        detail: 'Cadastro realizado com sucesso!'
+      }];
+      this.backPage();
     }, error => {
-      console.error(error);
+      this.msgs = [{
+        severity: 'error',
+        summary: 'Falhou',
+        detail: 'Falha ao realizar cadastro. Tente novamente!'
+      }];
     });
   }
 }
