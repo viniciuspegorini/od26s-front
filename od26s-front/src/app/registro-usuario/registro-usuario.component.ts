@@ -17,6 +17,7 @@ export class RegistroUsuarioComponent implements OnInit {
   usuarios: Array<Usuario>;
   permissoes: Array<Permissao>;
   instituicoes: Array<Instituicao>;
+  tiposPessoa: Array<any>;
 
   constructor(
     private usuarioService: UsuarioService,
@@ -28,27 +29,70 @@ export class RegistroUsuarioComponent implements OnInit {
     this.initUsuario();
     this.findAllUsuarios();
     this.findAllInstituicoes();
+
+    this.tiposPessoa = [
+      { text: '', value: 'externo' },
+      { text: 'Aluno', value: 'aluno' },
+      { text: 'Orientador', value: 'orientador' },
+      { text: 'Pesquisador', value: 'pesquisador' },
+    ];
   }
 
   initUsuario() {
     this.usuario = new Usuario();
     this.usuario.orientador = new Usuario();
+    this.usuario.instituicao = new Instituicao();
     this.usuario.permissao = [{ id: 2, nome: 'ROLE_SOLICITANTE' }];
   }
 
   findAllUsuarios() {
     this.usuarioService.findAll().subscribe(usuarios => {
       this.usuarios = usuarios;
+      this.usuarios.unshift(new Usuario());
     });
   }
 
   findAllInstituicoes() {
     this.instituicaoService.findAll().subscribe(instituicoes => {
       this.instituicoes = instituicoes;
+      this.instituicoes.unshift(new Instituicao());
     });
   }
 
   backPage() {
     window.history.back();
+  }
+
+  removeNonDigit(value: string) {
+    return value.replace(/\D+/g, '');
+  }
+
+  save() {
+    let usuario = JSON.parse(JSON.stringify(this.usuario));
+
+    if (!usuario.instituicao.nomeFantasia)
+      delete usuario.instituicao;
+
+    if (!usuario.orientador.nome)
+      delete usuario.orientador;
+
+    if (!usuario.tipoPessoa)
+      usuario.tipoPessoa = 'externo';
+    else
+      usuario.tipoPessoa = usuario.tipoPessoa.value;
+
+    usuario.saldo = 0;
+    usuario.status = 'ativo';
+    usuario.dtCriacao = new Date();
+    usuario.rg = this.removeNonDigit(usuario.rg);
+    usuario.cpfCnpj = this.removeNonDigit(usuario.cpfCnpj);
+    usuario.celular = this.removeNonDigit(usuario.celular);
+    usuario.telefone = this.removeNonDigit(usuario.telefone);
+
+    this.usuarioService.save(usuario).subscribe(() => {
+      console.log('success');
+    }, error => {
+      console.error(error);
+    });
   }
 }
