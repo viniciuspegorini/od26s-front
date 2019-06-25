@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Equipamento} from '../model/equipamento';
-import {EquipamentoService} from './equipamento.service';
+import {EquipamentoService} from '../services/equipamento.service';
 import {ConfirmationService, Message} from 'primeng/api';
 
 @Component({

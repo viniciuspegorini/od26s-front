@@ -4,6 +4,8 @@ import {Modelo} from '../model/modelo';
 import {ConfirmationService, Message} from 'primeng/api';
 import {DataTable} from 'primeng/primeng';
 import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
+import { Preco } from '../model/preco';
+import { PrecoService } from '../preco/preco.service';
 
 @Component({
   selector: 'app-cadastro-modelo',
@@ -17,6 +19,7 @@ export class CadastroModeloComponent implements OnInit {
   @ViewChild('dt') dataTable: DataTable;
 
   modelos: Modelo[];
+  precos: Preco[];
   modeloEdit = new Modelo();
 
   showDialog = false;
@@ -25,23 +28,31 @@ export class CadastroModeloComponent implements OnInit {
   public componentEvents: string[] = [];
 
   constructor(private modeloService: ModeloService,
+              private precoService: PrecoService,
               private confirmationService: ConfirmationService) {
   }
 
   ngOnInit() {
     this.findAll();
+    this.findAllPrecos();
   }
 
   findAll() {
     this.modeloService.findAll().subscribe(e => this.modelos = e);
   }
 
+  findAllPrecos() {
+    this.precoService.findAll().subscribe(precos => {
+      this.precos = precos;
+    });
+  }
+
   newEntity() {
     this.modeloEdit = new Modelo();
-    this.showDialog = true;
-    this.modeloEdit = new Modelo();
+    this.modeloEdit.preco = this.precos[0];
     this.modeloEdit.resultado = '';
     this.modeloEdit.metodologia = '';
+    this.showDialog = true;
   }
 
   cancel() {
@@ -50,6 +61,8 @@ export class CadastroModeloComponent implements OnInit {
   }
 
   save() {
+    console.log(this.modeloEdit);
+
     this.modeloService.save(this.modeloEdit).subscribe(e => {
       this.modeloEdit = new Modelo();
       this.dataTable.reset();
@@ -61,6 +74,7 @@ export class CadastroModeloComponent implements OnInit {
         detail: 'Registro salvo com sucesso!'
       }];
     }, error => {
+      console.error(error)
       this.msgs = [{
         severity: 'error',
         summary: 'Erro',
@@ -71,6 +85,11 @@ export class CadastroModeloComponent implements OnInit {
 
   edit(modelo: Modelo) {
     this.modeloEdit = Object.assign({}, modelo);
+
+    if (!this.modeloEdit.preco) {
+      this.modeloEdit.preco = this.precos[0];
+    }
+
     this.showDialog = true;
   }
 
