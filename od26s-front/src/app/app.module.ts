@@ -36,6 +36,8 @@ import {PrecoComponent} from './preco/preco.component';
 import {PrecoService} from './services/preco.service';
 import { LoginComponent } from './login/login.component';
 import {InputMaskModule} from 'primeng/inputmask';
+import { PermissaoService } from './services/permissao.service';
+import { PermissaoComponent } from './permissao/permissao.component';
 
 
 
@@ -48,7 +50,8 @@ import {InputMaskModule} from 'primeng/inputmask';
     CadEquipamentoComponent,
     CadastroModeloComponent,
     PrecoComponent,
-    AmostraComponent
+    AmostraComponent,
+    PermissaoComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +90,8 @@ import {InputMaskModule} from 'primeng/inputmask';
     ConfirmDialogModule,
     ProgressSpinnerModule,
     ModeloService,
-    PrecoService
+    PrecoService,
+    PermissaoService
   ],
   bootstrap: [AppComponent]
 })
