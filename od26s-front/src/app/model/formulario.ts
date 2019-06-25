@@ -11,7 +11,6 @@ export class Formulario {
   amostra: Amostra;
   usuario: Usuario;
   valor_total: number;
-  metodologia: string;
   departamento: string;
   naturezaOperacao: string;
   quantidade_ensaios: number;

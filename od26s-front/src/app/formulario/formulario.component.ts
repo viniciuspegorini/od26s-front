@@ -34,10 +34,12 @@ export class FormularioComponent implements OnInit {
   selectedValue: string;
   amostras: Amostra[];
   modelos: Modelo[];
+  modelo = new Modelo();
   equipamentos: Equipamento[];
   usuarios: Usuario[] = [];
   notas: Nota[];
   usuario = new Usuario();
+  showDialogFormulario = false;
 
   constructor(private formularioService: FormularioService,
               private confirmationService: ConfirmationService,
@@ -53,9 +55,17 @@ export class FormularioComponent implements OnInit {
     this.usuarios = [];
     this.formularioEdit = new Formulario();
     this.formularioEdit.usuario = this.usuario;
-    this.formularioEdit.modelo = new Modelo();
     // this.equipamentoSelected = new Equipamento();
     this.carregaUsuario();
+  }
+
+  openFormulario() {
+    this.showDialogFormulario = true;
+  }
+
+  closeFormulario() {
+    this.showDialogFormulario = false;
+    this.formularioEdit = new Formulario();
   }
 
   carregaUsuario() {
@@ -85,6 +95,7 @@ export class FormularioComponent implements OnInit {
   carregarCombos() {
     this.modeloService.findAll().subscribe(e => {
       this.modelos = e;
+      this.modeloEdit = this.modelos[0];
     });
     this.equipamentoService.findAll().subscribe(e => {
       this.equipamentos = e;
@@ -110,18 +121,22 @@ export class FormularioComponent implements OnInit {
 
     this.formularioEdit.modelo = this.modeloEdit;
 
-    this.formularioService.save(this.formularioEdit).subscribe(e => {
+    this.formularioEdit.amostra = null;
+    this.formularioEdit.departamento = '';
+    this.formularioEdit.nota = null;
+    this.formularioEdit.quantidade_ensaios = 0;
+    this.formularioEdit.valor_total = 0;
 
+    this.formularioService.save(this.formularioEdit).subscribe(e => {
+        this.showDialogFormulario = false;
         if (this.hasRole('ADMIN')) {
           this.formularioEdit = new Formulario();
           this.formularioEdit.usuario = new Usuario();
         }
-
         this.formularioEdit.modelo = new Modelo();
         this.formularioEdit.naturezaOperacao = '';
-
         this.msgs = [{
-          severity: 'sucess', summary: 'Confirmado',
+          severity: 'success', summary: 'Confirmado',
           detail: 'Formulário salvo com sucesso!'
         }];
       },
