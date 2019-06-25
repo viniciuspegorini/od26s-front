@@ -4,7 +4,7 @@ import {PrecoService} from '../services/preco.service';
 import {ConfirmationService, Message} from 'primeng/api';
 import {DataTable} from 'primeng/primeng';
 import {Equipamento} from '../model/equipamento';
-import {EquipamentoService} from '../cad-equipamento/equipamento.service';
+import {EquipamentoService} from '../services/equipamento.service';
 
 @Component({
   selector: 'app-preco',
