@@ -6,7 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {InstituicaoComponent} from './instituicao/instituicao.component';
-import {InstituicaoService} from './instituicao/instituicao.service';
+import {InstituicaoService} from './services/instituicao.service';
 import {FormsModule} from '@angular/forms';
 import {
   AccordionModule,
@@ -23,7 +23,7 @@ import {CalendarModule} from 'primeng/calendar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DataViewModule} from 'primeng/dataview';
 import { AmostraComponent } from './amostra/amostra.component';
-import { AmostraService } from './amostra/amostra.service';
+import { AmostraService } from './services/amostra.service';
 import {LoginService} from './login/login.service';
 import {HttpClientInterceptor} from './http-client.interceptor';
 import {MenuComponent} from './menu/menu.component';
@@ -33,7 +33,7 @@ import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {CadastroModeloComponent} from './cadastro-modelo/cadastro-modelo.component';
 import {ModeloService} from './services/modelo.service';
 import {PrecoComponent} from './preco/preco.component';
-import {PrecoService} from './preco/preco.service';
+import {PrecoService} from './services/preco.service';
 import { LoginComponent } from './login/login.component';
 
 
