@@ -4,13 +4,14 @@
   <button class="btn btn-primary" (click)="openFormulario()">Formulário</button>
 
   <p-dialog header="Formulário" [(visible)]="showDialogFormulario" modal="modal" [responsive]="true" [width]="1000">
-<!--    <div class="col-sm-12" *ngIf="hasRole('ADMIN')">-->
-<!--      <label form="usuarios">Usuario</label>-->
-<!--      <div class="form-group">-->
-<!--        <p-dropdown [options]="usuarios" optionLabel="nome"-->
-<!--                    [(ngModel)]="formularioEdit.usuario"></p-dropdown>-->
-<!--      </div>-->
-<!--    </div>-->
+
+    <div class="col-sm-12" *ngIf="hasRole('ADMIN')">
+      <label form="usuarios">Usuário</label>
+      <div class="form-group">
+        <p-dropdown [options]="usuarios" optionLabel="nome"
+                    [(ngModel)]="formularioEdit.usuario"></p-dropdown>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col-sm-12">

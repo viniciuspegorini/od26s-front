@@ -1,7 +1,7 @@
-import { Nota } from './nota'
-import { Modelo } from './modelo'
-import { Amostra } from './amostra'
-import { Usuario } from './usuario'
+import { Nota } from './nota';
+import { Modelo } from './modelo';
+import { Amostra } from './amostra';
+import { Usuario } from './usuario';
 
 export class Formulario {
   id: number;
@@ -10,8 +10,9 @@ export class Formulario {
   modelo: Modelo;
   amostra: Amostra;
   usuario: Usuario;
-  valor_total: number;
-  departamento: string;
+  valorTotal: number;
+  // departamento: string;
   naturezaOperacao: string;
-  quantidade_ensaios: number;
+  quantidadeEnsaios: number;
+  metodologia: string;
 }

@@ -36,7 +36,8 @@ import {LoginComponent} from './login/login.component';
 import {InputMaskModule} from 'primeng/inputmask';
 import {PermissaoService} from './services/permissao.service';
 import {PermissaoComponent} from './permissao/permissao.component';
-import {FormularioComponent} from "./formulario/formulario.component";
+import {FormularioComponent} from './formulario/formulario.component';
+import {UsuarioComponent} from  './usuario/usuario.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import {FormularioComponent} from "./formulario/formulario.component";
     PrecoComponent,
     AmostraComponent,
     PermissaoComponent,
-    FormularioComponent
+    FormularioComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -95,5 +97,5 @@ import {FormularioComponent} from "./formulario/formulario.component";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule{
+export class AppModule {
 }

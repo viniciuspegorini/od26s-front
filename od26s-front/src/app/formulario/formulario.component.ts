@@ -11,9 +11,9 @@ import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
 import {LoginService} from '../login/login.service';
 import {Equipamento} from '../model/equipamento';
 import {Usuario} from '../model/usuario';
-import {UsuarioService} from "../usuario/usuario.service";
-import {EquipamentoService} from "../services/equipamento.service";
-import {FormularioService} from "../services/formulario.service";
+import {UsuarioService} from '../usuario/usuario.service';
+import {EquipamentoService} from '../services/equipamento.service';
+import {FormularioService} from '../services/formulario.service';
 
 @Component({
   selector: 'app-formulario',
@@ -55,17 +55,19 @@ export class FormularioComponent implements OnInit {
     this.usuarios = [];
     this.formularioEdit = new Formulario();
     this.formularioEdit.usuario = this.usuario;
-    // this.equipamentoSelected = new Equipamento();
     this.carregaUsuario();
   }
 
   openFormulario() {
     this.showDialogFormulario = true;
+    this.selectedValue = 'Iniciacao';
+    this.formularioEdit.naturezaOperacao = this.selectedValue;
   }
 
   closeFormulario() {
     this.showDialogFormulario = false;
     this.formularioEdit = new Formulario();
+  //  this.formularioEdit.modelo = new Modelo();
   }
 
   carregaUsuario() {
@@ -74,7 +76,6 @@ export class FormularioComponent implements OnInit {
       this.carregarCombos();
       this.modeloEdit = new Modelo();
       if (this.hasRole('ADMIN')) {
-        // carrega o this.formularioEdit.pessoa
         this.usuarioService.findAll().subscribe(p => {
           this.usuarios = p;
           this.formularioEdit.usuario = this.usuarios[0];
@@ -120,12 +121,12 @@ export class FormularioComponent implements OnInit {
     }
 
     this.formularioEdit.modelo = this.modeloEdit;
-
+    this.formularioEdit.metodologia = this.modeloEdit.metodologia;
     this.formularioEdit.amostra = null;
-    this.formularioEdit.departamento = '';
+   // this.formularioEdit.departamento = '';
     this.formularioEdit.nota = null;
-    this.formularioEdit.quantidade_ensaios = 0;
-    this.formularioEdit.valor_total = 0;
+    this.formularioEdit.quantidadeEnsaios = 0;
+    this.formularioEdit.valorTotal = 0;
 
     this.formularioService.save(this.formularioEdit).subscribe(e => {
         this.showDialogFormulario = false;
@@ -134,7 +135,6 @@ export class FormularioComponent implements OnInit {
           this.formularioEdit.usuario = new Usuario();
         }
         this.formularioEdit.modelo = new Modelo();
-        this.formularioEdit.naturezaOperacao = '';
         this.msgs = [{
           severity: 'success', summary: 'Confirmado',
           detail: 'Formulário salvo com sucesso!'
