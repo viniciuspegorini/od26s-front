@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../services/usuario.service';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, Message } from 'primeng/api';
 import { Usuario } from '../model/usuario';
 import { InstituicaoService } from '../services/instituicao.service';
 import { Instituicao } from '../model/instituicao';
 import { Permissao } from '../model/permissao';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -14,10 +13,10 @@ import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 })
 export class RegistroUsuarioComponent implements OnInit {
 
-  msgs: Array<Message>;
   usuario: Usuario;
+  msgs: Array<Message>;
   tiposPessoa: Array<any>;
-  usuarios: Array<Usuario>;
+  orientadores: Array<Usuario>;
   permissoes: Array<Permissao>;
   instituicoes: Array<Instituicao>;
 
@@ -27,10 +26,11 @@ export class RegistroUsuarioComponent implements OnInit {
     private confirmationService: ConfirmationService
   ) { }
 
-  ngOnInit() {    
+  ngOnInit() {   
+    localStorage.clear(); 
     this.initUsuario();
-    this.findAllUsuarios();
-    this.findAllInstituicoes();
+    this.findOrientadores();
+    // this.findAllInstituicoes();
 
     this.tiposPessoa = [
       { text: '', value: 'externo' },
@@ -47,10 +47,10 @@ export class RegistroUsuarioComponent implements OnInit {
     this.usuario.permissao = [{ id: 2, nome: 'ROLE_SOLICITANTE' }];
   }
 
-  findAllUsuarios() {
-    this.usuarioService.findAll().subscribe(usuarios => {
-      this.usuarios = usuarios;
-      this.usuarios.unshift(new Usuario());
+  findOrientadores() {
+    this.usuarioService.findOrientadores().subscribe(orientadores => {
+      this.orientadores = orientadores;
+      this.orientadores.unshift(new Usuario());
     });
   }
 
@@ -93,7 +93,7 @@ export class RegistroUsuarioComponent implements OnInit {
 
     this.usuarioService.save(usuario).subscribe(() => {
       this.msgs = [{
-        severity: 'success',
+        severity: 'success',  
         summary: 'Confirmado',
         detail: 'Cadastro realizado com sucesso!'
       }];
