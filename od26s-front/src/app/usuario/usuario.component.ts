@@ -68,7 +68,7 @@ export class UsuarioComponent implements OnInit {
         this.findAll();
         this.showDialog = false;
         this.msgs = [{
-          severity: 'sucess', summary: 'Confirmado',
+          severity: 'success', summary: 'Confirmado',
           detail: 'Registro salvo com sucesso!'
         }];
       },
