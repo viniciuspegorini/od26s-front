@@ -1,0 +1,156 @@
+<div class="container">
+  <h1 class="d-flex">Cadastro de Usuário</h1>
+  <button class="btn btn-primary" (click)="newEntity()">Novo</button>
+
+  <p-table #dt [value]="usuarios" [paginator]="true" [rows]="6"
+           [rowsPerPageOptions]="[5,10,20]">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nome</th>
+        <th>Cpf</th>
+        <th>Celular</th>
+        <th>Tipo de pessoa</th>
+        <th>Status</th>
+        <th>Saldo</th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-usuario>
+      <tr>
+        <td>{{usuario.nome}}</td>
+        <td>{{usuario.cpfCnpj}}</td>
+        <td>{{usuario.celular}}</td>
+        <td>{{usuario.tipoPessoa}}</td>
+        <td>{{usuario.status}}</td>
+        <td>{{usuario.saldo}}</td>
+        <td>
+          <button type="button" class="btn btn-dark" (click)="edit(usuario)">
+            <i class="fa fa-edit"></i></button>
+
+          <button type="button" class="btn btn-danger" (click)="delete(usuario)">
+            <i class="fa fa-trash"></i></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p-confirmDialog></p-confirmDialog>
+  <p-growl [(value)]="msgs"></p-growl>
+
+  <p-dialog header="Cadastro" [(visible)]="showDialog" modal="modal" [responsive]="true" [width]="500">
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" class="form-control" [(ngModel)]="usuarioEdit.nome">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="cpf">Cpf</label>
+          <input type="text" id="cpf" name="cpf" class="form-control" [(ngModel)]="usuarioEdit.cpfCnpj">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="rg">Rg</label>
+          <input type="text" id="rg" name="rg" class="form-control" [(ngModel)]="usuarioEdit.rg">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="text" id="telefone" name="telefone" class="form-control" [(ngModel)]="usuarioEdit.telefone">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="celular">Celular</label>
+          <input type="text" id="celular" name="celular" class="form-control" [(ngModel)]="usuarioEdit.celular">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Tipo de Pessoa</label>
+          <p-dropdown id="tipoPessoa" [options]="tipoPessoa1" (ngModelChange)="onSelectionType($event)"
+                      [(ngModel)]="tipoPess"
+          ></p-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="usuarioEdit.tipoPessoa != 'Externo' ">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="departamento">Departamento</label>
+          <input type="text" id="departamento" name="departamento" class="form-control" [(ngModel)]="usuarioEdit.departamento">
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="usuarioEdit.tipoPessoa != 'Externo'">
+      <div class="col-sm-12">
+        <label form="instituicoes">Instituição</label>
+        <div class="form-group">
+          <p-dropdown [options]="instituicoes" optionLabel="nomeFantasia"
+                      [(ngModel)]="usuarioEdit.instituicao"></p-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="usuarioEdit.tipoPessoa != 'Externo' && usuarioEdit.tipoPessoa != 'Orientador'">
+      <div class="col-sm-12">
+        <label form="pessoa">Orientador</label>
+        <div class="form-group" >
+          <p-dropdown [options]="usuarios" optionLabel="nome"
+                      [(ngModel)]="usuarioEdit.nome"></p-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="status">Status</label>
+          <p-dropdown id="status" [options]="status1" (ngModelChange)="onSelectionType2($event)"
+                      [(ngModel)]="tipoStatus"></p-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-control" [(ngModel)]="usuarioEdit.email">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" class="form-control" [(ngModel)]="usuarioEdit.password">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="saldo">Saldo</label>
+          <input type="text" id="saldo" name="saldo" class="form-control" [(ngModel)]="usuarioEdit.saldo">
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
+      <button type="button" class="btn btn-success" (click)="save()">Salvar</button>
+    </p-footer>
+  </p-dialog>
+</div>

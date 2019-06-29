@@ -37,9 +37,10 @@ export class LoginService implements CanActivate {
 
   hasRole(role: string): boolean {
     if (this.getUserInfo() && this.getUserInfo().authorities) {
-      return this.getUserInfo().authorities.filter(e => e.authority === 'ROLE_' + role).length > 0;
+      return this.getUserInfo().authorities.filter(e => e.nome === 'ROLE_' + role).length > 0;
+    } else {
+      return false;
     }
-    return false;
   }
 
   logout() {
@@ -57,10 +58,10 @@ export class LoginService implements CanActivate {
 
     const headers = new HttpHeaders({
       'Content-type': 'application/x-www-form-urlencoded',
-      'Authorization': 'Basic ' + btoa(`app:utfpr`)
+      Authorization: 'Basic ' + btoa(`app:utfpr`)
     });
 
-    return this.http.post<AccessToken>(`${environment.api}/oauth/token`, params.toString(), { headers: headers })
+    return this.http.post<AccessToken>(`${environment.api}/oauth/token`, params.toString(), { headers })
       .pipe(
         map(e => {
           Object.keys(e).forEach(key => localStorage.setItem(key, e[key]));
