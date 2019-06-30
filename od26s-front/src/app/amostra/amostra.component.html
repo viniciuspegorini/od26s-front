@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid py-5">
   <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Cadastro de Amostras</h3>
   <button class="btn btn-primary m-3" (click)="newEntity()">Novo</button>
   <p-table #dt [value]="amostras" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,20]" [lazy]="true"
@@ -8,7 +8,7 @@
         <th class="text-center">Código</th>
         <th class="text-center">Descrição</th>
         <th class="text-center">Data de Recebimento</th>
-        <th class="text-center">Usuário</th>
+<!--        <th class="text-center">Usuário</th>-->
         <th class="text-center">Ações</th>
       </tr>
     </ng-template>
@@ -17,7 +17,7 @@
         <td class="text-center">{{amostra.id}}</td>
         <td class="text-center">{{amostra.descricao}}</td>
         <td class="text-center">{{amostra.dataRecebimento}}</td>
-        <td class="text-center"></td>
+<!--        <td class="text-center">{{amostra.usuario.id}}</td>-->
         <td class="text-center">
           <button type="button" class="btn btn-dark m-2" (click)="edit(amostra)">
             <i class="fa fa-edit"></i>
@@ -54,7 +54,6 @@
               dateFormat="dd/mm/yy" dataType="string" [(ngModel)]="amostraEdit.dataRecebimento"></p-calendar>
           </div>
         </div>
-
       </div>
     </p-tabPanel>
   </p-tabView>

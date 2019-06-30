@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Equipamento} from '../model/equipamento';
 import {EquipamentoService} from '../services/equipamento.service';
-import {ConfirmationService, Message} from 'primeng/api';
+import {ConfirmationService, LazyLoadEvent, Message} from 'primeng/api';
 
 @Component({
   selector: 'app-cad-equipamento',
@@ -12,7 +12,9 @@ export class CadEquipamentoComponent implements OnInit {
 
   equipamentoEdit: Equipamento;
   equipamentos: Array<Equipamento>;
-
+  totalRecords: number;
+  maxRecords = 10;
+  currentPage = 1;
   msgs: Array<Message>;
   showDialog = false;
 
@@ -20,6 +22,24 @@ export class CadEquipamentoComponent implements OnInit {
     private equipamentoService: EquipamentoService,
     private confirmationService: ConfirmationService
   ) {
+  }
+
+  lazyLoad(event: LazyLoadEvent) {
+    const pageNumber = event.first / event.rows;
+    this.currentPage = pageNumber;
+
+    this.maxRecords = event.rows;
+
+    setTimeout( () => {
+      this.findAllPaged(this.currentPage, this.maxRecords);
+    }, 250);
+  }
+
+  findAllPaged(page: number, size: number) {
+    this.equipamentoService.findPageable(page, size).subscribe(e => {
+      this.equipamentos = e.content;
+      this.totalRecords = e.totalElements;
+    });
   }
 
   ngOnInit() {

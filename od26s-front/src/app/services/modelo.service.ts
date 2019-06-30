@@ -18,5 +18,4 @@ export class ModeloService extends CrudService<Modelo, number> {
     const url = `${this.getUrl()}/equipamento/${id}`;
     return this.http.get<Modelo>(url);
   }
-
 }

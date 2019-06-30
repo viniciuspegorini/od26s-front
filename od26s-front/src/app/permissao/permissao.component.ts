@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Permissao} from '../model/permissao';
-import {Router} from '@angular/router';
 import {PermissaoService} from '../services/permissao.service';
 import {ConfirmationService, Message, LazyLoadEvent} from 'primeng/api';
 import {DataTable} from 'primeng/primeng';
@@ -28,13 +27,14 @@ export class PermissaoComponent implements OnInit {
               private confirmationService: ConfirmationService
   ) {
   }
+
   lazyLoad(event: LazyLoadEvent) {
     const pageNumber = event.first / event.rows;
     this.currentPage = pageNumber;
 
     this.maxRecords = event.rows;
 
-    setTimeout( () => {
+    setTimeout(() => {
       this.findAllPaged(this.currentPage, this.maxRecords);
     }, 250);
   }
@@ -45,7 +45,6 @@ export class PermissaoComponent implements OnInit {
       this.totalRecords = e.totalElements;
     });
   }
-
 
 
   ngOnInit() {
@@ -85,7 +84,7 @@ export class PermissaoComponent implements OnInit {
       }];
       this.permissaoEdit = new Permissao();
       this.dataTable.reset();
-      this.showDialog = false; 
+      this.showDialog = false;
     }, error => {
       this.msgs = [{
         severity: 'error',
@@ -93,6 +92,30 @@ export class PermissaoComponent implements OnInit {
         detail: 'Falha ao salvar permissão!'
       }];
     });
-  }  
+  }
 
+  delete(permissao: Permissao) {
+    this.confirmationService.confirm({
+      message: 'Esta ação não poderá ser desfeita!',
+      header: 'Deseja remover esta amostra?',
+      acceptLabel: 'Confirma',
+      rejectLabel: 'Cancelar',
+      accept: () => {
+        this.permissaoService.delete(permissao.id).subscribe(() => {
+          this.findAll();
+          this.msgs = [{
+            severity: 'success',
+            summary: 'Confirmado',
+            detail: 'Registro removido com sucesso!'
+          }];
+        }, error => {
+          this.msgs = [{
+            severity: 'error',
+            summary: 'Erro',
+            detail: 'Falha ao remover o registro!'
+          }];
+        });
+      }
+    });
+  }
 }
