@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         detail: 'Usuário Logado com Sucesso!!'
       }];
       setTimeout(() => {
-        this.router.navigate(['/instituicao']);
+        this.router.navigate(['/formulario']);
       }, 2000);
     }, error => {
       // alert(error.error.error_description);
