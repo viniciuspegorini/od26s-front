@@ -1,10 +1,10 @@
-<div class="container-fluid">
+<div class="container-fluid py-5">
   <h3 class="card-header text-center font-weight-bold text-uppercase py-4">CADASTRO DE INSTITUIÇÕES</h3>
   <button class="btn btn-primary m-3" (click)="newEntity()">Novo</button>
   <p-table #dt [value]="instituicoes" [paginator]="true" [rows]="5"
            [rowsPerPageOptions]="[5,10,20]"
            [lazy]="true" [totalRecords]="totalRecords"
-           (onLazyLoad)="lazyLoad($event)">>
+           (onLazyLoad)="lazyLoad($event)">
     <ng-template pTemplate="header">
       <tr>
         <th class="text-center">ID</th>

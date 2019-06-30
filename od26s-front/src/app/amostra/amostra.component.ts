@@ -1,9 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Amostra} from '../model/amostra';
 import {AmostraService} from '../services/amostra.service';
-// import {UsuarioService} from './usuario.service';
 import {ConfirmationService, Message, LazyLoadEvent} from 'primeng/api';
 import {DataTable} from 'primeng/primeng';
+import {UsuarioService} from '../services/usuario.service';
+import {Usuario} from '../model/usuario';
+import {Modelo} from "../model/modelo";
 
 @Component({
   selector: 'app-amostra',
@@ -17,6 +19,7 @@ export class AmostraComponent implements OnInit {
   totalRecords: number;
   maxRecords = 10;
   currentPage = 1;
+  usuario  = new Usuario();
   @ViewChild('dt') dataTable: DataTable;
   br: any;
 
@@ -24,7 +27,8 @@ export class AmostraComponent implements OnInit {
   showDialog = false;
 
   constructor(private amostraService: AmostraService,
-              private confirmationService: ConfirmationService
+              private confirmationService: ConfirmationService,
+              private usuarioService: UsuarioService,
   ) {
   }
   lazyLoad(event: LazyLoadEvent) {
@@ -47,8 +51,6 @@ export class AmostraComponent implements OnInit {
       // });
     });
   }
-
-
 
   ngOnInit() {
     this.amostraEdit = new Amostra();
@@ -73,15 +75,14 @@ export class AmostraComponent implements OnInit {
     });
   }
 
- /* findByIdUsuario() {
-    this.usuarioService.findById().subscribe(items => {
-      this.amostras = items;
-    });
-  }*/
+  // findByIdUsuario() {
+  //   this.usuarioService.findOne().subscribe(items => {
+  //     this.amostras = items;
+  //   });
+  // }
 
   newEntity() {
     this.showDialog = true;
-    this.amostraEdit = new Amostra();
     this.amostraEdit = new Amostra();
   }
 
@@ -90,9 +91,16 @@ export class AmostraComponent implements OnInit {
     this.showDialog = true;
   }
 
+  // carregaUsuario() {
+  //   this.amostraService.getLoggedUser().subscribe(e => {
+  //     this.usuario = e;
+  //   });
+  // }
+
   save() {
     this.amostraService.save(this.amostraEdit).subscribe(e => {
         this.amostraEdit = new Amostra();
+        // this.carregaUsuario();
         this.dataTable.reset();
         this.showDialog = false;
         this.msgs = [{severity: 'success', summary: 'Confirmado',
@@ -136,7 +144,7 @@ export class AmostraComponent implements OnInit {
 
 
   edit(amostra: Amostra) {
-    // this.amostraEdit = amostra;
+    this.amostraEdit = amostra;
     this.amostraEdit = Object.assign({}, amostra);
     this.showDialog = true;
   }
