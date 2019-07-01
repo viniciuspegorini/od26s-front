@@ -14,7 +14,7 @@ import {
   DialogModule,
   DropdownModule,
   GrowlModule,
-  ProgressSpinnerModule, RadioButtonModule,
+  ProgressSpinnerModule, RadioButtonModule, SplitButtonModule,
   TabViewModule
 } from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
@@ -40,6 +40,7 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
 import {FormularioComponent} from './formulario/formulario.component';
 import {UsuarioComponent} from  './usuario/usuario.component';
 import { UsuarioService } from './services/usuario.service';
+import {ListaFormulariosComponent} from './lista-formularios/lista-formularios.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { UsuarioService } from './services/usuario.service';
     PermissaoComponent,
     RegistroUsuarioComponent,
     FormularioComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    ListaFormulariosComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,8 @@ import { UsuarioService } from './services/usuario.service';
     DropdownModule,
     CalendarModule,
     InputMaskModule,
-    RadioButtonModule
+    RadioButtonModule,
+    SplitButtonModule
   ],
   providers: [
     ConfirmationService,
