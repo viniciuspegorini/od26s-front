@@ -8,39 +8,40 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
 
-        <li class="nav-item" >
+        <li class="nav-item" *ngIf="hasRole('ADMIN') || hasRole('RECEPCIONISTA')" >
           <a class="nav-link" href="#" routerLink="amostra">Amostras</a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="hasRole('ADMIN')">
           <a class="nav-link" href="#" routerLink="equipamento">Equipamentos</a>
         </li>
 
-        <li class="nav-item" >
+        <li class="nav-item" *ngIf="hasRole('ADMIN')" >
           <a class="nav-link" href="#" routerLink="modelo">Modelos</a>
         </li>
 
-        <li class="nav-item" >
+        <li class="nav-item" *ngIf="hasRole('ADMIN') || hasRole('RECEPCIONISTA') 
+         || hasRole('SOLICITANTE') || hasRole('TECNICO') ">
           <a class="nav-link" href="#" routerLink="formulario">Formulários</a>
         </li>
 
-        <li class="nav-item" >
+        <li class="nav-item" *ngIf="hasRole('ADMIN')">
           <a class="nav-link" href="#"  routerLink="instituicao">Instituições</a>
         </li>
 
-        <li class="nav-item" >
+        <li class="nav-item" *ngIf="hasRole('ADMIN')">
           <a class="nav-link" href="#" routerLink="permissao">Permissões</a>
         </li>
 
-        <li class="nav-item" >
+        <li class="nav-item" *ngIf="hasRole('ADMIN')">
           <a class="nav-link" href="#" routerLink="preco">Preços</a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="hasRole('ADMIN')">
           <a class="nav-link" href="#" routerLink="nota">Notas</a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="hasRole('ADMIN')">
           <a class="nav-link" href="#" routerLink="resultado">Resultados</a>
         </li>
 
