@@ -21,11 +21,11 @@
         </li>
 
         <li class="nav-item" *ngIf="hasRole('ADMIN') || hasRole('RECEPCIONISTA') 
-         || hasRole('SOLICITANTE') || hasRole('TECNICO') ">
+         || hasRole('SOLICITANTE')">
           <a class="nav-link" href="#" routerLink="formulario">Formulários</a>
         </li>
 
-        <li class="nav-item" *ngIf="hasRole('ADMIN')">
+        <li class="nav-item" *ngIf="hasRole('ADMIN') || hasRole('RECEPCIONISTA') ">
           <a class="nav-link" href="#"  routerLink="instituicao">Instituições</a>
         </li>
 
@@ -41,7 +41,7 @@
           <a class="nav-link" href="#" routerLink="nota">Notas</a>
         </li>
 
-        <li class="nav-item" *ngIf="hasRole('ADMIN')">
+        <li class="nav-item"  *ngIf="hasRole('ADMIN')  || hasRole('TECNICO') ">
           <a class="nav-link" href="#" routerLink="resultado">Resultados</a>
         </li>
 
