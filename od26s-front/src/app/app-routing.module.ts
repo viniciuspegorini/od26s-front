@@ -28,8 +28,21 @@ const routes: Routes = [
       },
       
     
-      {path: 'modelo', component: CadastroModeloComponent},
-      {path: 'preco', component: PrecoComponent},
+      {
+        path: 'modelo',
+        component: CadastroModeloComponent,
+        canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ADMIN'] }
+      },
+      
+      
+      {
+        path: 'preco',
+        component: PrecoComponent,
+        canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ADMIN'] }
+      },
+
 
       {
         path: 'amostra',
@@ -38,9 +51,22 @@ const routes: Routes = [
         data: { roles: ['ROLE_ADMIN', 'ROLE_RECEPCIONISTA'] }
       },
 
+      {
+        path: 'permissao',
+        component: PermissaoComponent,
+        canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ADMIN'] }
+      },
 
-      {path: 'permissao', component: PermissaoComponent},
-      {path: 'formulario', component: FormularioComponent},
+
+      {
+        path: 'formulario',
+        component: FormularioComponent,
+        canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ADMIN', 'ROLE_RECEPCIONISTA','ROLE_SOLICITANTE'] }
+      },
+
+
       {path: 'usuario', component: UsuarioComponent},
     ]
   },
