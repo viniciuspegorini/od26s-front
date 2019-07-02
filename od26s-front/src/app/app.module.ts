@@ -13,9 +13,9 @@ import {
   ConfirmDialogModule,
   DialogModule,
   DropdownModule,
-  GrowlModule,
+  GrowlModule, InputTextModule,
   ProgressSpinnerModule, RadioButtonModule, SplitButtonModule,
-  TabViewModule
+  TabViewModule, TooltipModule
 } from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
 import {CalendarModule} from 'primeng/calendar';
@@ -79,7 +79,9 @@ import {ListaFormulariosComponent} from './lista-formularios/lista-formularios.c
     CalendarModule,
     InputMaskModule,
     RadioButtonModule,
-    SplitButtonModule
+    SplitButtonModule,
+    TooltipModule,
+    InputTextModule
   ],
   providers: [
     ConfirmationService,

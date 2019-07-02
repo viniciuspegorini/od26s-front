@@ -1,188 +1,113 @@
-<p-table #dt [value]="formularios">
-  <ng-template pTemplate="header">
-    <tr>
-      <th class="text-center">Código</th>
-      <th class="text-center">Usuário</th>
-      <th class="text-center">Modelo</th>
-      <th class="text-center">Natureza da Operação</th>
-      <th class="text-center">Status</th>
-      <th class="text-center">Opções</th>
-    </tr>
-  </ng-template>
+<!--TABELA DE FORMULÁRIOS-->
+<div class="forms-table">
+  <p-table [value]="formularios">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Usuário</th>
+        <th>Modelo</th>
+        <th>Natureza Operação</th>
+        <th>Ensaios</th>
+        <th>Valor</th>
+        <th>Status</th>
+        <th>Opções</th>
+      </tr>
+    </ng-template>
 
-  <ng-template pTemplate="body" let-form>
-    <tr>
-      <td class="text-center">{{form.id}}</td>
-      <td class="text-center">{{form.usuario.nome}}</td>
-      <td class="text-center">{{form.modelo.nome}}</td>
-      <td class="text-center">{{form.naturezaOperacao}}</td>
-      <td class="text-center">{{form.status}}</td>
-      <td *ngIf="isAdmin()">
-        <div class="btn-group">
-          <button
-            class="btn btn-outline-info btn-sm"
-            (click)="userDialog(form.usuario)"
-          >
-            Usuário
-          </button>
+    <ng-template pTemplate="body" let-formulario>
+      <tr>
+        <td>{{ formulario.usuario.nome }}</td>
+        <td>{{ formulario.modelo.nome }}</td>
+        <td>{{ formulario.naturezaOperacao }}</td>
+        <td>{{ formulario.quantidadeEnsaios }}</td>
+        <td>{{ formulario.valorTotal }}</td>
+        <td>{{ formulario.status }}</td>
+        <td class="text-center">
+          <p-button
+            class="mx-1"
+            icon="pi pi-list"
+            pTooltip="Validar formulário"
+          ></p-button>
 
-          <button
-            class="btn btn-outline-info btn-sm"
-            (click)="amostraDialog(form)"
-          >
-            {{ !form.amostra ? 'Vincular Amostra' : 'Ver Amostra' }}
-          </button>
+          <p-button
+            class="mx-1"
+            icon="pi pi-user"
+            pTooltip="Validar usuário"
+            (onClick)="showUserDialog(formulario.usuario)"
+          ></p-button>
 
-          <button class="btn btn-outline-info btn-sm">
-            Status
-          </button>
-        </div>
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
-<!--DIALOG USUÁRIO-->
+          <p-button
+            class="mx-1"
+            icon="pi pi-tag"
+            pTooltip="Vincular amostra"
+          ></p-button>
+
+          <p-button
+            class="mx-1"
+            icon="pi pi-times"
+            pTooltip="Cancelar formuçário"
+          ></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<!--DIALOG VALIDAR USUÁRIO-->
 <p-dialog
-  header="Usuário"
-  [(visible)]="showUserDialog"
   modal="modal"
-  [responsive]="true"
   [width]="500"
->
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="form-group">
-        <label for="nome">Nome</label>
-        <input readonly type="text" id="nome" name="nome" class="form-control" [(ngModel)]="usuarioEdit.nome">
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input readonly type="email" id="email" name="email" class="form-control" [(ngModel)]="usuarioEdit.email">
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="form-group">
-        <label for="cpf">Cpf</label>
-        <input readonly type="text" id="cpf" name="cpf" class="form-control" [(ngModel)]="usuarioEdit.cpfCnpj">
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="form-group">
-        <label for="rg">Rg</label>
-        <input readonly type="text" id="rg" name="rg" class="form-control" [(ngModel)]="usuarioEdit.rg">
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="form-group">
-        <label for="telefone">Telefone</label>
-        <input readonly type="text" id="telefone" name="telefone" class="form-control" [(ngModel)]="usuarioEdit.telefone">
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="form-group">
-        <label for="celular">Celular</label>
-        <input readonly type="text" id="celular" name="celular" class="form-control" [(ngModel)]="usuarioEdit.celular">
-      </div>
-    </div>
-  </div>
-  <div class="row" *ngIf="usuarioEdit.tipoPessoa != 'Externo' ">
-    <div class="col-sm-12">
-      <div class="form-group">
-        <label for="departamento">Departamento</label>
-        <input type="text" id="departamento" name="departamento" class="form-control" [(ngModel)]="usuarioEdit.departamento">
-      </div>
-    </div>
-  </div>
-  <div class="row" *ngIf="usuarioEdit.tipoPessoa != 'Externo'">
-    <div class="col-sm-12">
-      <label form="instituicoes">Instituição</label>
-      <div class="form-group">
-        <p-dropdown [options]="instituicoes" optionLabel="nomeFantasia"
-                    [(ngModel)]="usuarioEdit.instituicao"></p-dropdown>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <label form="pessoa">Orientador</label>
-      <div class="form-group" >
-        <p-dropdown [options]="orientadores" optionLabel="nome"
-                    [(ngModel)]="usuarioEdit.nome"></p-dropdown>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="form-group">
-        <label>Status</label>
-        <input class="form-control" type="text" readonly [(ngModel)]="usuarioEdit.status">
-      </div>
-    </div>
-  </div>
-  <p-footer>
-    <button type="button" class="btn btn-default" (click)="closeUserDialog()">
-      Cancelar
-    </button>
-    <button  type="button" class="btn btn-success" (click)="saveUser()">
-      Salvar
-    </button>
-  </p-footer>
-</p-dialog>
-
-<!--DIALOG AMOSTRA-->
-<p-dialog
-  header="Amostra"
-  [(visible)]="showAmostraDialog"
-  modal="modal"
   [responsive]="true"
-  [width]="500"
+  [(visible)]="userDialog"
+  header="Validar Cadastro de Usuário"
 >
-  <div *ngIf="formEdit.amostra">
-    <div class="row">
-      <div class="col-sm-12">
-        <label form="instituicoes">Selecionar amostra</label>
-        <div class="form-group">
-          <p-dropdown [options]="amostras" optionLabel="descricao"
-                      [(ngModel)]="formEdit.amostra"></p-dropdown>
-        </div>
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <div class="form-group">
+        <label>Nome</label>
+        <input class="form-control" type="text" pInputText [value]="usuarioEdit.nome" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>E-mail</label>
+        <input class="form-control" type="text" pInputText [value]="usuarioEdit.email" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>CPF/CNPJ</label>
+        <input class="form-control" type="text" pInputText [value]="usuarioEdit.cpfCnpj" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>RG</label>
+        <input class="form-control" type="text" pInputText [value]="usuarioEdit.rg" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Celular</label>
+        <input class="form-control" type="text" pInputText [value]="usuarioEdit.celular" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Telefone</label>
+        <input class="form-control" type="text" pInputText [value]="usuarioEdit.telefone" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Instituição</label>
+        <p-dropdown [options]="instituicoes" [(ngModel)]="usuarioEdit.instituicao" placeholder="Selecione a instituição"
+                    optionLabel="nomeFantasia" [showClear]="true" [style]="{'width':'100%'}"></p-dropdown>
+      </div>
+
+      <div class="form-group">
+        <label>Departamento</label><br>
+        <input class="form-control" type="text" pInputText [value]="usuarioEdit.departamento">
+      </div>
+
+      <div class="form-group">
+        <label>Orientador</label>
+        <p-dropdown [options]="orientadores" [(ngModel)]="usuarioEdit.orientador" placeholder="Selecione o orientador"
+                    optionLabel="nome" [showClear]="true" [style]="{'width':'100%'}"></p-dropdown>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="form-group">
-          <label for="nome">Data de Recebimento</label>
-          <input
-            readonly
-            type="text"
-            id="dtRecebimento"
-            name="drRecebimento"
-            class="form-control"
-            [value]="!!formEdit.amostra.dataRecebimento ? formEdit.amostra.dataRecebimento : ''"
-          >
-        </div>
-      </div>
-    </div>
-
-    <p-footer>
-      <button type="button" class="btn btn-default">
-        Fechar
-      </button>
-      <button  type="button" class="btn btn-success" (click)="setFormAmostra()">
-        Vincular ao formulário
-      </button>
-    </p-footer>
   </div>
 </p-dialog>
