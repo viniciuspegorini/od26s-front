@@ -9,6 +9,7 @@ import {InstituicaoService} from "../services/instituicao.service";
 import {Instituicao} from "../model/instituicao";
 import {AmostraService} from "../services/amostra.service";
 import {Amostra} from "../model/amostra";
+import {Modelo} from "../model/modelo";
 
 @Component({
   selector: 'app-lista-formularios',
@@ -27,6 +28,12 @@ export class ListaFormulariosComponent implements OnInit {
   private showAmostraDialog = false;
   private usuarioEdit: Usuario;
   private formEdit: Formulario;
+  private tipoPessoa = [
+    {label: 'Aluno', value: 'Aluno'},
+    {label: 'Externo', value: 'Externo'},
+    {label: 'Orientador', value: 'Orientador'},
+    {label: 'Pesquisador', value: 'Pesquisador'},
+  ];
 
   constructor(private loginService: LoginService,
               private formularioService: FormularioService,
@@ -74,5 +81,31 @@ export class ListaFormulariosComponent implements OnInit {
   showUserDialog(user: Usuario) {
     this.usuarioEdit = JSON.parse(JSON.stringify(user));
     this.userDialog = true;
+  }
+
+  closeUserDialog() {
+    this.userDialog = false;
+    this.formEdit = new Formulario();
+    this.formEdit.usuario = new Usuario();
+    this.formEdit.modelo = new Modelo();
+  }
+
+  saveUser(isValid: boolean) {
+    this.usuarioService.save(this.usuarioEdit).subscribe(() => {
+      this.findAllForms();
+      this.closeUserDialog();
+      this.msgs = [{
+        severity: 'success',
+        summary: 'Confirmado',
+        detail: 'Cadastro de usuário salvo com sucesso!'
+      }];
+    }, error => {
+      console.error(error);
+      this.msgs = [{
+        severity: 'error',
+        summary: 'Erro',
+        detail: 'Falha ao salvar cadastro de usuário!'
+      }];
+    });
   }
 }

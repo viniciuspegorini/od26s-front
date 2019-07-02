@@ -6,7 +6,14 @@
 </div>
 
 <p-growl [(value)]="msgs"></p-growl>
-<p-dialog header="Formulário" [(visible)]="showDialogFormulario" modal="modal" [responsive]="true" [width]="1000">
+<p-dialog
+  header="Formulário"
+  [(visible)]="showDialogFormulario"
+  modal="modal"
+  [responsive]="true"
+  [width]="1000"
+  [style]="{'z-index': '10000000'}"
+>
 
   <div class="col-sm-12" *ngIf="hasRole('ADMIN')">
     <label form="usuarios">Usuário</label>

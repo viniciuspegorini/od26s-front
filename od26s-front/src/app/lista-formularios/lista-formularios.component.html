@@ -93,6 +93,12 @@
       </div>
 
       <div class="form-group">
+        <label>Tipo</label>
+        <p-dropdown [options]="tipoPessoa" [(ngModel)]="usuarioEdit.tipoPessoa" placeholder="Selecione o Tipo"
+                    optionLabel="value" [showClear]="true" [style]="{'width':'100%'}"></p-dropdown>
+      </div>
+
+      <div class="form-group">
         <label>Instituição</label>
         <p-dropdown [options]="instituicoes" [(ngModel)]="usuarioEdit.instituicao" placeholder="Selecione a instituição"
                     optionLabel="nomeFantasia" [showClear]="true" [style]="{'width':'100%'}"></p-dropdown>
@@ -108,6 +114,14 @@
         <p-dropdown [options]="orientadores" [(ngModel)]="usuarioEdit.orientador" placeholder="Selecione o orientador"
                     optionLabel="nome" [showClear]="true" [style]="{'width':'100%'}"></p-dropdown>
       </div>
+
+      <p-footer>
+        <button type="button"  class="btn btn-default mr-1" (click)="closeUserDialog()">Cancelar</button>
+        <button type="button" class="btn btn-danger mr-1" (click)="saveUser(false)">Recusar Cadastro</button>
+        <button type="button" class="btn btn-success" (click)="saveUser(true)">Aceitar Cadastro</button>
+      </p-footer>
     </div>
   </div>
 </p-dialog>
+
+<p-growl [(value)]="msgs"></p-growl>

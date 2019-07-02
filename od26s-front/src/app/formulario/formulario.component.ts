@@ -67,7 +67,8 @@ export class FormularioComponent implements OnInit {
   closeFormulario() {
     this.showDialogFormulario = false;
     this.formularioEdit = new Formulario();
-  //  this.formularioEdit.modelo = new Modelo();
+    this.formularioEdit.modelo = new Modelo();
+    this.formularioEdit.usuario = new Usuario();
   }
 
   carregaUsuario() {
@@ -144,7 +145,6 @@ export class FormularioComponent implements OnInit {
         this.msgs = [{severity: 'error', summary: 'Erro', detail: 'Falha ao salvar  registro!'}];
       }
     );
-
   }
 
   onSelectionType(event) {
