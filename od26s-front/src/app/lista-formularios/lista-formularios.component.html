@@ -12,7 +12,6 @@
         <th>Opções</th>
       </tr>
     </ng-template>
-
     <ng-template pTemplate="body" let-formulario>
       <tr>
         <td>{{ formulario.usuario.nome }}</td>
@@ -39,12 +38,13 @@
             class="mx-1"
             icon="pi pi-tag"
             pTooltip="Vincular amostra"
+            (click)="showDialogAmostra(formulario)"
           ></p-button>
 
           <p-button
             class="mx-1"
             icon="pi pi-times"
-            pTooltip="Cancelar formuçário"
+            pTooltip="Cancelar formulário"
           ></p-button>
         </td>
       </tr>
@@ -59,6 +59,7 @@
   [responsive]="true"
   [(visible)]="userDialog"
   header="Validar Cadastro de Usuário"
+  [closable]="false"
 >
   <div class="ui-g">
     <div class="ui-g-12">
@@ -124,4 +125,37 @@
   </div>
 </p-dialog>
 
+<!--DIALOG VINCULAR AMOSTRA-->
+<p-dialog
+  modal="modal"
+  [width]="500"
+  [responsive]="true"
+  [(visible)]="amostraDialog"
+  header="Vincular amostra ao formulário"
+  [closable]="false"
+>
+  <div class="ui-g">
+    <div class="ui-g-12" *ngIf="formEdit.usuario">
+      <div class="form-group">
+        <label>Amostras de {{ formEdit.usuario.nome }}</label>
+        <p-dropdown [options]="filteredAmostras" [(ngModel)]="formEdit.amostra" placeholder="Amostras disponíveis"
+                    optionLabel="descricao" [showClear]="true" [style]="{'width':'100%'}"></p-dropdown>
+      </div>
+
+      <div *ngIf="formEdit.amostra && formEdit.amostra.id">
+        <div class="form-group">
+          <label>Recebida em</label>
+          <input class="form-control" type="text" pInputText [value]="formEdit.amostra.dataRecebimento" readonly>
+        </div>
+
+        <p-footer>
+          <button type="button"  class="btn btn-default mr-1" (click)="closeDialogAmostra()">Cancelar</button>
+          <button type="button" class="btn btn-success" (click)="saveAmostra()">Vincular</button>
+        </p-footer>
+      </div>
+    </div>
+  </div>
+</p-dialog>
+
+<!--ALERT-->
 <p-growl [(value)]="msgs"></p-growl>

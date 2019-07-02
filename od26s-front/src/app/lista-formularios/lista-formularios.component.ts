@@ -10,6 +10,7 @@ import {Instituicao} from "../model/instituicao";
 import {AmostraService} from "../services/amostra.service";
 import {Amostra} from "../model/amostra";
 import {Modelo} from "../model/modelo";
+import {ModeloService} from "../services/modelo.service";
 
 @Component({
   selector: 'app-lista-formularios',
@@ -22,10 +23,12 @@ export class ListaFormulariosComponent implements OnInit {
   private formularios: Array<Formulario>;
   private instituicoes: Array<Instituicao>;
   private orientadores: Array<Usuario>;
+  private modelos: Array<Modelo>;
   private amostras: Array<Amostra>;
+  private filteredAmostras: Array<Amostra>;
   private totalRecords: number;
   private userDialog = false;
-  private showAmostraDialog = false;
+  private amostraDialog = false;
   private usuarioEdit: Usuario;
   private formEdit: Formulario;
   private tipoPessoa = [
@@ -39,7 +42,8 @@ export class ListaFormulariosComponent implements OnInit {
               private formularioService: FormularioService,
               private usuarioService: UsuarioService,
               private instituicaoService: InstituicaoService,
-              private amostraService: AmostraService) {
+              private amostraService: AmostraService,
+              private modeloService: ModeloService) {
   }
 
   ngOnInit() {
@@ -48,15 +52,19 @@ export class ListaFormulariosComponent implements OnInit {
 
     if (this.isAdmin()) {
       this.findAllForms();
-      this.findAllInstituicoes();
       this.findAllOrientadores();
+      this.findAllInstituicoes();
+      this.findAllAmostras();
     }
+
+    this.findAllModelos();
   }
 
   isAdmin(): boolean {
     return this.loginService.hasRole('ADMIN');
   }
 
+  // BUSCA DE DADOS
   findAllForms() {
     if (this.isAdmin()) {
       this.formularioService.findAll().subscribe(formularios => {
@@ -78,6 +86,19 @@ export class ListaFormulariosComponent implements OnInit {
     });
   }
 
+  findAllModelos() {
+    this.modeloService.findAll().subscribe(modelos => {
+      this.modelos = modelos;
+    });
+  }
+
+  findAllAmostras() {
+    this.amostraService.findAll().subscribe(amostras => {
+      this.amostras = amostras;
+    });
+  }
+
+  // VALIDAÇÃO DE USUÁRIOS
   showUserDialog(user: Usuario) {
     this.usuarioEdit = JSON.parse(JSON.stringify(user));
     this.userDialog = true;
@@ -105,6 +126,41 @@ export class ListaFormulariosComponent implements OnInit {
         severity: 'error',
         summary: 'Erro',
         detail: 'Falha ao salvar cadastro de usuário!'
+      }];
+    });
+  }
+
+  // VINCULAÇÃO DE AMOSTRAS
+  showDialogAmostra(form: Formulario) {
+    this.formEdit = JSON.parse(JSON.stringify(form));
+    this.filteredAmostras = this.amostras.filter(a => a.usuario.id === this.formEdit.usuario.id);
+    this.amostraDialog = true;
+  }
+
+  closeDialogAmostra() {
+    this.amostraDialog = false;
+    this.filteredAmostras = [];
+    this.formEdit = new Formulario();
+    this.formEdit.usuario = new Usuario();
+    this.formEdit.modelo = new Modelo();
+    this.formEdit.amostra = new Amostra();
+  }
+
+  saveAmostra() {
+    this.formularioService.save(this.formEdit).subscribe(() => {
+      this.findAllForms();
+      this.closeDialogAmostra();
+      this.msgs = [{
+        severity: 'success',
+        summary: 'Confirmado',
+        detail: 'Amostra vinculada com sucesso!'
+      }];
+    }, error => {
+      console.error(error);
+      this.msgs = [{
+        severity: 'error',
+        summary: 'Erro',
+        detail: 'Falha ao vincular amostra!'
       }];
     });
   }
