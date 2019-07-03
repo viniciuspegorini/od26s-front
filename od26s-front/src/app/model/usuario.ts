@@ -1,5 +1,6 @@
-import { Permissao } from './permissao'
-import { Instituicao } from './instituicao'
+import { Permissao } from './permissao';
+import { Instituicao } from './instituicao';
+import {SituacaoCadastro} from './situacao-cadastro.enum';
 
 export class Usuario {
   id: number;
@@ -11,10 +12,12 @@ export class Usuario {
   celular: string;
   dtCriacao: Date;
   telefone: string;
+  saldo: number;
   password: string;
   tipoPessoa: string;
   orientador: Usuario;
   departamento: string;
   instituicao: Instituicao;
+  situacaoCadastro: string;
   permissao: Array<Permissao>;
 }
