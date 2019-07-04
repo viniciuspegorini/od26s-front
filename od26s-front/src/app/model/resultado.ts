@@ -1,9 +1,10 @@
-import { Formulario } from './formulario'
+import { Formulario } from './formulario';
+import {Usuario} from './usuario';
 
 export class Resultado {
   id: number;
-  laudo: string;
-  usuario: string;
+  laudo: Array<any>;
+  usuario: Usuario;
   dtAlteracao: Date;
   arquivo: Array<any>;
   formulario: Formulario;

@@ -11,6 +11,7 @@ import { PermissaoComponent } from './permissao/permissao.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import {FormularioComponent} from './formulario/formulario.component';
 import {UsuarioComponent} from './usuario/usuario.component';
+import {ResultadoComponent} from './resultado/resultado.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -25,6 +26,8 @@ const routes: Routes = [
       {path: 'permissao', component: PermissaoComponent},
       {path: 'formulario', component: FormularioComponent},
       {path: 'usuario', component: UsuarioComponent},
+      {path: 'resultado', component: ResultadoComponent},
+
     ]
   },
   {path: 'login', component: LoginComponent},

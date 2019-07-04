@@ -12,7 +12,7 @@ import {
   ConfirmationService,
   ConfirmDialogModule,
   DialogModule,
-  DropdownModule,
+  DropdownModule, FileUploadModule,
   GrowlModule,
   ProgressSpinnerModule, RadioButtonModule,
   TabViewModule
@@ -40,6 +40,7 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
 import {FormularioComponent} from './formulario/formulario.component';
 import {UsuarioComponent} from  './usuario/usuario.component';
 import { UsuarioService } from './services/usuario.service';
+import { ResultadoComponent } from './resultado/resultado.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { UsuarioService } from './services/usuario.service';
     PermissaoComponent,
     RegistroUsuarioComponent,
     FormularioComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    ResultadoComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,8 @@ import { UsuarioService } from './services/usuario.service';
     DropdownModule,
     CalendarModule,
     InputMaskModule,
-    RadioButtonModule
+    RadioButtonModule,
+    FileUploadModule
   ],
   providers: [
     ConfirmationService,

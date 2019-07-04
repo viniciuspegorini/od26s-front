@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ResultadoService extends CrudService<Resultado, Number> {
+export class ResultadoService extends CrudService<Resultado, number> {
 
   constructor(http: HttpClient) {
     super(environment.api + '/resultado', http);

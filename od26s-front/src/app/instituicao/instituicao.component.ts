@@ -58,7 +58,6 @@ export class InstituicaoComponent implements OnInit {
   newEntity() {
     this.showDialog = true;
     this.instituicaoEdit = new Instituicao();
-    this.instituicaoEdit = new Instituicao();
   }
 
   save() {
