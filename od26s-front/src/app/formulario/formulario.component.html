@@ -53,6 +53,7 @@
                 class="mx-1"
                 icon="pi pi-tag"
                 pTooltip="Vincular amostra"
+                (click)="showDialogAmostra(formulario)"
               ></p-button>
             </td>
           </tr>
@@ -304,6 +305,50 @@
         type="button"
         class="btn btn-success ml-2"
         (click)="saveUsuario()"
+      >
+        Salvar
+      </button>
+    </div>
+  </div>
+</p-dialog>
+
+<!--DIALOG VINCULAR AMOSTRA-->
+<p-dialog
+  modal="modal"
+  [width]="900"
+  header="Víncular Amostra"
+  [responsive]="true"
+  [(visible)]="dialogAmostra"
+  [style]="{'min-height': '600px'}"
+>
+  <div class="col-sm-12">
+    <div class="form-group">
+      <label>Amostra</label><br>
+      <p-dropdown
+        optionLabel="descricao"
+        [options]="amostrasUsuario"
+        [style]="{'width': '100%'}"
+        [(ngModel)]="formularioEdit.amostra"
+      ></p-dropdown>
+    </div>
+
+    <div class="form-group" *ngIf="formularioEdit.amostra">
+      <label>Recebida em</label>
+      <input class="form-control" readonly [value]="formularioEdit.amostra.dataRecebimento">
+    </div>
+
+    <div class="row mt-3 mb-3">
+      <button
+        type="button"
+        class="btn btn-danger ml-2"
+        (click)="closeDialogAmostra()"
+      >
+        Fechar
+      </button>
+      <button
+        type="button"
+        class="btn btn-success ml-2"
+        (click)="saveAmostra()"
       >
         Salvar
       </button>

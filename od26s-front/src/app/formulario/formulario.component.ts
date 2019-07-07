@@ -13,6 +13,7 @@ import {ModeloService} from '../services/modelo.service';
 import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
 import {Message} from "primeng/api";
 import {InstituicaoService} from "../services/instituicao.service";
+import {AmostraService} from "../services/amostra.service";
 
 
 @Component({
@@ -33,6 +34,8 @@ export class FormularioComponent implements OnInit {
   private usuarios: Array<Usuario>;
   private formularios: Array<Formulario>;
   private equipamentos: Array<Equipamento>;
+  private amostras: Array<Amostra>;
+  private amostrasUsuario: Array<Amostra>;
   private formStatusItems: Array<any>;
   private naturezaProjetoItems: Array<any>;
   private tiposPessoa: Array<any>;
@@ -41,6 +44,7 @@ export class FormularioComponent implements OnInit {
   private instiuicoes: Array<Instituicao>;
   private orientadores: Array<Usuario>;
 
+  private dialogAmostra = false;
   private dialogUsuario = false;
   private dialogFormulario = false;
   public editor = ClassicEditorBuild;
@@ -50,7 +54,8 @@ export class FormularioComponent implements OnInit {
               private usuarioService: UsuarioService,
               private equipamentoService: EquipamentoService,
               private modeloService: ModeloService,
-              private instituicaoService: InstituicaoService
+              private instituicaoService: InstituicaoService,
+              private amostraService: AmostraService
   ) {
   }
 
@@ -108,6 +113,7 @@ export class FormularioComponent implements OnInit {
         this.findAllUsuarios();
         this.findAllEquipamentos();
         this.findAllInstituicoes();
+        this.findAllAmostras();
       })
       .catch(err => {
         console.error(err);
@@ -147,6 +153,14 @@ export class FormularioComponent implements OnInit {
     this.instituicaoService.findAll().subscribe(instituicoes => {
       this.instiuicoes = instituicoes;
     });
+  }
+
+  findAllAmostras() {
+    if (this.isAdmin()) {
+      this.amostraService.findAll().subscribe(amostras => {
+        this.amostras = amostras;
+      });
+    }
   }
 
   getLoggedUser(): Promise<Usuario> {
@@ -273,6 +287,37 @@ export class FormularioComponent implements OnInit {
       this.msgs = [{
         severity: 'error', summary: 'Falhou',
         detail: 'Falha ao salvar usuário. Tente novamente!'
+      }];
+    });
+  }
+
+  showDialogAmostra(form: Formulario) {
+    if (form && this.isAdmin()) {
+      this.formularioEdit = JSON.parse(JSON.stringify(form));
+      this.amostrasUsuario = this.amostras.filter(a => a.usuario && a.usuario.id === this.formularioEdit.usuario.id);
+      this.amostrasUsuario.unshift(new Amostra());
+      this.dialogAmostra = true;
+    }
+  }
+
+  closeDialogAmostra() {
+    this.dialogAmostra = false;
+    this.amostrasUsuario = [];
+  }
+
+  saveAmostra() {
+    this.formularioService.save(this.formularioEdit).subscribe(() => {
+      this.closeDialogAmostra();
+      this.findAllFormularios();
+      this.msgs = [{
+        severity: 'success', summary: 'Sucesso',
+        detail: 'Amostra vinculada com sucesso!'
+      }];
+    }, error => {
+      console.error(error);
+      this.msgs = [{
+        severity: 'error', summary: 'Falhou',
+        detail: 'Falha ao vincular amostra. Tente novamente!'
       }];
     });
   }
