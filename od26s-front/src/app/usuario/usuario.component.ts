@@ -6,7 +6,6 @@ import {DataTable} from 'primeng/components/datatable/datatable';
 import {InstituicaoService} from '../services/instituicao.service';
 import {UsuarioService} from './usuario.service';
 import {LoginService} from '../login/login.service';
-import {SituacaoCadastro} from '../model/situacao-cadastro.enum';
 
 @Component({
   selector: 'app-usuario',

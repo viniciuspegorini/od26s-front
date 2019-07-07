@@ -1,6 +1,5 @@
 import { Permissao } from './permissao';
 import { Instituicao } from './instituicao';
-import {SituacaoCadastro} from './situacao-cadastro.enum';
 
 export class Usuario {
   id: number;
