@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {LoginService} from '../login/login.service';
 import {FormularioService} from '../services/formulario.service';
 import {Formulario} from '../model/formulario';
@@ -18,6 +18,8 @@ import {ModeloService} from "../services/modelo.service";
   styleUrls: ['./lista-formularios.component.css']
 })
 export class ListaFormulariosComponent implements OnInit {
+
+  // @Output() formDialog = new EventEmitter<>();
 
   msgs: Message[] = [];
   private formularios: Array<Formulario>;
@@ -163,5 +165,9 @@ export class ListaFormulariosComponent implements OnInit {
         detail: 'Falha ao vincular amostra!'
       }];
     });
+  }
+
+  showFormDialog(form: Formulario) {
+    this.formDialog.emit(form);
   }
 }

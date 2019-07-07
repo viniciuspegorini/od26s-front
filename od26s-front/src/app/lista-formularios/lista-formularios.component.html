@@ -24,14 +24,15 @@
           <p-button
             class="mx-1"
             icon="pi pi-list"
-            pTooltip="Validar formulário"
+            pTooltip="Editar formulário"
+            (click)="showFormDialog(formulario)"
           ></p-button>
 
           <p-button
             class="mx-1"
             icon="pi pi-user"
             pTooltip="Validar usuário"
-            (onClick)="showUserDialog(formulario.usuario)"
+            (click)="showUserDialog(formulario.usuario)"
           ></p-button>
 
           <p-button

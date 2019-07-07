@@ -1,19 +1,18 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {ConfirmationService, Message} from 'primeng/api';
-import {Amostra} from '../model/amostra';
-import {Modelo} from '../model/modelo';
-import {Nota} from '../model/nota';
+import {Component, OnInit} from '@angular/core';
+import {FormularioService} from '../services/formulario.service';
 import {Formulario} from '../model/formulario';
-import {DataTable} from 'primeng/primeng';
-import {NotaService} from '../services/nota.service';
+import {LoginService} from '../login/login.service';
+import {Usuario} from '../model/usuario';
+import {Modelo} from '../model/modelo';
+import {Amostra} from '../model/amostra';
+import {UsuarioService} from '../usuario/usuario.service';
+import {Instituicao} from '../model/instituicao';
+import {Equipamento} from '../model/equipamento';
+import {EquipamentoService} from '../services/equipamento.service';
 import {ModeloService} from '../services/modelo.service';
 import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
-import {LoginService} from '../login/login.service';
-import {Equipamento} from '../model/equipamento';
-import {Usuario} from '../model/usuario';
-import {UsuarioService} from '../usuario/usuario.service';
-import {EquipamentoService} from '../services/equipamento.service';
-import {FormularioService} from '../services/formulario.service';
+import {Message} from "primeng/api";
+
 
 @Component({
   selector: 'app-formulario',
@@ -22,144 +21,177 @@ import {FormularioService} from '../services/formulario.service';
 })
 export class FormularioComponent implements OnInit {
 
+  private usuarioLogado: Usuario;
+  private formularioEdit: Formulario;
+  private selectedEquipamento: Equipamento;
+  private formStatus: any;
+  private naturezaProjeto: any;
+
+  private usuarios: Array<Usuario>;
+  private formularios: Array<Formulario>;
+  private equipamentos: Array<Equipamento>;
+  private formStatusItems: Array<any>;
+  private naturezaProjetoItems: Array<any>;
+  private msgs: Array<Message>;
+
+  private dialogFormulario = false;
   public editor = ClassicEditorBuild;
 
-  @ViewChild('dt') dataTable: DataTable;
-
-  msgs: Message[] = [];
-  formularioEdit = new Formulario();
-  showDialog = false;
-  equipamentoSelected = new Equipamento();
-  modeloEdit = new Modelo();
-  selectedValue: string;
-  amostras: Amostra[];
-  modelos: Modelo[];
-  modelo = new Modelo();
-  equipamentos: Equipamento[];
-  usuarios: Usuario[] = [];
-  notas: Nota[];
-  usuario = new Usuario();
-  showDialogFormulario = false;
-
   constructor(private formularioService: FormularioService,
-              private confirmationService: ConfirmationService,
-              private notaService: NotaService,
-              private usuarioService: UsuarioService,
-              private modeloService: ModeloService,
               private loginService: LoginService,
-              private equipamentoService: EquipamentoService
+              private usuarioService: UsuarioService,
+              private equipamentoService: EquipamentoService,
+              private modeloService: ModeloService
   ) {
   }
 
   ngOnInit() {
-    this.usuarios = [];
-    this.formularioEdit = new Formulario();
-    this.formularioEdit.usuario = this.usuario;
-    this.carregaUsuario();
+    this.formStatusItems = [
+      {text: '', value: 'A'},
+      {text: 'Aprovado', value: 'A'},
+      {text: 'Pendente', value: 'P'},
+      {text: 'Reprovado', value: 'R'}
+    ];
+
+    this.naturezaProjetoItems = [
+      {text: '', value: ''},
+      {text: 'Iniciação Científica ou Tecnológica (programas PIBIC/PIBIT)', value: 'Iniciacao'},
+      {text: 'Trabalho de Conclusão de Curso (TCC)', value: 'TCC'},
+      {text: 'Mestrado', value: 'Mestrado'},
+      {text: 'Doutorado', value: 'Doutorado'},
+      {text: 'Outro', value: 'Outro'},
+    ];
+
+    this.selectedEquipamento = new Equipamento();
+    this.msgs = [];
+
+    this.initFormulario();
+    this.initComponent();
   }
 
-  openFormulario() {
-    this.showDialogFormulario = true;
-    this.selectedValue = 'Iniciacao';
-    this.formularioEdit.naturezaOperacao = this.selectedValue;
+  isAdmin() {
+    return this.loginService.hasRole('ADMIN');
   }
 
-  closeFormulario() {
-    this.showDialogFormulario = false;
+  initComponent() {
+    this.getLoggedUser()
+      .then(() => {
+        this.findAllFormularios();
+        this.findAllUsuarios();
+        this.findAllEquipamentos();
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+
+  findAllFormularios() {
+    this.formularioService.findAll().subscribe(formularios => {
+      if (this.isAdmin()) {
+        this.formularios = formularios;
+      } else {
+        this.formularios = formularios.filter(f => f.usuario.id === this.usuarioLogado.id);
+      }
+    });
+  }
+
+  findAllUsuarios() {
+    if (this.isAdmin()) {
+      this.usuarioService.findAll().subscribe(usuarios => {
+        this.usuarios = usuarios;
+        this.usuarios.unshift(new Usuario());
+      });
+    } else {
+      this.usuarios = [this.usuarioLogado];
+    }
+  }
+
+  findAllEquipamentos() {
+    this.equipamentoService.findAll().subscribe(equipamentos => {
+      this.equipamentos = equipamentos;
+      this.equipamentos.unshift(new Equipamento());
+    });
+  }
+
+  getLoggedUser(): Promise<Usuario> {
+    return new Promise((resolve, reject) => {
+      this.formularioService.getLoggedUser().subscribe(usuarioLogado => {
+        this.usuarioLogado = usuarioLogado;
+        resolve();
+      }, error => {
+        console.error(error);
+        reject();
+      });
+    });
+  }
+
+  getFormStatusText(status: string): string {
+    switch (status) {
+      case 'A':
+        return 'Aprovado';
+      case 'R':
+        return 'Reprovado';
+      default:
+        return 'Pendente';
+    }
+  }
+
+  setFormModelo() {
+    if (this.selectedEquipamento.id) {
+      this.modeloService.findEquipamento(this.selectedEquipamento.id).subscribe(modelo => {
+        this.formularioEdit.modelo = modelo;
+      });
+    }
+  }
+
+  initFormulario() {
+    this.naturezaProjeto = {};
+    this.formStatus = {};
     this.formularioEdit = new Formulario();
     this.formularioEdit.modelo = new Modelo();
     this.formularioEdit.usuario = new Usuario();
+    this.formularioEdit.amostra = new Amostra();
+    this.formularioEdit.usuario.instituicao = new Instituicao();
+    this.formularioEdit.modelo.metodologia = '';
   }
 
-  carregaUsuario() {
-    this.formularioService.getLoggedUser().subscribe(e => {
-      this.usuario = e;
-      this.carregarCombos();
-      this.modeloEdit = new Modelo();
-      if (this.hasRole('ADMIN')) {
-        this.usuarioService.findAll().subscribe(p => {
-          this.usuarios = p;
-          this.formularioEdit.usuario = this.usuarios[0];
-        });
-      } else {
-        this.formularioService.findByUsuarioId(this.usuario.id).subscribe(user => {
-          this.formularioEdit.usuario = user;
-          this.formularioEdit.usuario = this.usuario;
-        });
-      }
-    });
-  }
-
-  hasRole(permissao: string) {
-    return this.loginService.hasRole(permissao);
-  }
-
-  carregarCombos() {
-    this.modeloService.findAll().subscribe(e => {
-      this.modelos = e;
-      this.modeloEdit = this.modelos[0];
-    });
-    this.equipamentoService.findAll().subscribe(e => {
-      this.equipamentos = e;
-      this.equipamentoSelected = this.equipamentos[0];
-    });
-  }
-
-  newEntity() {
-    this.showDialog = true;
-  }
-
-  cancel() {
-    this.showDialog = false;
-    this.formularioEdit = new Formulario();
-  }
-
-  save() {
-    this.formularioEdit.status = 'Solicitado';
-
-    if (this.hasRole('ADMIN')) {
-      this.formularioEdit.usuario = this.usuarios[0];
+  showDialogFormulario(form: Formulario = null) {
+    if (form) {
+      this.formularioEdit = JSON.parse(JSON.stringify(form));
+      this.naturezaProjeto = this.naturezaProjetoItems.find(np => np.value === this.formularioEdit.naturezaOperacao);
+      this.formStatus = this.formStatusItems.find(fs => fs.value === this.formularioEdit.status);
+    } else {
+      this.initFormulario();
     }
 
-    this.formularioEdit.modelo = this.modeloEdit;
-    this.formularioEdit.metodologia = this.modeloEdit.metodologia;
+    this.dialogFormulario = true;
+  }
+
+  closeDialogFormulario() {
+    this.dialogFormulario = false;
+    this.initFormulario();
+  }
+
+  saveFormulario() {
+    this.formularioEdit.naturezaOperacao = this.naturezaProjeto.value;
+    this.formularioEdit.status = this.formStatus.value;
     this.formularioEdit.amostra = null;
-   // this.formularioEdit.departamento = '';
-    this.formularioEdit.nota = null;
     this.formularioEdit.quantidadeEnsaios = 0;
     this.formularioEdit.valorTotal = 0;
 
-    this.formularioService.save(this.formularioEdit).subscribe(e => {
-        this.showDialogFormulario = false;
-        if (this.hasRole('ADMIN')) {
-          this.formularioEdit = new Formulario();
-          this.formularioEdit.usuario = new Usuario();
-        }
-        this.formularioEdit.modelo = new Modelo();
-        this.msgs = [{
-          severity: 'success', summary: 'Confirmado',
-          detail: 'Formulário salvo com sucesso!'
-        }];
-      },
-      error => {
-        this.msgs = [{severity: 'error', summary: 'Erro', detail: 'Falha ao salvar  registro!'}];
-      }
-    );
-  }
-
-  onSelectionType(event) {
-    if (event) {
-      if (this.selectedValue) {
-        this.formularioEdit.naturezaOperacao = this.selectedValue;
-      } else {
-        this.formularioEdit.naturezaOperacao = '';
-      }
-    }
-  }
-
-  selectModelo() {
-    if (this.equipamentoSelected) {
-      this.modeloService.findEquipamento(this.equipamentoSelected.id).subscribe(e => this.modeloEdit = e);
-    }
+    this.formularioService.save(this.formularioEdit).subscribe(() => {
+      this.closeDialogFormulario();
+      this.initFormulario();
+      this.findAllFormularios();
+      this.msgs = [{
+        severity: 'success', summary: 'Sucesso',
+        detail: 'Formulário salvo com sucesso!'
+      }];
+    }, error => {
+      this.msgs = [{
+        severity: 'error', summary: 'Falhou',
+        detail: 'Falha ao salvar formulário. Tente novamente!'
+      }];
+    });
   }
 }
