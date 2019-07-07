@@ -13,9 +13,13 @@ import {
   ConfirmDialogModule,
   DialogModule,
   DropdownModule,
-  GrowlModule, InputTextModule,
-  ProgressSpinnerModule, RadioButtonModule, SplitButtonModule,
-  TabViewModule, TooltipModule
+  GrowlModule,
+  InputTextModule,
+  ProgressSpinnerModule,
+  RadioButtonModule,
+  SplitButtonModule,
+  TabViewModule,
+  TooltipModule
 } from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
 import {CalendarModule} from 'primeng/calendar';
@@ -34,13 +38,13 @@ import {PrecoComponent} from './preco/preco.component';
 import {PrecoService} from './services/preco.service';
 import {LoginComponent} from './login/login.component';
 import {InputMaskModule} from 'primeng/inputmask';
-import { PermissaoService } from './services/permissao.service';
-import { PermissaoComponent } from './permissao/permissao.component';
-import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
+import {PermissaoService} from './services/permissao.service';
+import {PermissaoComponent} from './permissao/permissao.component';
+import {RegistroUsuarioComponent} from './registro-usuario/registro-usuario.component';
 import {FormularioComponent} from './formulario/formulario.component';
-import {UsuarioComponent} from  './usuario/usuario.component';
-import { UsuarioService } from './services/usuario.service';
-import {ListaFormulariosComponent} from './lista-formularios/lista-formularios.component';
+// tslint:disable-next-line:import-spacing
+import {UsuarioComponent} from './usuario/usuario.component';
+import {UsuarioService} from './services/usuario.service';
 
 
 @NgModule({
@@ -56,8 +60,7 @@ import {ListaFormulariosComponent} from './lista-formularios/lista-formularios.c
     PermissaoComponent,
     RegistroUsuarioComponent,
     FormularioComponent,
-    UsuarioComponent,
-    ListaFormulariosComponent
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import {Instituicao} from '../model/instituicao';
 import {DataTable} from 'primeng/components/datatable/datatable';
 import {InstituicaoService} from '../services/instituicao.service';
 import {UsuarioService} from './usuario.service';
+import {LoginService} from '../login/login.service';
 
 @Component({
   selector: 'app-usuario',
@@ -22,15 +23,16 @@ export class UsuarioComponent implements OnInit {
   showDialog = false;
   msgs: Message[] = [];
   instituicoes: Instituicao[];
-  tipoPessoa: any;
-  status: any;
   tipoPessoa1: any[];
-  status1: SelectItem[];
   tipoPess: string;
+  status1: any[];
   tipoStatus: string;
+  status: string;
+
+  statusCadastro = ['A', '', ''];
 
   constructor(private usuarioService: UsuarioService, private confirmationService: ConfirmationService,
-              private instituicaoService: InstituicaoService
+              private instituicaoService: InstituicaoService,  private loginService: LoginService
   ) {
     this.status1 = [
       {label: 'Ativo', value: 'Ativo'},
@@ -38,12 +40,17 @@ export class UsuarioComponent implements OnInit {
     ];
 
     this.tipoPessoa1 = [
-      {label: 'Aluno', value: 'Aluno'},
       {label: 'Externo', value: 'Externo'},
+      {label: 'Aluno', value: 'Aluno'},
       {label: 'Orientador', value: 'Orientador'},
       {label: 'Pesquisador', value: 'Pesquisador'},
     ];
   }
+
+  hasRole(permissao: string) {
+    return this.loginService.hasRole(permissao);
+  }
+
 
   ngOnInit() {
     this.usuarioEdit = new Usuario();
@@ -62,6 +69,11 @@ export class UsuarioComponent implements OnInit {
   }
 
   save() {
+
+    if (this.hasRole('ADMIN')) {
+      this.usuarioEdit.situacaoCadastro = this.statusCadastro[0];
+    }
+
     this.usuarioService.save(this.usuarioEdit).subscribe(e => {
         this.usuarioEdit = new Usuario();
         this.dataTable.reset();
@@ -86,6 +98,7 @@ export class UsuarioComponent implements OnInit {
     this.usuarioEdit.tipoPessoa = this.tipoPessoa1[0].value;
     this.usuarioEdit.status = this.status1[0].value;
     this.usuarioEdit.instituicao = this.instituicoes[0];
+    this.usuarioEdit.orientador = this.usuarios[0];
   }
 
   edit(usuario: Usuario) {

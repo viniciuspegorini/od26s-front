@@ -111,7 +111,7 @@
         <label form="pessoa">Orientador</label>
         <div class="form-group" >
           <p-dropdown [options]="usuarios" optionLabel="nome"
-                      [(ngModel)]="usuarioEdit.nome"></p-dropdown>
+                      [(ngModel)]="usuarioEdit.orientador"></p-dropdown>
         </div>
       </div>
     </div>
@@ -140,7 +140,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf= "usuarioEdit.tipoPessoa === 'Orientador'">
       <div class="col-sm-12">
         <div class="form-group">
           <label for="saldo">Saldo</label>
