@@ -15,6 +15,11 @@ export class Usuario {
   tipoPessoa: string;
   orientador: Usuario;
   departamento: string;
+  saldo: number;
+  endereco: string;
+  cidade: string;
+  uf: string;
+  cep: string;
   instituicao: Instituicao;
   permissao: Array<Permissao>;
 }
