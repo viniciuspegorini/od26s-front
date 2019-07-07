@@ -17,4 +17,5 @@ export class Usuario {
   departamento: string;
   instituicao: Instituicao;
   permissao: Array<Permissao>;
+  situacaoCadastro: string;
 }

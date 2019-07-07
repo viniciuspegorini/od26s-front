@@ -12,6 +12,7 @@ import {EquipamentoService} from '../services/equipamento.service';
 import {ModeloService} from '../services/modelo.service';
 import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
 import {Message} from "primeng/api";
+import {InstituicaoService} from "../services/instituicao.service";
 
 
 @Component({
@@ -23,17 +24,24 @@ export class FormularioComponent implements OnInit {
 
   private usuarioLogado: Usuario;
   private formularioEdit: Formulario;
+  private usuarioEdit: Usuario;
   private selectedEquipamento: Equipamento;
   private formStatus: any;
   private naturezaProjeto: any;
+  private selectedUserStatus: any;
 
   private usuarios: Array<Usuario>;
   private formularios: Array<Formulario>;
   private equipamentos: Array<Equipamento>;
   private formStatusItems: Array<any>;
   private naturezaProjetoItems: Array<any>;
+  private tiposPessoa: Array<any>;
+  private situacoesCadastro: Array<any>;
   private msgs: Array<Message>;
+  private instiuicoes: Array<Instituicao>;
+  private orientadores: Array<Usuario>;
 
+  private dialogUsuario = false;
   private dialogFormulario = false;
   public editor = ClassicEditorBuild;
 
@@ -41,16 +49,21 @@ export class FormularioComponent implements OnInit {
               private loginService: LoginService,
               private usuarioService: UsuarioService,
               private equipamentoService: EquipamentoService,
-              private modeloService: ModeloService
+              private modeloService: ModeloService,
+              private instituicaoService: InstituicaoService
   ) {
   }
 
   ngOnInit() {
     this.formStatusItems = [
-      {text: '', value: 'A'},
-      {text: 'Aprovado', value: 'A'},
-      {text: 'Pendente', value: 'P'},
-      {text: 'Reprovado', value: 'R'}
+      {text: ''},
+      {text: 'Aguardando amostra'},
+      {text: 'Amostra recebida'},
+      {text: 'Recusado'},
+      {text: 'Cancelado'},
+      {text: 'Em análise'},
+      {text: 'Em faturamento'},
+      {text: 'Finalizado'},
     ];
 
     this.naturezaProjetoItems = [
@@ -62,11 +75,26 @@ export class FormularioComponent implements OnInit {
       {text: 'Outro', value: 'Outro'},
     ];
 
+    this.tiposPessoa = [
+      {text: 'Aluno', value: 'Aluno'},
+      {text: 'Externo', value: 'Externo'},
+      {text: 'Orientador', value: 'Orientador'},
+      {text: 'Pesquisador', value: 'Pesquisador'},
+    ];
+
+    this.situacoesCadastro = [
+      {text: '', value: 'P'},
+      {text: 'Aprovado', value: 'A'},
+      {text: 'Pendente', value: 'P'},
+      {text: 'Reprovado', value: 'R'}
+    ];
+
     this.selectedEquipamento = new Equipamento();
     this.msgs = [];
 
-    this.initFormulario();
+    this.initUsuario();
     this.initComponent();
+    this.initFormulario();
   }
 
   isAdmin() {
@@ -79,6 +107,7 @@ export class FormularioComponent implements OnInit {
         this.findAllFormularios();
         this.findAllUsuarios();
         this.findAllEquipamentos();
+        this.findAllInstituicoes();
       })
       .catch(err => {
         console.error(err);
@@ -100,6 +129,7 @@ export class FormularioComponent implements OnInit {
       this.usuarioService.findAll().subscribe(usuarios => {
         this.usuarios = usuarios;
         this.usuarios.unshift(new Usuario());
+        this.orientadores = this.usuarios.filter(u => u.tipoPessoa === 'Orientador');
       });
     } else {
       this.usuarios = [this.usuarioLogado];
@@ -113,6 +143,12 @@ export class FormularioComponent implements OnInit {
     });
   }
 
+  findAllInstituicoes() {
+    this.instituicaoService.findAll().subscribe(instituicoes => {
+      this.instiuicoes = instituicoes;
+    });
+  }
+
   getLoggedUser(): Promise<Usuario> {
     return new Promise((resolve, reject) => {
       this.formularioService.getLoggedUser().subscribe(usuarioLogado => {
@@ -123,17 +159,6 @@ export class FormularioComponent implements OnInit {
         reject();
       });
     });
-  }
-
-  getFormStatusText(status: string): string {
-    switch (status) {
-      case 'A':
-        return 'Aprovado';
-      case 'R':
-        return 'Reprovado';
-      default:
-        return 'Pendente';
-    }
   }
 
   setFormModelo() {
@@ -153,6 +178,14 @@ export class FormularioComponent implements OnInit {
     this.formularioEdit.amostra = new Amostra();
     this.formularioEdit.usuario.instituicao = new Instituicao();
     this.formularioEdit.modelo.metodologia = '';
+    this.formularioEdit.status = 'Em análise';
+  }
+
+  initUsuario() {
+    this.usuarioEdit = new Usuario();
+    this.usuarioEdit.orientador = new Usuario();
+    this.usuarioEdit.instituicao = new Instituicao();
+    this.usuarioEdit.permissao = [];
   }
 
   showDialogFormulario(form: Formulario = null) {
@@ -160,8 +193,14 @@ export class FormularioComponent implements OnInit {
       this.formularioEdit = JSON.parse(JSON.stringify(form));
       this.naturezaProjeto = this.naturezaProjetoItems.find(np => np.value === this.formularioEdit.naturezaOperacao);
       this.formStatus = this.formStatusItems.find(fs => fs.value === this.formularioEdit.status);
+      if (!this.naturezaProjeto) {
+        this.naturezaProjeto = this.naturezaProjetoItems[this.naturezaProjetoItems.length - 1];
+      }
     } else {
       this.initFormulario();
+      if (!this.isAdmin()) {
+        this.formularioEdit.usuario = JSON.parse(JSON.stringify(this.usuarioLogado));
+      }
     }
 
     this.dialogFormulario = true;
@@ -173,11 +212,18 @@ export class FormularioComponent implements OnInit {
   }
 
   saveFormulario() {
-    this.formularioEdit.naturezaOperacao = this.naturezaProjeto.value;
-    this.formularioEdit.status = this.formStatus.value;
+    if (this.naturezaProjeto.value !== 'Outro') {
+      this.formularioEdit.naturezaOperacao = this.naturezaProjeto.value;
+    }
+
+    this.formularioEdit.status = this.formStatus.text;
     this.formularioEdit.amostra = null;
     this.formularioEdit.quantidadeEnsaios = 0;
     this.formularioEdit.valorTotal = 0;
+
+    if (!this.isAdmin()) {
+      this.formularioEdit.status = 'Em análise';
+    }
 
     this.formularioService.save(this.formularioEdit).subscribe(() => {
       this.closeDialogFormulario();
@@ -191,6 +237,42 @@ export class FormularioComponent implements OnInit {
       this.msgs = [{
         severity: 'error', summary: 'Falhou',
         detail: 'Falha ao salvar formulário. Tente novamente!'
+      }];
+    });
+  }
+
+  showDialogUsuario(usuario: Usuario) {
+    if (this.isAdmin()) {
+      if (usuario) {
+        this.usuarioEdit = JSON.parse(JSON.stringify(usuario));
+        this.selectedUserStatus = this.situacoesCadastro.find(sc => sc.value === this.usuarioEdit.situacaoCadastro);
+      }
+      this.dialogUsuario = true;
+    }
+  }
+
+  closeDialogUsuario() {
+    this.dialogUsuario = false;
+    this.initUsuario();
+  }
+
+  saveUsuario() {
+    this.usuarioEdit.situacaoCadastro = this.selectedUserStatus.value;
+
+    this.usuarioService.save(this.usuarioEdit).subscribe(() => {
+      this.closeDialogUsuario();
+      this.initUsuario();
+      this.findAllFormularios();
+
+      this.msgs = [{
+        severity: 'success', summary: 'Sucesso',
+        detail: 'Usuário salvo com sucesso!'
+      }];
+    }, error => {
+      console.error(error);
+      this.msgs = [{
+        severity: 'error', summary: 'Falhou',
+        detail: 'Falha ao salvar usuário. Tente novamente!'
       }];
     });
   }
