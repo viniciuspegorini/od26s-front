@@ -11,10 +11,16 @@ export class Usuario {
   celular: string;
   dtCriacao: Date;
   telefone: string;
+  saldo: number;
   password: string;
   tipoPessoa: string;
   orientador: Usuario;
   departamento: string;
+  endereco: string;
+  cidade: string;
+  uf: string;
+  cep: string;
   instituicao: Instituicao;
+  situacaoCadastro: string;
   permissao: Array<Permissao>;
 }

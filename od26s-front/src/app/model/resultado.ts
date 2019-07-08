@@ -1,4 +1,4 @@
-import { Formulario } from './formulario'
+import { Formulario } from './formulario';
 
 export class Resultado {
   id: number;

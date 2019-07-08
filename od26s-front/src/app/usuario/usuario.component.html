@@ -111,7 +111,7 @@
         <label form="pessoa">Orientador</label>
         <div class="form-group" >
           <p-dropdown [options]="usuarios" optionLabel="nome"
-                      [(ngModel)]="usuarioEdit.nome"></p-dropdown>
+                      [(ngModel)]="usuarioEdit.orientador"></p-dropdown>
         </div>
       </div>
     </div>
@@ -140,7 +140,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf= "usuarioEdit.tipoPessoa === 'Orientador'">
       <div class="col-sm-12">
         <div class="form-group">
           <label for="saldo">Saldo</label>
@@ -148,9 +148,43 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <label for="endereco">Endereço</label>
+        <span class="ui-float-label">
+          <input type="text" id="endereco" name="endereco" class="form-control ui-float-label" [(ngModel)]="usuarioEdit.endereco">
+          <label  for="endereco">Rua, Numero, Bairro</label>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="cidade">Cidade</label>
+          <input type="text" id="cidade" name="cidade" class="form-control" [(ngModel)]="usuarioEdit.cidade">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="uf">Estado</label>
+          <input type="text" id="uf" name="uf" class="form-control" [(ngModel)]="usuarioEdit.uf">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="cep">CEP</label>
+          <input type="text" id="cep" name="cep" class="form-control" [(ngModel)]="usuarioEdit.cep">
+        </div>
+      </div>
+    </div>
+
     <p-footer>
       <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
-      <button type="button" class="btn btn-success" (click)="save()">Salvar</button>
+      <button type="button" class="btn btn-success" (click)="save()">Validar Cadastro</button>
     </p-footer>
   </p-dialog>
 </div>

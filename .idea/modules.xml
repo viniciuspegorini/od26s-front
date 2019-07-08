@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/od26s-front.iml" filepath="$PROJECT_DIR$/.idea/od26s-front.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/ChemistsInControl - Front.iml" filepath="$PROJECT_DIR$/.idea/ChemistsInControl - Front.iml" />
+>>>>>>> estilizacao
     </modules>
   </component>
 </project>

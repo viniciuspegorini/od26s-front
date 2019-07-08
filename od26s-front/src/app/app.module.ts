@@ -14,8 +14,15 @@ import {
   DialogModule,
   DropdownModule,
   GrowlModule,
-  ProgressSpinnerModule, RadioButtonModule,
-  TabViewModule
+  InputTextModule,
+  ProgressSpinnerModule,
+  RadioButtonModule,
+  SplitButtonModule,
+  TabViewModule,
+  TooltipModule,
+  PanelMenuModule,
+  MenuItem,
+  SidebarModule
 } from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
 import {CalendarModule} from 'primeng/calendar';
@@ -34,12 +41,13 @@ import {PrecoComponent} from './preco/preco.component';
 import {PrecoService} from './services/preco.service';
 import {LoginComponent} from './login/login.component';
 import {InputMaskModule} from 'primeng/inputmask';
-import { PermissaoService } from './services/permissao.service';
-import { PermissaoComponent } from './permissao/permissao.component';
-import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
+import {PermissaoService} from './services/permissao.service';
+import {PermissaoComponent} from './permissao/permissao.component';
+import {RegistroUsuarioComponent} from './registro-usuario/registro-usuario.component';
 import {FormularioComponent} from './formulario/formulario.component';
-import {UsuarioComponent} from  './usuario/usuario.component';
-import { UsuarioService } from './services/usuario.service';
+// tslint:disable-next-line:import-spacing
+import {UsuarioComponent} from './usuario/usuario.component';
+import {UsuarioService} from './services/usuario.service';
 import { NotaComponent } from './nota/nota.component';
 import {NotaService} from './services/nota.service';
 import {FileUploadModule} from 'primeng/fileupload';
@@ -81,7 +89,12 @@ import {FileUploadModule} from 'primeng/fileupload';
     CalendarModule,
     InputMaskModule,
     RadioButtonModule,
-    FileUploadModule
+    FileUploadModule,
+    SplitButtonModule,
+    TooltipModule,
+    InputTextModule,
+    SidebarModule,
+    PanelMenuModule
   ],
   providers: [
     ConfirmationService,
