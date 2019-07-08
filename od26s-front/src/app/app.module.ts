@@ -14,8 +14,12 @@ import {
   DialogModule,
   DropdownModule,
   GrowlModule,
-  ProgressSpinnerModule, RadioButtonModule,
-  TabViewModule
+  ProgressSpinnerModule,
+  RadioButtonModule,
+  TabViewModule,
+  SidebarModule,
+  PanelMenuModule,
+  MenuItem
 } from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
 import {CalendarModule} from 'primeng/calendar';
@@ -71,7 +75,9 @@ import {FormularioComponent} from "./formulario/formulario.component";
     DropdownModule,
     CalendarModule,
     InputMaskModule,
-    RadioButtonModule
+    RadioButtonModule,
+    SidebarModule,
+    PanelMenuModule
   ],
   providers: [
     ConfirmationService,
