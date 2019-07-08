@@ -40,6 +40,9 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
 import {FormularioComponent} from './formulario/formulario.component';
 import {UsuarioComponent} from  './usuario/usuario.component';
 import { UsuarioService } from './services/usuario.service';
+import { NotaComponent } from './nota/nota.component';
+import {NotaService} from './services/nota.service';
+import {FileUploadModule} from 'primeng/fileupload';
 
 
 @NgModule({
@@ -55,7 +58,8 @@ import { UsuarioService } from './services/usuario.service';
     PermissaoComponent,
     RegistroUsuarioComponent,
     FormularioComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    NotaComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +80,8 @@ import { UsuarioService } from './services/usuario.service';
     DropdownModule,
     CalendarModule,
     InputMaskModule,
-    RadioButtonModule
+    RadioButtonModule,
+    FileUploadModule
   ],
   providers: [
     ConfirmationService,
@@ -97,7 +102,8 @@ import { UsuarioService } from './services/usuario.service';
     ModeloService,
     PrecoService,
     PermissaoService,
-    UsuarioService
+    UsuarioService,
+    NotaService
   ],
   bootstrap: [AppComponent]
 })

@@ -8,7 +8,7 @@
         <th class="text-center">Código</th>
         <th class="text-center">Descrição</th>
         <th class="text-center">Data de Recebimento</th>
-<!--        <th class="text-center">Usuário</th>-->
+        <th class="text-center">Usuário</th>
         <th class="text-center">Ações</th>
       </tr>
     </ng-template>
@@ -17,7 +17,7 @@
         <td class="text-center">{{amostra.id}}</td>
         <td class="text-center">{{amostra.descricao}}</td>
         <td class="text-center">{{amostra.dataRecebimento}}</td>
-<!--        <td class="text-center">{{amostra.usuario.id}}</td>-->
+        <td class="text-center">{{amostra.usuario.nome}}</td>
         <td class="text-center">
           <button type="button" class="btn btn-dark m-2" (click)="edit(amostra)">
             <i class="fa fa-edit"></i>
@@ -53,6 +53,11 @@
               [style]="{'width':'50%'}" [inputStyle]="{'width':'100%'}"
               dateFormat="dd/mm/yy" dataType="string" [(ngModel)]="amostraEdit.dataRecebimento"></p-calendar>
           </div>
+          <div class="ui-g-12 ui-fluid">
+            <label for="amostra">Usuário</label>
+            <p-dropdown [style]="{'width':'100%'}" [options]="usuarios" [(ngModel)]="amostraEdit.usuario" optionLabel="nome"></p-dropdown>
+          </div>
+
         </div>
       </div>
     </p-tabPanel>

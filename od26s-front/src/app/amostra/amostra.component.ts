@@ -14,12 +14,13 @@ import {Modelo} from "../model/modelo";
 })
 export class AmostraComponent implements OnInit {
 
-  amostraEdit: Amostra;
+  amostraEdit = new Amostra();
+  usuario = new Usuario();
   amostras: Array<Amostra>;
   totalRecords: number;
   maxRecords = 10;
   currentPage = 1;
-  usuario  = new Usuario();
+  usuarios: Usuario[];
   @ViewChild('dt') dataTable: DataTable;
   br: any;
 
@@ -46,14 +47,14 @@ export class AmostraComponent implements OnInit {
     this.amostraService.findPageable(page, size).subscribe(e => {
       this.amostras = e.content;
       this.totalRecords = e.totalElements;
-      // this.amostras.forEach( a => {
-      //   this.usuarioService.findById( a.createdBy ).subscribe(u => a.usuario = u );
-      // });
+      
     });
   }
 
   ngOnInit() {
+    this.usuarios = [];
     this.amostraEdit = new Amostra();
+    this.carregarCombos();
     this.findAll();
     this.br = {
       firstDayOfWeek: 1,
@@ -75,11 +76,9 @@ export class AmostraComponent implements OnInit {
     });
   }
 
-  // findByIdUsuario() {
-  //   this.usuarioService.findOne().subscribe(items => {
-  //     this.amostras = items;
-  //   });
-  // }
+  carregarCombos() {
+    this.usuarioService.findAll().subscribe(e => this.usuarios  = e );
+  }
 
   newEntity() {
     this.showDialog = true;
@@ -91,16 +90,9 @@ export class AmostraComponent implements OnInit {
     this.showDialog = true;
   }
 
-  // carregaUsuario() {
-  //   this.amostraService.getLoggedUser().subscribe(e => {
-  //     this.usuario = e;
-  //   });
-  // }
-
   save() {
     this.amostraService.save(this.amostraEdit).subscribe(e => {
         this.amostraEdit = new Amostra();
-        // this.carregaUsuario();
         this.dataTable.reset();
         this.showDialog = false;
         this.msgs = [{severity: 'success', summary: 'Confirmado',
@@ -144,7 +136,6 @@ export class AmostraComponent implements OnInit {
 
 
   edit(amostra: Amostra) {
-    this.amostraEdit = amostra;
     this.amostraEdit = Object.assign({}, amostra);
     this.showDialog = true;
   }
