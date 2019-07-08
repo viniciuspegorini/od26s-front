@@ -11,6 +11,7 @@ import { PermissaoComponent } from './permissao/permissao.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import {FormularioComponent} from './formulario/formulario.component';
 import {UsuarioComponent} from './usuario/usuario.component';
+import {AuthGuard} from './auth-guard.service';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -18,12 +19,54 @@ const routes: Routes = [
     path: '', canActivate: [LoginService], children: [
       {path: '', redirectTo: 'login', pathMatch: 'full'},
       {path: 'instituicao', component: InstituicaoComponent},
-      {path: 'equipamento', component: CadEquipamentoComponent},
-      {path: 'modelo', component: CadastroModeloComponent},
-      {path: 'preco', component: PrecoComponent},
-      {path: 'amostra', component: AmostraComponent},
-      {path: 'permissao', component: PermissaoComponent},
-      {path: 'formulario', component: FormularioComponent},
+      
+      {
+        path: 'equipamento',
+        component: CadEquipamentoComponent,
+        canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ADMIN'] }
+      },
+      
+    
+      {
+        path: 'modelo',
+        component: CadastroModeloComponent,
+        canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ADMIN'] }
+      },
+      
+      
+      {
+        path: 'preco',
+        component: PrecoComponent,
+        canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ADMIN'] }
+      },
+
+
+      {
+        path: 'amostra',
+        component: AmostraComponent,
+        canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ADMIN', 'ROLE_RECEPCIONISTA'] }
+      },
+
+      {
+        path: 'permissao',
+        component: PermissaoComponent,
+        canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ADMIN'] }
+      },
+
+
+      {
+        path: 'formulario',
+        component: FormularioComponent,
+        canActivate: [AuthGuard],
+        data: { roles: ['ROLE_ADMIN', 'ROLE_RECEPCIONISTA','ROLE_SOLICITANTE'] }
+      },
+
+
       {path: 'usuario', component: UsuarioComponent},
     ]
   },
