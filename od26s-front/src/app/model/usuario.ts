@@ -16,7 +16,6 @@ export class Usuario {
   tipoPessoa: string;
   orientador: Usuario;
   departamento: string;
-  saldo: number;
   endereco: string;
   cidade: string;
   uf: string;

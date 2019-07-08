@@ -1,54 +1,30 @@
-<header>
+<header class="fixed">
   <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <button pButton type="button" class="ui-button-danger mr-2" (click)="slideMenu = true" icon="pi pi-list"></button>
+
     <a class="navbar-brand" href="#">Central de Análises</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
-
-        <li class="nav-item" *ngIf="hasRole('ADMIN') || hasRole('RECEPCIONISTA')" >
-          <a class="nav-link" href="#" routerLink="amostra">Amostras</a>
-        </li>
-
-        <li class="nav-item" *ngIf="hasRole('ADMIN')">
-          <a class="nav-link" href="#" routerLink="equipamento">Equipamentos</a>
-        </li>
-
-        <li class="nav-item" *ngIf="hasRole('ADMIN')" >
-          <a class="nav-link" href="#" routerLink="modelo">Modelos</a>
-        </li>
-
-        <li class="nav-item" *ngIf="hasRole('ADMIN') || hasRole('RECEPCIONISTA') 
-         || hasRole('SOLICITANTE')">
-          <a class="nav-link" href="#" routerLink="formulario">Formulários</a>
-        </li>
-
-        <li class="nav-item" *ngIf="hasRole('ADMIN') || hasRole('RECEPCIONISTA') ">
-          <a class="nav-link" href="#"  routerLink="instituicao">Instituições</a>
-        </li>
-
-        <li class="nav-item" *ngIf="hasRole('ADMIN')">
-          <a class="nav-link" href="#" routerLink="permissao">Permissões</a>
-        </li>
-
-        <li class="nav-item" *ngIf="hasRole('ADMIN')">
-          <a class="nav-link" href="#" routerLink="preco">Preços</a>
-        </li>
-
-        <li class="nav-item" *ngIf="hasRole('ADMIN')">
-          <a class="nav-link" href="#" routerLink="nota">Notas</a>
-        </li>
-
-        <li class="nav-item"  *ngIf="hasRole('ADMIN')  || hasRole('TECNICO') ">
-          <a class="nav-link" href="#" routerLink="resultado">Resultados</a>
-        </li>
-
       </ul>
       <form class="form-inline mt-2 mt-md-0">
-        <a href="#" class="btn btn-outline-success" (click)=loginService.logout()><i class="fa fa-sign-in"></i>Sair</a>
+        <button class="btn btn-outline-danger ml-3" (click)=loginService.logout()>Sair
+          <a class="fa ml-2 fa-sign-out"></a>
+        </button>
       </form>
     </div>
   </nav>
 </header>
+
+<p-sidebar [(visible)]="slideMenu"
+           [modal]="false"
+           [dismissible]="true"
+           styleClass="rounded ui-sidebar">
+  <div>
+    <p-panelMenu styleClass="mt-4" [transitionOptions]="'0ms'" [model]="items" [style]="{'width':'100%'}"></p-panelMenu>
+  </div>
+</p-sidebar>

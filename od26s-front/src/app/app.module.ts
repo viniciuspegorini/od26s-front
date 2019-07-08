@@ -19,7 +19,10 @@ import {
   RadioButtonModule,
   SplitButtonModule,
   TabViewModule,
-  TooltipModule
+  TooltipModule,
+  PanelMenuModule,
+  MenuItem,
+  SidebarModule
 } from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
 import {CalendarModule} from 'primeng/calendar';
@@ -84,7 +87,9 @@ import {UsuarioService} from './services/usuario.service';
     RadioButtonModule,
     SplitButtonModule,
     TooltipModule,
-    InputTextModule
+    InputTextModule,
+    SidebarModule,
+    PanelMenuModule
   ],
   providers: [
     ConfirmationService,
