@@ -63,7 +63,7 @@ const routes: Routes = [
         path: 'formulario',
         component: FormularioComponent,
         canActivate: [AuthGuard],
-        data: { roles: ['ROLE_ADMIN', 'ROLE_RECEPCIONISTA','ROLE_SOLICITANTE'] }
+        data: { roles: ['ROLE_ADMIN', 'ROLE_RECEPCIONISTA','ROLE_SOLICITANTE','ROLE_TECNICO'] }
       },
 
 

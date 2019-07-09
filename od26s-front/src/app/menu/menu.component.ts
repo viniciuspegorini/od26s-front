@@ -13,7 +13,12 @@ export class MenuComponent implements OnInit {
   }
 
   items: MenuItem[];
+  itemR: MenuItem[];
+  itemT: MenuItem[];
+  itemSO: MenuItem[];
   slideMenu = false;
+  
+
 
   ngOnInit() {
     this.items = [
@@ -23,14 +28,15 @@ export class MenuComponent implements OnInit {
         items: [{
           label: 'Novo',
           icon: 'pi pi-fw pi-plus',
-          routerLink: 'instituicao'
+          routerLink: 'instituicao',
         },
           {
             label: 'Procurar',
             icon: 'pi pi-fw pi-search',
           },
         ]
-      },
+      }
+      ,
       {
         label: 'Equipamentos',
         icon: 'pi pi-pw pi-sitemap',
@@ -108,6 +114,74 @@ export class MenuComponent implements OnInit {
           label: 'Novo',
           icon: 'pi pi-fw pi-plus',
           routerLink: 'usuario'
+        },
+          {
+            label: 'Procurar',
+            icon: 'pi pi-fw pi-search'
+          },
+        ]
+      },
+    ];
+
+
+    this.itemR = [
+      {
+        label: 'Formulários',
+        icon: 'pi pi-pw pi-file',
+        items: [{
+          label: 'Novo',
+          icon: 'pi pi-fw pi-plus',
+          routerLink: 'formulario',
+        },
+          {
+            label: 'Procurar',
+            icon: 'pi pi-fw pi-search'
+          },
+        ]
+      },
+      
+      {
+        label: 'Usuários',
+        icon: 'pi pi-pw pi-user',
+        items: [{
+          label: 'Novo',
+          icon: 'pi pi-fw pi-plus',
+          routerLink: 'usuario'
+        },
+          {
+            label: 'Procurar',
+            icon: 'pi pi-fw pi-search'
+          },
+        ]
+      },
+    ];
+
+
+    this.itemT = [
+      {
+        label: 'Resultado',
+        icon: 'pi pi-pw pi-filter',
+        items: [{
+          label: 'Novo',
+          routerLink: 'resultados',
+          icon: 'pi pi-fw pi-plus',
+        },
+          {
+            label: 'Procurar',
+            icon: 'pi pi-fw pi-search'
+          },
+        ]
+      },
+    ];
+
+    this.itemSO = [
+      {
+        label: 'Formulários',
+        icon: 'pi pi-pw pi-file',
+        items: [{
+          label: 'Novo',
+          icon: 'pi pi-fw pi-plus',
+          routerLink: 'formulario',
         },
           {
             label: 'Procurar',

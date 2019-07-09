@@ -24,7 +24,19 @@
            [modal]="false"
            [dismissible]="true"
            styleClass="rounded ui-sidebar">
-  <div>
-    <p-panelMenu styleClass="mt-4" [transitionOptions]="'0ms'" [model]="items" [style]="{'width':'100%'}"></p-panelMenu>
+  <div *ngIf="hasRole('ADMIN')">
+    <p-panelMenu styleClass="mt-4" [transitionOptions]="'0ms'" [model]="items"    [style]="{'width':'100%'}"></p-panelMenu>
+  </div>
+
+  <div *ngIf="hasRole('RECEPCIONISTA')">
+    <p-panelMenu styleClass="mt-4" [transitionOptions]="'0ms'" [model]="itemR"    [style]="{'width':'100%'}"></p-panelMenu>
+  </div>
+
+  <div *ngIf="hasRole('TECNICO')">
+    <p-panelMenu styleClass="mt-4" [transitionOptions]="'0ms'" [model]="itemT"    [style]="{'width':'100%'}"></p-panelMenu>
+  </div>
+
+  <div *ngIf="hasRole('SOLICITANTE')">
+    <p-panelMenu styleClass="mt-4" [transitionOptions]="'0ms'" [model]="itemSO"    [style]="{'width':'100%'}"></p-panelMenu>
   </div>
 </p-sidebar>
