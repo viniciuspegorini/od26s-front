@@ -5,7 +5,6 @@ import {ConfirmationService, Message, LazyLoadEvent} from 'primeng/api';
 import {DataTable} from 'primeng/primeng';
 import {UsuarioService} from '../services/usuario.service';
 import {Usuario} from '../model/usuario';
-import {Modelo} from "../model/modelo";
 
 @Component({
   selector: 'app-amostra',
@@ -62,9 +61,9 @@ export class AmostraComponent implements OnInit {
       dayNamesShort: [ 'dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb' ],
       dayNamesMin: [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ],
       monthNames: [ 'Janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho',
-                    'agosto', 'setembro', 'outubro', 'novembro', 'dezembro' ],
+        'agosto', 'setembro', 'outubro', 'novembro', 'dezembro' ],
       monthNamesShort: [ 'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set',
-                         'out', 'nov', 'dez' ],
+        'out', 'nov', 'dez' ],
       today: 'Hoje',
       clear: 'Limpar'
     }
@@ -96,7 +95,7 @@ export class AmostraComponent implements OnInit {
         this.dataTable.reset();
         this.showDialog = false;
         this.msgs = [{severity: 'success', summary: 'Confirmado',
-         detail: 'Registro salvo com sucesso!'}];
+          detail: 'Registro salvo com sucesso!'}];
       },
       error => {
         this.msgs = [{severity: 'error', summary: 'Erro', detail: 'Falha ao salvar o registro!'}];
@@ -139,5 +138,4 @@ export class AmostraComponent implements OnInit {
     this.amostraEdit = Object.assign({}, amostra);
     this.showDialog = true;
   }
-
 }

@@ -12,7 +12,7 @@ import {
   ConfirmationService,
   ConfirmDialogModule,
   DialogModule,
-  DropdownModule,
+  DropdownModule, FileUploadModule,
   GrowlModule,
   InputTextModule,
   ProgressSpinnerModule,
@@ -45,9 +45,15 @@ import {PermissaoService} from './services/permissao.service';
 import {PermissaoComponent} from './permissao/permissao.component';
 import {RegistroUsuarioComponent} from './registro-usuario/registro-usuario.component';
 import {FormularioComponent} from './formulario/formulario.component';
+<<<<<<< HEAD
 // tslint:disable-next-line:import-spacing
 import {UsuarioComponent} from './usuario/usuario.component';
 import {UsuarioService} from './services/usuario.service';
+=======
+import {UsuarioComponent} from  './usuario/usuario.component';
+import { UsuarioService } from './services/usuario.service';
+import { ResultadoComponent } from './resultado/resultado.component';
+>>>>>>> s3-resultado
 
 
 @NgModule({
@@ -63,7 +69,8 @@ import {UsuarioService} from './services/usuario.service';
     PermissaoComponent,
     RegistroUsuarioComponent,
     FormularioComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    ResultadoComponent
   ],
   imports: [
     BrowserModule,
@@ -85,11 +92,15 @@ import {UsuarioService} from './services/usuario.service';
     CalendarModule,
     InputMaskModule,
     RadioButtonModule,
+<<<<<<< HEAD
     SplitButtonModule,
     TooltipModule,
     InputTextModule,
     SidebarModule,
     PanelMenuModule
+=======
+    FileUploadModule
+>>>>>>> s3-resultado
   ],
   providers: [
     ConfirmationService,

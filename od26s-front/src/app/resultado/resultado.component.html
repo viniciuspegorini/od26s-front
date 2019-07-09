@@ -1,0 +1,110 @@
+<div class="container-fluid py-5">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">RESULTADOS DAS ANÁLISES</h3>
+  <button class="btn btn-primary m-3" (click)="newEntity()">INSERIR</button>
+  <p-table #dt [value]="resultados" [paginator]="true" [rows]="5"
+           [rowsPerPageOptions]="[5,10,20]"
+           [lazy]="true" [totalRecords]="totalRecords"
+           (onLazyLoad)="lazyLoad($event)">
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="text-center">Solicitante</th>
+        <th class="text-center">Data Alteração</th>
+        <th class="text-center">Arquivos</th>
+        <th class="text-center">Formulário</th>
+        <th class="text-center">Laudo</th>
+        <th class="text-center">Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-resultado>
+      <tr>
+        <td class="text-center">{{resultado.usuario.nome}}</td>
+        <td class="text-center">{{resultado.today}}</td>
+        <td class="text-center">
+          <div>{{resultado.arquivo ? resultado.arquivo.fileName : 'Não possui arquivo' }}</div>
+          <div>
+            <button *ngIf="resultado.arquivo"
+              (click)="fazerDownload(resultado.arquivo.id, resultado.arquivo.contentType, resultado.arquivo.fileName)">
+              Baixar
+            </button>
+          </div>
+        </td>
+        <td class="text-center">{{resultado.formulario.id}}</td>
+        <td class="text-center">{{resultado.laudo}}</td>
+        <td class="text-center">
+          <button type="button" class="btn btn-dark m-2" (click)="edit(resultado)">
+            <i class="fa fa-edit"></i>
+          </button>
+
+          <button type="button" class="btn btn-danger m-2" (click)="delete(resultado)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-growl [(value)]="msgs"></p-growl>
+<p-confirmDialog></p-confirmDialog>
+
+<div>
+<p-dialog header="INSERÇÃO DE RESULTADOS" [(visible)]="showDialog" modal="modal" [responsive]="true" [width]="500">
+  <p-tabView>
+    <p-tabPanel header="Dados">
+      <div class="row">
+        <div class="ui-g-12 ui-fluid">
+
+          <div class="ui-g-12 ui-fluid">
+            <label for="usuario">Solititante</label>
+            <p-dropdown id="usuario" name="usuario" [style]="{'width':'100%'}" [options]="usuarios"
+                        [(ngModel)]="resultadoEdit.usuario" optionLabel="nome"></p-dropdown>
+          </div>
+
+          <div class="ui-g-12 ui-fluid">
+            <label for="today">Data</label>
+            <textarea pInputTextarea id="today" name="today" class="form-control"
+                      [(ngModel)]="today" [(ngModel)]="resultadoEdit.today"></textarea>
+          </div>
+
+          <div class="ui-g-12 ui-fluid">
+            <label for="formulario">Formulário</label>
+            <p-dropdown id="formulario" name="formulario" [style]="{'width':'100%'}"
+                        [options]="formularios" [(ngModel)]="resultadoEdit.formulario" optionLabel="id"></p-dropdown>
+          </div>
+
+          <div class="ui-g-12 ui-fluid">
+            <label for="laudo">Laudo</label>
+            <textarea pInputTextarea id="laudo" name="laudo" class="form-control"
+                      [(ngModel)]="resultadoEdit.laudo"></textarea>
+          </div>
+
+        </div>
+      </div>
+    </p-tabPanel>
+
+    <p-tabPanel header="Arquivos" *ngIf="resultadoEdit.id">
+      <div class="row">
+        <div class="ui-g-12 ui-fluid">
+          <label for="arquivo">Arquivo</label>
+          <p-fileUpload id="arquivo" chooseLabel="Selecionar..." cancelLabel="Cancelar" name="arquivo"
+                        url="{{urlApi}}/resultado/upload/{{resultadoEdit.id}}"
+                        (onUpload)="onUpload($event)">
+            <ng-template pTemplate="content">
+              <ul>
+                <li *ngFor="let file of uploadedFiles">
+                  {{file.name}} - {{file.size}} bytes
+                </li>
+              </ul>
+            </ng-template>
+          </p-fileUpload>
+        </div>
+            </div>
+    </p-tabPanel>
+
+   </p-tabView>
+  <p-footer>
+    <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
+    <button type="button" class="btn btn-success" (click)="save()">Salvar</button>
+  </p-footer>
+</p-dialog>
+</div>

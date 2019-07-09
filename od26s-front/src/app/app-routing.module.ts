@@ -12,6 +12,7 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
 import {FormularioComponent} from './formulario/formulario.component';
 import {UsuarioComponent} from './usuario/usuario.component';
 import {AuthGuard} from './auth-guard.service';
+import {ResultadoComponent} from './resultado/resultado.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -68,6 +69,8 @@ const routes: Routes = [
 
 
       {path: 'usuario', component: UsuarioComponent},
+      {path: 'resultado', component: ResultadoComponent},
+
     ]
   },
   {path: 'login', component: LoginComponent},
