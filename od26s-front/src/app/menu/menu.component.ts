@@ -19,7 +19,6 @@ export class MenuComponent implements OnInit {
   slideMenu = false;
 
 
-
   ngOnInit() {
     this.items = [
       {
@@ -27,12 +26,12 @@ export class MenuComponent implements OnInit {
         icon: 'pi pi-pw pi-globe',
         items: [{
           label: 'Novo',
-          icon: 'pi pi-fw pi-plus',
-          routerLink: 'instituicao',
+          icon: 'pi pi-fw pi-plus'
         },
           {
             label: 'Procurar',
             icon: 'pi pi-fw pi-search',
+            routerLink: 'instituicao',
           },
         ]
       }
@@ -42,12 +41,12 @@ export class MenuComponent implements OnInit {
         icon: 'pi pi-pw pi-sitemap',
         items: [{
           label: 'Novo',
-          icon: 'pi pi-fw pi-plus',
-          routerLink: 'equipamento',
+          icon: 'pi pi-fw pi-plus'
         },
           {
             label: 'Procurar',
-            icon: 'pi pi-fw pi-search'
+            icon: 'pi pi-fw pi-search',
+            routerLink: 'equipamento',
           },
         ]
       },
@@ -56,12 +55,12 @@ export class MenuComponent implements OnInit {
         icon: 'pi pi-pw pi-file',
         items: [{
           label: 'Novo',
-          icon: 'pi pi-fw pi-plus',
-          routerLink: 'formulario',
+          icon: 'pi pi-fw pi-plus'
         },
           {
             label: 'Procurar',
-            icon: 'pi pi-fw pi-search'
+            icon: 'pi pi-fw pi-search',
+            routerLink: 'formulario',
           },
         ]
       },
@@ -70,12 +69,12 @@ export class MenuComponent implements OnInit {
         icon: 'pi pi-pw pi-paperclip',
         items: [{
           label: 'Novo',
-          icon: 'pi pi-fw pi-plus',
-          routerLink: 'modelo',
+          icon: 'pi pi-fw pi-plus'
         },
           {
             label: 'Procurar',
-            icon: 'pi pi-fw pi-search'
+            icon: 'pi pi-fw pi-search',
+            routerLink: 'modelo',
           },
         ]
       },
@@ -85,11 +84,11 @@ export class MenuComponent implements OnInit {
         items: [{
           label: 'Novo',
           icon: 'pi pi-fw pi-plus',
-          routerLink: 'nota',
         },
           {
             label: 'Procurar',
-            icon: 'pi pi-fw pi-search'
+            icon: 'pi pi-fw pi-search',
+            routerLink: 'nota',
           },
         ]
       },
@@ -98,12 +97,12 @@ export class MenuComponent implements OnInit {
         icon: 'pi pi-pw pi-filter',
         items: [{
           label: 'Novo',
-          routerLink: 'resultado',
           icon: 'pi pi-fw pi-plus',
         },
           {
             label: 'Procurar',
-            icon: 'pi pi-fw pi-search'
+            icon: 'pi pi-fw pi-search',
+            routerLink: 'resultado',
           },
         ]
       },
@@ -113,11 +112,11 @@ export class MenuComponent implements OnInit {
         items: [{
           label: 'Novo',
           icon: 'pi pi-fw pi-plus',
-          routerLink: 'usuario'
         },
           {
             label: 'Procurar',
-            icon: 'pi pi-fw pi-search'
+            icon: 'pi pi-fw pi-search',
+            routerLink: 'usuario'
           },
         ]
       },
@@ -131,11 +130,11 @@ export class MenuComponent implements OnInit {
         items: [{
           label: 'Novo',
           icon: 'pi pi-fw pi-plus',
-          routerLink: 'formulario',
         },
           {
             label: 'Procurar',
-            icon: 'pi pi-fw pi-search'
+            icon: 'pi pi-fw pi-search',
+            routerLink: 'formulario',
           },
         ]
       },
@@ -146,11 +145,11 @@ export class MenuComponent implements OnInit {
         items: [{
           label: 'Novo',
           icon: 'pi pi-fw pi-plus',
-          routerLink: 'usuario'
         },
           {
             label: 'Procurar',
-            icon: 'pi pi-fw pi-search'
+            icon: 'pi pi-fw pi-search',
+            routerLink: 'usuario'
           },
         ]
       },
@@ -163,12 +162,12 @@ export class MenuComponent implements OnInit {
         icon: 'pi pi-pw pi-filter',
         items: [{
           label: 'Novo',
-          routerLink: 'resultados',
           icon: 'pi pi-fw pi-plus',
         },
           {
             label: 'Procurar',
-            icon: 'pi pi-fw pi-search'
+            icon: 'pi pi-fw pi-search',
+            routerLink: 'resultados',
           },
         ]
       },
@@ -181,11 +180,11 @@ export class MenuComponent implements OnInit {
         items: [{
           label: 'Novo',
           icon: 'pi pi-fw pi-plus',
-          routerLink: 'formulario',
         },
           {
             label: 'Procurar',
-            icon: 'pi pi-fw pi-search'
+            icon: 'pi pi-fw pi-search',
+            routerLink: 'formulario',
           },
         ]
       },

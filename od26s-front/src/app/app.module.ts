@@ -12,17 +12,17 @@ import {
   ConfirmationService,
   ConfirmDialogModule,
   DialogModule,
-  DropdownModule, FileUploadModule,
+  DropdownModule,
+  FileUploadModule,
   GrowlModule,
   InputTextModule,
+  PanelMenuModule,
   ProgressSpinnerModule,
   RadioButtonModule,
+  SidebarModule,
   SplitButtonModule,
   TabViewModule,
-  TooltipModule,
-  PanelMenuModule,
-  MenuItem,
-  SidebarModule
+  TooltipModule
 } from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
 import {CalendarModule} from 'primeng/calendar';
@@ -45,9 +45,9 @@ import {PermissaoService} from './services/permissao.service';
 import {PermissaoComponent} from './permissao/permissao.component';
 import {RegistroUsuarioComponent} from './registro-usuario/registro-usuario.component';
 import {FormularioComponent} from './formulario/formulario.component';
-import {UsuarioComponent} from  './usuario/usuario.component';
-import { UsuarioService } from './services/usuario.service';
-import { ResultadoComponent } from './resultado/resultado.component';
+import {UsuarioComponent} from './usuario/usuario.component';
+import {UsuarioService} from './services/usuario.service';
+import {ResultadoComponent} from './resultado/resultado.component';
 
 
 @NgModule({
