@@ -45,15 +45,9 @@ import {PermissaoService} from './services/permissao.service';
 import {PermissaoComponent} from './permissao/permissao.component';
 import {RegistroUsuarioComponent} from './registro-usuario/registro-usuario.component';
 import {FormularioComponent} from './formulario/formulario.component';
-<<<<<<< HEAD
-// tslint:disable-next-line:import-spacing
-import {UsuarioComponent} from './usuario/usuario.component';
-import {UsuarioService} from './services/usuario.service';
-=======
 import {UsuarioComponent} from  './usuario/usuario.component';
 import { UsuarioService } from './services/usuario.service';
 import { ResultadoComponent } from './resultado/resultado.component';
->>>>>>> s3-resultado
 
 
 @NgModule({
@@ -92,15 +86,12 @@ import { ResultadoComponent } from './resultado/resultado.component';
     CalendarModule,
     InputMaskModule,
     RadioButtonModule,
-<<<<<<< HEAD
     SplitButtonModule,
     TooltipModule,
     InputTextModule,
     SidebarModule,
-    PanelMenuModule
-=======
+    PanelMenuModule,
     FileUploadModule
->>>>>>> s3-resultado
   ],
   providers: [
     ConfirmationService,
