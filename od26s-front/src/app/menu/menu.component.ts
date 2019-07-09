@@ -17,7 +17,7 @@ export class MenuComponent implements OnInit {
   itemT: MenuItem[];
   itemSO: MenuItem[];
   slideMenu = false;
-  
+
 
 
   ngOnInit() {
@@ -98,7 +98,7 @@ export class MenuComponent implements OnInit {
         icon: 'pi pi-pw pi-filter',
         items: [{
           label: 'Novo',
-          routerLink: 'resultados',
+          routerLink: 'resultado',
           icon: 'pi pi-fw pi-plus',
         },
           {
@@ -139,7 +139,7 @@ export class MenuComponent implements OnInit {
           },
         ]
       },
-      
+
       {
         label: 'Usuários',
         icon: 'pi pi-pw pi-user',
