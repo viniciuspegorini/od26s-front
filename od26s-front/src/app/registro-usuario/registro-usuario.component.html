@@ -17,7 +17,7 @@
                 name="nome"
                 class="form-control"
                 [(ngModel)]="usuario.nome"
-              > 
+              >
             </div>
           </div>
 
@@ -30,7 +30,7 @@
                 name="email"
                 class="form-control"
                 [(ngModel)]="usuario.email"
-              > 
+              >
             </div>
           </div>
 
@@ -43,7 +43,7 @@
                   name="password"
                   class="form-control"
                   [(ngModel)]="usuario.password"
-                > 
+                >
               </div>
             </div>
 
@@ -70,7 +70,6 @@
                 name="rg"
                 [style]="{'width':'100%'}"
                 [(ngModel)]="usuario.rg"
-                mask="99.999.999-9"
               ></p-inputMask>
             </div>
           </div>
@@ -107,10 +106,10 @@
             <div class="form-group">
               <label for="nome">Tipo</label>
               <br>
-              <p-dropdown 
-                [options]="tiposPessoa" 
+              <p-dropdown
+                [options]="tiposPessoa"
                 [style]="{'width':'100%'}"
-                [(ngModel)]="usuario.tipoPessoa" 
+                [(ngModel)]="usuario.tipoPessoa"
                 optionLabel="text"
                 optionValue="value"
               ></p-dropdown>
@@ -121,10 +120,10 @@
             <div class="form-group">
               <label for="nome">Orientador</label>
               <br>
-              <p-dropdown 
-                [options]="orientadores" 
+              <p-dropdown
+                [options]="orientadores"
                 [style]="{'width':'100%'}"
-                [(ngModel)]="usuario.orientador" 
+                [(ngModel)]="usuario.orientador"
                 optionLabel="nome"
               ></p-dropdown>
             </div>
@@ -134,10 +133,10 @@
             <div class="form-group">
               <label for="nome">Instituição</label>
               <br>
-              <p-dropdown 
-                [options]="instituicoes" 
+              <p-dropdown
+                [options]="instituicoes"
                 [style]="{'width':'100%'}"
-                [(ngModel)]="usuario.instituicao" 
+                [(ngModel)]="usuario.instituicao"
                 optionLabel="nomeFantasia"
               ></p-dropdown>
             </div>
@@ -152,18 +151,18 @@
                   name="departamento"
                   class="form-control"
                   [(ngModel)]="usuario.departamento"
-                > 
+                >
               </div>
             </div>
 
           <div class="col-sm-12">
-            <button 
+            <button
               (click)="backPage()"
               class="btn btn-outline-info mr-2"
             >
               Voltar
             </button>
-            <button 
+            <button
               (click)="save()"
               class="btn btn-success"
             >
