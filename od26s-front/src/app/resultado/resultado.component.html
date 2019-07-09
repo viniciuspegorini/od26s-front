@@ -7,21 +7,29 @@
            (onLazyLoad)="lazyLoad($event)">
     <ng-template pTemplate="header">
       <tr>
-        <th class="text-center">Arquivos</th>
+        <th class="text-center">Solicitante</th>
         <th class="text-center">Data Alteração</th>
-        <th class="text-center">Laudo</th>
-        <th class="text-center">Usuário</th>
+        <th class="text-center">Arquivos</th>
         <th class="text-center">Formulário</th>
+        <th class="text-center">Laudo</th>
         <th class="text-center">Ações</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-resultado>
       <tr>
-        <td class="text-center">{{resultado.arquivo}}</td>
-        <td class="text-center">{{resultado.dt_alteracao}}</td>
-        <td class="text-center">{{resultado.laudo}}</td>
         <td class="text-center">{{resultado.usuario.nome}}</td>
-        <td class="text-center">{{resultado.formulario}}</td>
+        <td class="text-center">{{resultado.today}}</td>
+        <td class="text-center">
+          <div>{{resultado.arquivo ? resultado.arquivo.fileName : 'Não possui arquivo' }}</div>
+          <div>
+            <button *ngIf="resultado.arquivo"
+              (click)="fazerDownload(resultado.arquivo.id, resultado.arquivo.contentType, resultado.arquivo.fileName)">
+              Baixar
+            </button>
+          </div>
+        </td>
+        <td class="text-center">{{resultado.formulario.id}}</td>
+        <td class="text-center">{{resultado.laudo}}</td>
         <td class="text-center">
           <button type="button" class="btn btn-dark m-2" (click)="edit(resultado)">
             <i class="fa fa-edit"></i>
@@ -39,6 +47,7 @@
 <p-growl [(value)]="msgs"></p-growl>
 <p-confirmDialog></p-confirmDialog>
 
+<div>
 <p-dialog header="INSERÇÃO DE RESULTADOS" [(visible)]="showDialog" modal="modal" [responsive]="true" [width]="500">
   <p-tabView>
     <p-tabPanel header="Dados">
@@ -46,33 +55,42 @@
         <div class="ui-g-12 ui-fluid">
 
           <div class="ui-g-12 ui-fluid">
-            <label for="date">Data</label>
-            <p-calendar id="data" dateFormat="dd/mm/yy" dataType="string"  [(ngModel)]="dateValue"></p-calendar>
+            <label for="usuario">Solititante</label>
+            <p-dropdown id="usuario" name="usuario" [style]="{'width':'100%'}" [options]="usuarios"
+                        [(ngModel)]="resultadoEdit.usuario" optionLabel="nome"></p-dropdown>
+          </div>
+
+          <div class="ui-g-12 ui-fluid">
+            <label for="today">Data</label>
+            <textarea pInputTextarea id="today" name="today" class="form-control"
+                      [(ngModel)]="today" [(ngModel)]="resultadoEdit.today"></textarea>
           </div>
 
           <div class="ui-g-12 ui-fluid">
             <label for="formulario">Formulário</label>
-            <p-dropdown [style]="{'width':'100%'}" [options]="formularios" [(ngModel)]="resultadoEdit.formulario" optionLabel="id"></p-dropdown>
+            <p-dropdown id="formulario" name="formulario" [style]="{'width':'100%'}"
+                        [options]="formularios" [(ngModel)]="resultadoEdit.formulario" optionLabel="id"></p-dropdown>
           </div>
 
-
           <div class="ui-g-12 ui-fluid">
-            <label for="usuario">Usuário</label>
-            <p-dropdown [style]="{'width':'100%'}" [options]="usuarios" [(ngModel)]="resultadoEdit.usuario" optionLabel="nome"></p-dropdown>
+            <label for="laudo">Laudo</label>
+            <textarea pInputTextarea id="laudo" name="laudo" class="form-control"
+                      [(ngModel)]="resultadoEdit.laudo"></textarea>
           </div>
 
         </div>
       </div>
     </p-tabPanel>
 
-    <p-tabPanel header="Arquivos">
+    <p-tabPanel header="Arquivos" *ngIf="resultadoEdit.id">
       <div class="row">
         <div class="ui-g-12 ui-fluid">
           <label for="arquivo">Arquivo</label>
-          <p-fileUpload chooseLabel="Selecionar..." cancelLabel="Cancelar" name="arquivo" url="{{urlApi}}/resultado/upload/{{resultadoEdit.id}}"
-                        (onUpload)="onUpload($event)"  maxFileSize="1000000">
+          <p-fileUpload id="arquivo" chooseLabel="Selecionar..." cancelLabel="Cancelar" name="arquivo"
+                        url="{{urlApi}}/resultado/upload/{{resultadoEdit.id}}"
+                        (onUpload)="onUpload($event)">
             <ng-template pTemplate="content">
-              <ul *ngIf="uploadedFiles.length">
+              <ul>
                 <li *ngFor="let file of uploadedFiles">
                   {{file.name}} - {{file.size}} bytes
                 </li>
@@ -80,44 +98,13 @@
             </ng-template>
           </p-fileUpload>
         </div>
-        <div class="ui-g-12 ui-fluid" *ngIf="resultadoEdit.arquivo">
-          <label for="arquivoAtual">Arquivo atual:</label>
-          <br />
-          <img alt="Nenhum Arquivo cadastrado!" src="{{urlApi}}/images/{{resultadoEdit.arquivo}}?{{today}}" width="100"
-               height="150">
-        </div>
-
-      </div>
+            </div>
     </p-tabPanel>
 
-    <p-tabPanel header="Laudo">
-      <div class="row">
-        <div class="ui-g-12 ui-fluid">
-          <label for="laudo">Laudo</label>
-          <p-fileUpload chooseLabel="Selecionar..." cancelLabel="Cancelar" name="laudo" url="{{urlApi}}/resultado/upload/{{resultadoEdit.id}}"
-                        (onUpload)="onUpload($event)"  maxFileSize="1000000">
-            <ng-template pTemplate="content">
-              <ul *ngIf="uploadedFiles.length">
-                <li *ngFor="let file of uploadedFiles">
-                  {{file.name}} - {{file.size}} bytes
-                </li>
-              </ul>
-            </ng-template>
-          </p-fileUpload>
-        </div>
-        <div class="ui-g-12 ui-fluid" *ngIf="resultadoEdit.laudo">
-          <label for="arquivoAtual">Imagem atual:</label>
-          <br />
-          <img alt="Nenhum Laudo cadastrado!" src="{{urlApi}}/images/{{resultadoEdit.laudo}}?{{today}}" width="100"
-               height="150">
-        </div>
-
-      </div>
-    </p-tabPanel>
-
-  </p-tabView>
+   </p-tabView>
   <p-footer>
-    <button type="button"  class="btn btn-default" (click)="cancel()">Cancelar</button>
+    <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
     <button type="button" class="btn btn-success" (click)="save()">Salvar</button>
   </p-footer>
 </p-dialog>
+</div>

@@ -3,9 +3,9 @@ import {Usuario} from './usuario';
 
 export class Resultado {
   id: number;
-  laudo: Array<any>;
   usuario: Usuario;
-  dtAlteracao: Date;
+  today: Date;
   arquivo: Array<any>;
   formulario: Formulario;
+  laudo: string;
 }

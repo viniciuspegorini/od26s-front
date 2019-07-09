@@ -3,11 +3,10 @@ import {ConfirmationService, DataTable, LazyLoadEvent, Message} from 'primeng/pr
 import {Resultado} from '../model/resultado';
 import {ResultadoService} from '../services/resultado.service';
 import {environment} from '../../environments/environment';
-import {Usuario} from "../model/usuario";
-import {UsuarioService} from "../services/usuario.service";
-import {Amostra} from "../model/amostra";
-import {Formulario} from "../model/formulario";
-import {FormularioService} from "../services/formulario.service";
+import {Usuario} from '../model/usuario';
+import {UsuarioService} from '../services/usuario.service';
+import {Formulario} from '../model/formulario';
+import {FormularioService} from '../services/formulario.service';
 
 @Component({
   selector: 'app-resultado',
@@ -27,7 +26,7 @@ export class ResultadoComponent implements OnInit {
   msgs: Message[] = [];
   uploadedFiles: any[] = [];
   urlApi: string = environment.api;
-  today: number = Date.now();
+  today: string = new Date().toString();
   usuarios: Usuario[];
   formularios: Formulario[];
 
@@ -38,8 +37,13 @@ export class ResultadoComponent implements OnInit {
               private formularioService: FormularioService) {
   }
 
+  ngOnInit() {
+    this.carregarCombos();
+    this.findAll();
+  }
+
   carregarCombos() {
-    this.usuarioService.findAll().subscribe(e => this.usuarios = e );
+    this.usuarioService.findAll().subscribe(e => this.usuarios = e);
     this.formularioService.findAll().subscribe(e => this.formularios = e);
   }
 
@@ -49,7 +53,7 @@ export class ResultadoComponent implements OnInit {
 
     this.maxRecords = event.rows;
 
-    setTimeout( () => {
+    setTimeout(() => {
       this.findAllPaged(this.currentPage, this.maxRecords);
     }, 250);
   }
@@ -62,12 +66,6 @@ export class ResultadoComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.usuarios = [];
-    this.carregarCombos();
-    this.findAll();
-  }
-
   findAll() {
     this.resultadoService.findAll().subscribe(e => this.resultados = e);
   }
@@ -75,8 +73,10 @@ export class ResultadoComponent implements OnInit {
   newEntity() {
     this.showDialog = true;
     this.resultadoEdit = new Resultado();
+    this.resultadoEdit.today = new Date();
+    this.resultadoEdit.formulario = this.formularios[0];
+    this.resultadoEdit.usuario = this.usuarios[0];
   }
-
 
 
   save() {
@@ -96,14 +96,11 @@ export class ResultadoComponent implements OnInit {
     this.showDialog = false;
   }
 
-
-
   edit(resultado: Resultado) {
-    // this.resultadoEdit = resultado;
+    this.resultadoEdit = resultado;
     this.resultadoEdit = Object.assign({}, resultado);
     this.showDialog = true;
   }
-
 
 
   delete(resultado: Resultado) {
@@ -115,11 +112,15 @@ export class ResultadoComponent implements OnInit {
       accept: () => {
         this.resultadoService.delete(resultado.id).subscribe(() => {
           this.dataTable.reset();
-          this.msgs = [{severity: 'success', summary: 'Confirmado',
-            detail: 'Registro removido com sucesso!'}];
+          this.msgs = [{
+            severity: 'success', summary: 'Confirmado',
+            detail: 'Registro removido com sucesso!'
+          }];
         }, error => {
-          this.msgs = [{severity: 'error', summary: 'Erro',
-            detail: 'Falha ao remover o registro!'}];
+          this.msgs = [{
+            severity: 'error', summary: 'Erro',
+            detail: 'Falha ao remover o registro!'
+          }];
         });
       }
     });
@@ -130,8 +131,10 @@ export class ResultadoComponent implements OnInit {
       this.uploadedFiles.push(file);
     }
 
-    this.msgs = [{severity: 'info', summary: 'Arquivo salvo',
-      detail: 'Arquivo salvo com sucesso!'}];
+    this.msgs = [{
+      severity: 'info', summary: 'Arquivo salvo',
+      detail: 'Arquivo salvo com sucesso!'
+    }];
     setTimeout(() => {
       this.dataTable.reset();
       this.showDialog = false;
@@ -139,4 +142,9 @@ export class ResultadoComponent implements OnInit {
     }, 500);
   }
 
+  fazerDownload(id: number, content: string, fileName: string) {
+    this.resultadoService.download(id, content).subscribe( d => {
+      this.resultadoService.downloadFile(d, content, fileName);
+    });
+  }
 }
