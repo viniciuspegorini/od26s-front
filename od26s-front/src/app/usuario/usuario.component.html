@@ -150,13 +150,13 @@
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <label for="endereco">Endereço</label>
-        <span class="ui-float-label">
-          <input type="text" id="endereco" name="endereco" class="form-control ui-float-label" [(ngModel)]="usuarioEdit.endereco">
-          <label  for="endereco">Rua, Numero, Bairro</label>
-        </span>
+        <div class="form-group">
+          <label for="endereco">Endereço</label>
+          <input type="text" id="endereco" name="endereco" placeholder="Rua, Numero, Bairro" class="form-control" [(ngModel)]="usuarioEdit.endereco">
+        </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
