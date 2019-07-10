@@ -1,0 +1,131 @@
+<div class="container">
+  <h1 class="d-flex">Cadastro de Notas</h1>
+  <button class="btn btn-primary" (click)="newEntity()"> Novo</button>
+
+  <p-table [value]="notas" [paginator]="true" [rows]="5"
+    [rowsPerPageOptions]="[5,10,20]">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Código</th>
+        <th>Número</th>
+        <th>Tipo da Nota</th>
+        <th>Valor</th>
+        <th>Solicitante</th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-nota>
+      <tr>
+        <td>{{nota.id}}</td>
+        <td>{{nota.numero}}</td>
+        <td>{{nota.tipoNota}}</td>
+        <td>{{nota.valor}}</td>
+        <td>{{nota.usuario.nome}}</td>
+        <td>
+          <button type="button" class="btn btn-dark" (click)="edit(nota)">
+            <i class="fa fa-edit"></i>
+          </button>
+
+          <button type="button" class="btn btn-danger" (click)="delete(nota)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p-confirmDialog></p-confirmDialog>
+  <p-growl [(value)]="msgs"></p-growl>
+
+  <p-dialog header="Cadastro" [(visible)]="showDialog" modal="modal"
+  [responsive]="true" [width]="800">
+  <p-tabView>
+  <p-tabPanel header="Cadastro">  
+    
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="numero">Número</label>
+            <input type="text" id="numero" name="numero" class="form-control" 
+              [(ngModel)]="notaEdit.numero">
+          </div>
+        </div>
+      </div>
+
+      <div class="row" >
+          <div class="col-sm-6">
+           <div class="form-group">
+              <label for="valor">Valor</label>
+              <input type="text" id="valor" name="valor" class="form-control" 
+            [(ngModel)]="notaEdit.valor" >
+          </div>
+        </div>
+      </div>
+
+     <div class="row" >
+          <div class="ui-g-6 ui-fluid">
+              <label for="nota">Tipo Nota</label>
+              <p-dropdown id="tipo" [style]="{'width':'50%'}" [options]="tiponotas" 
+              [(ngModel)]="tipoNota"
+              optionLabel="nome" ></p-dropdown>
+            </div>
+      </div>
+
+      <div class="ui-g-12 ui-fluid">
+        <label for="d">Data Recebimento</label><br />
+        <p-calendar [locale]="br" id="dataEmissao" 
+          [style]="{'width':'50%'}" [inputStyle]="{'width':'50%'}"
+          dateFormat="dd/mm/yy" dataType="string" [(ngModel)]="notaEdit.dataEmissao"></p-calendar>
+      </div>
+      <div class="ui-g-12 ui-fluid">
+        <label for="nota">Solicitante</label>
+        <p-dropdown [style]="{'width':'50%'}" [options]="usuarios" [(ngModel)]="notaEdit.usuario"
+         optionLabel="nome" (onChange)="filtrarFormulario()"></p-dropdown>
+      </div>
+      
+      <p-multiSelect [options]="formsFilter" [(ngModel)]="formularioEdit.formularios" [panelStyle]="{minWidth:'13em'}">
+                <span *ngIf="!value || value.length === 0" class="ui-multiselected-empty-token ui-corner-all">Esolha os formulários</span>
+                <ng-template let-formsFilter pTemplate="item">     
+                   <div style="font-size:14px;float:right;margin-top:4px"> - {{formsFilter.modelo.nome}}</div>
+                   <div style="font-size:14px;float:right;margin-top:4px">{{formsFilter.id}}</div>   
+              </ng-template>
+      </p-multiSelect>
+    </p-tabPanel>
+
+    
+      <p-tabPanel header="Arquivo" *ngIf="notaEdit.id">
+          <div class="row">
+            <div class="ui-g-12 ui-fluid">
+              <label for="arquivo">Arquivo</label>
+              <p-fileUpload chooseLabel="Selecionar..." cancelLabel="Cancelar" 
+              name="arquivo" url="{{urlApi}}/nota/upload/{{notaEdit.id}}"
+                (onUpload)="onUpload($event)" accept=".pdf" maxFileSize="1000000">
+                <ng-template pTemplate="content">
+                  <ul *ngIf="uploadedFiles.length">
+                    <li *ngFor="let file of uploadedFiles">
+                      {{file.name}} - {{file.size}} bytes
+                    </li>
+                  </ul>
+                </ng-template>
+              </p-fileUpload>
+            </div>
+            <div class="ui-g-12 ui-fluid" *ngIf="notaEdit.arquivo">
+              <label for="arquivoAtual">Arquivo atual:</label>
+              <br />
+              <img alt="Nenhum arquivo cadastrad!" src="{{urlApi}}/images/{{notaEdit.arquivo}}?{{today}}" width="100"
+                height="150">
+            </div>  
+  
+          </div>
+        </p-tabPanel>
+      </p-tabView>
+
+    
+
+  <p-footer>
+    <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
+    <button type="button" class="btn btn-success" (click)="save()">Salvar</button>
+  </p-footer>
+</p-dialog>
+  
+</div>
