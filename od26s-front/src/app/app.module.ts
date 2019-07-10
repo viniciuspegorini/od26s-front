@@ -51,6 +51,7 @@ import {UsuarioService} from './services/usuario.service';
 import { NotaComponent } from './nota/nota.component';
 import {NotaService} from './services/nota.service';
 import {FileUploadModule} from 'primeng/fileupload';
+import {MultiSelectModule} from 'primeng/multiselect';
 
 
 @NgModule({
@@ -94,7 +95,8 @@ import {FileUploadModule} from 'primeng/fileupload';
     TooltipModule,
     InputTextModule,
     SidebarModule,
-    PanelMenuModule
+    PanelMenuModule,
+    MultiSelectModule
   ],
   providers: [
     ConfirmationService,

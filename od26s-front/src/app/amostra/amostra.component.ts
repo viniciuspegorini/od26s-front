@@ -23,7 +23,6 @@ export class AmostraComponent implements OnInit {
   usuarios: Usuario[];
   @ViewChild('dt') dataTable: DataTable;
   br: any;
-
   msgs: Array<Message>;
   showDialog = false;
 

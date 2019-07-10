@@ -8,4 +8,5 @@ export class Nota {
   usuario: Usuario;
   dataEmissao: Date;
   anexo: Array<any>;
+  formularios: [];
 }
