@@ -11,9 +11,9 @@ import {Equipamento} from '../model/equipamento';
 import {EquipamentoService} from '../services/equipamento.service';
 import {ModeloService} from '../services/modelo.service';
 import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
-import {Message} from "primeng/api";
-import {InstituicaoService} from "../services/instituicao.service";
-import {AmostraService} from "../services/amostra.service";
+import {Message} from 'primeng/api';
+import {InstituicaoService} from '../services/instituicao.service';
+import {AmostraService} from '../services/amostra.service';
 
 
 @Component({
@@ -178,6 +178,7 @@ export class FormularioComponent implements OnInit {
   setFormModelo() {
     if (this.selectedEquipamento.id) {
       this.modeloService.findEquipamento(this.selectedEquipamento.id).subscribe(modelo => {
+        this.formularioEdit.metodologia = modelo.metodologia;
         this.formularioEdit.modelo = modelo;
       });
     }
@@ -234,6 +235,7 @@ export class FormularioComponent implements OnInit {
     this.formularioEdit.amostra = null;
     this.formularioEdit.quantidadeEnsaios = 0;
     this.formularioEdit.valorTotal = 0;
+    // this.formularioEdit.metodologia = this.formularioEdit.modelo.metodologia;
 
     if (!this.isAdmin()) {
       this.formularioEdit.status = 'Em análise';
