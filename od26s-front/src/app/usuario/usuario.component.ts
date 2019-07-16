@@ -7,7 +7,7 @@ import {InstituicaoService} from '../services/instituicao.service';
 import {UsuarioService} from './usuario.service';
 import {LoginService} from '../login/login.service';
 import {PermissaoService} from '../services/permissao.service';
-import{Permissao} from '../model/permissao';
+import {Permissao} from '../model/permissao';
 
 @Component({
   selector: 'app-usuario',
@@ -32,6 +32,7 @@ export class UsuarioComponent implements OnInit {
   status1: any[];
   tipoStatus: string;
   status: string;
+  orientadores: Usuario[];
 
   statusCadastro = ['A', '', ''];
 
@@ -50,8 +51,6 @@ export class UsuarioComponent implements OnInit {
       {label: 'Orientador', value: 'Orientador'},
       {label: 'Pesquisador', value: 'Pesquisador'},
     ];
-
-    
   }
 
   hasRole(permissao: string) {
@@ -69,13 +68,16 @@ export class UsuarioComponent implements OnInit {
     this.instituicaoService.findAll().subscribe(e => {
       this.instituicoes = e;
     });
-    this.permissaoService.findAll().subscribe(e =>{
+    this.permissaoService.findAll().subscribe(e => {
       this.permissao1 = e;
     });
   }
 
   findAll() {
-    this.usuarioService.findAll().subscribe(e => this.usuarios = e);
+    this.usuarioService.findAll().subscribe(e => {
+      this.usuarios = e;
+      this.orientadores = this.usuarios.filter(u => u.tipoPessoa === 'Orientador');
+    });
   }
 
   save() {
@@ -84,15 +86,17 @@ export class UsuarioComponent implements OnInit {
       this.usuarioEdit.situacaoCadastro = this.statusCadastro[0];
     }
 
-    if (!this.usuarioEdit.orientador.id) {
+    if (!!this.usuarioEdit.orientador && !this.usuarioEdit.orientador.id) {
       delete this.usuarioEdit.orientador;
     }
 
     this.usuarioEdit.permissoes = [];
+    this.usuarioEdit.permissoes = [{ id: this.usuarioEdit.id , nome: this.permissao1[0].nome }];
     this.usuarioEdit.permissoes.push(this.permiss);
 
     this.usuarioService.save(this.usuarioEdit).subscribe(e => {
         this.usuarioEdit = new Usuario();
+        this.usuarioEdit.orientador = new Usuario();
         this.dataTable.reset();
         this.findAll();
         this.showDialog = false;
@@ -168,8 +172,6 @@ export class UsuarioComponent implements OnInit {
       this.usuarioEdit.status = '';
     }
   }
-
-
 }
 
 
