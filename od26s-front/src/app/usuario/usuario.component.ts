@@ -122,6 +122,7 @@ export class UsuarioComponent implements OnInit {
     this.usuarioEdit.status = this.status1[0].value;
     this.usuarioEdit.instituicao = this.instituicoes[0];
     this.usuarioEdit.orientador = new Usuario();
+    this.permiss = this.permissao1[0];
   }
 
   edit(usuario: Usuario) {
