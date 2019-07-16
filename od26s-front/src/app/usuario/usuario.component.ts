@@ -74,6 +74,10 @@ export class UsuarioComponent implements OnInit {
       this.usuarioEdit.situacaoCadastro = this.statusCadastro[0];
     }
 
+    if(this.usuarioEdit.tipoPessoa === 'Externo' || this.usuarioEdit.tipoPessoa === 'Orientador'){
+      this.usuarioEdit.orientador = null;
+    }
+
     this.usuarioService.save(this.usuarioEdit).subscribe(e => {
         this.usuarioEdit = new Usuario();
         this.dataTable.reset();

@@ -147,7 +147,7 @@
       <input
         readonly
         class="form-control"
-        [(ngModel)]="formularioEdit.usuario.orientador"
+        [(ngModel)]="formularioEdit.usuario.orientador.nome"
       >
     </div>
 
@@ -274,7 +274,7 @@
         optionLabel="nome"
         [options]="orientadores"
         [style]="{'width': '100%'}"
-        [(ngModel)]="usuarioEdit.orientador"
+        [(ngModel)]="usuarioEdit.orientador.nome"
       ></p-dropdown>
     </div>
 

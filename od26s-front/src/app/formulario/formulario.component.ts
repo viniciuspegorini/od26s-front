@@ -235,7 +235,6 @@ export class FormularioComponent implements OnInit {
     this.formularioEdit.amostra = null;
     this.formularioEdit.quantidadeEnsaios = 0;
     this.formularioEdit.valorTotal = 0;
-    // this.formularioEdit.metodologia = this.formularioEdit.modelo.metodologia;
 
     if (!this.isAdmin()) {
       this.formularioEdit.status = 'Em análise';
@@ -308,6 +307,10 @@ export class FormularioComponent implements OnInit {
   }
 
   saveAmostra() {
+    if (this.formularioEdit.amostra && this.formularioEdit.amostra.id) {
+      this.formularioEdit.status = 'Amostra recebida';
+    }
+
     this.formularioService.save(this.formularioEdit).subscribe(() => {
       this.closeDialogAmostra();
       this.findAllFormularios();
