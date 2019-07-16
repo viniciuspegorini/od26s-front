@@ -84,6 +84,10 @@ export class UsuarioComponent implements OnInit {
       this.usuarioEdit.situacaoCadastro = this.statusCadastro[0];
     }
 
+    if (!this.usuarioEdit.orientador.id) {
+      delete this.usuarioEdit.orientador;
+    }
+
     this.usuarioEdit.permissoes = [];
     this.usuarioEdit.permissoes.push(this.permiss);
 
@@ -111,7 +115,7 @@ export class UsuarioComponent implements OnInit {
     this.usuarioEdit.tipoPessoa = this.tipoPessoa1[0].value;
     this.usuarioEdit.status = this.status1[0].value;
     this.usuarioEdit.instituicao = this.instituicoes[0];
-    this.usuarioEdit.orientador = this.usuarios[0];
+    this.usuarioEdit.orientador = new Usuario();
   }
 
   edit(usuario: Usuario) {
