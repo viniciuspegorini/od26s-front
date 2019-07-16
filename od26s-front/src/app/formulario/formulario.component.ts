@@ -11,9 +11,9 @@ import {Equipamento} from '../model/equipamento';
 import {EquipamentoService} from '../services/equipamento.service';
 import {ModeloService} from '../services/modelo.service';
 import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
-import {Message} from "primeng/api";
-import {InstituicaoService} from "../services/instituicao.service";
-import {AmostraService} from "../services/amostra.service";
+import {Message} from 'primeng/api';
+import {InstituicaoService} from '../services/instituicao.service';
+import {AmostraService} from '../services/amostra.service';
 
 
 @Component({
@@ -22,6 +22,8 @@ import {AmostraService} from "../services/amostra.service";
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent implements OnInit {
+
+  public editor = ClassicEditorBuild;
 
   private usuarioLogado: Usuario;
   private formularioEdit: Formulario;
@@ -47,7 +49,6 @@ export class FormularioComponent implements OnInit {
   private dialogAmostra = false;
   private dialogUsuario = false;
   private dialogFormulario = false;
-  public editor = ClassicEditorBuild;
 
   constructor(private formularioService: FormularioService,
               private loginService: LoginService,
@@ -177,21 +178,30 @@ export class FormularioComponent implements OnInit {
 
   setFormModelo() {
     if (this.selectedEquipamento.id) {
-      this.modeloService.findEquipamento(this.selectedEquipamento.id).subscribe(modelo => {
-        this.formularioEdit.modelo = modelo;
-      });
+      let selectedId = this.selectedEquipamento.id;
+
+      if (
+        !this.formularioEdit.modelo.id ||
+        (!!this.formularioEdit.modelo && this.formularioEdit.modelo.preco && selectedId !== this.formularioEdit.modelo.preco.equipamento.id)
+      ) {
+        this.modeloService.findEquipamento(this.selectedEquipamento.id).subscribe(modelo => {
+          this.formularioEdit.metodologia = modelo.metodologia;
+          this.formularioEdit.modelo = modelo;
+        });
+      }
     }
   }
 
   initFormulario() {
     this.naturezaProjeto = {};
-    this.formStatus = {};
+    this.formStatus = {text: 'Em análise'};
     this.formularioEdit = new Formulario();
+    this.formularioEdit.metodologia = '';
     this.formularioEdit.modelo = new Modelo();
     this.formularioEdit.usuario = new Usuario();
+    this.formularioEdit.usuario.orientador = new Usuario();
     this.formularioEdit.amostra = new Amostra();
     this.formularioEdit.usuario.instituicao = new Instituicao();
-    this.formularioEdit.modelo.metodologia = '';
     this.formularioEdit.status = 'Em análise';
   }
 
@@ -199,19 +209,31 @@ export class FormularioComponent implements OnInit {
     this.usuarioEdit = new Usuario();
     this.usuarioEdit.orientador = new Usuario();
     this.usuarioEdit.instituicao = new Instituicao();
-    this.usuarioEdit.permissao = [];
+    this.usuarioEdit.permissoes = [];
   }
 
   showDialogFormulario(form: Formulario = null) {
     if (form) {
       this.formularioEdit = JSON.parse(JSON.stringify(form));
       this.naturezaProjeto = this.naturezaProjetoItems.find(np => np.value === this.formularioEdit.naturezaOperacao);
-      this.formStatus = this.formStatusItems.find(fs => fs.value === this.formularioEdit.status);
+      this.formStatus = this.formStatusItems.find(fs => fs.text === this.formularioEdit.status);
+
+      if (this.formularioEdit.modelo) {
+        this.selectedEquipamento = this.equipamentos.find(eq => {
+          return eq.id === this.formularioEdit.modelo.preco.equipamento.id;
+        });
+      }
+
+      if (!this.formStatus) {
+        this.formStatus = {text: 'Em análise'};
+      }
+
       if (!this.naturezaProjeto) {
         this.naturezaProjeto = this.naturezaProjetoItems[this.naturezaProjetoItems.length - 1];
       }
     } else {
       this.initFormulario();
+
       if (!this.isAdmin()) {
         this.formularioEdit.usuario = JSON.parse(JSON.stringify(this.usuarioLogado));
       }
@@ -222,6 +244,7 @@ export class FormularioComponent implements OnInit {
 
   closeDialogFormulario() {
     this.dialogFormulario = false;
+    this.selectedEquipamento = new Equipamento();
     this.initFormulario();
   }
 
@@ -259,6 +282,11 @@ export class FormularioComponent implements OnInit {
     if (this.isAdmin()) {
       if (usuario) {
         this.usuarioEdit = JSON.parse(JSON.stringify(usuario));
+
+        if (!this.usuarioEdit.orientador) {
+          this.usuarioEdit.orientador = new Usuario();
+        }
+
         this.selectedUserStatus = this.situacoesCadastro.find(sc => sc.value === this.usuarioEdit.situacaoCadastro);
       }
       this.dialogUsuario = true;
@@ -306,6 +334,10 @@ export class FormularioComponent implements OnInit {
   }
 
   saveAmostra() {
+    if (this.formularioEdit.amostra && this.formularioEdit.amostra.id) {
+      this.formularioEdit.status = 'Amostra recebida';
+    }
+
     this.formularioService.save(this.formularioEdit).subscribe(() => {
       this.closeDialogAmostra();
       this.findAllFormularios();

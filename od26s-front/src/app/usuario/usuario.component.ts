@@ -6,6 +6,8 @@ import {DataTable} from 'primeng/components/datatable/datatable';
 import {InstituicaoService} from '../services/instituicao.service';
 import {UsuarioService} from './usuario.service';
 import {LoginService} from '../login/login.service';
+import {PermissaoService} from '../services/permissao.service';
+import {Permissao} from '../model/permissao';
 
 @Component({
   selector: 'app-usuario',
@@ -25,14 +27,18 @@ export class UsuarioComponent implements OnInit {
   instituicoes: Instituicao[];
   tipoPessoa1: any[];
   tipoPess: string;
+  permissao1: Permissao[];
+  permiss: Permissao;
   status1: any[];
   tipoStatus: string;
   status: string;
+  orientadores: Usuario[];
 
   statusCadastro = ['A', '', ''];
 
   constructor(private usuarioService: UsuarioService, private confirmationService: ConfirmationService,
-              private instituicaoService: InstituicaoService,  private loginService: LoginService
+              private instituicaoService: InstituicaoService,  private loginService: LoginService,
+              private permissaoService: PermissaoService
   ) {
     this.status1 = [
       {label: 'Ativo', value: 'Ativo'},
@@ -62,10 +68,16 @@ export class UsuarioComponent implements OnInit {
     this.instituicaoService.findAll().subscribe(e => {
       this.instituicoes = e;
     });
+    this.permissaoService.findAll().subscribe(e => {
+      this.permissao1 = e;
+    });
   }
 
   findAll() {
-    this.usuarioService.findAll().subscribe(e => this.usuarios = e);
+    this.usuarioService.findAll().subscribe(e => {
+      this.usuarios = e;
+      this.orientadores = this.usuarios.filter(u => u.tipoPessoa === 'Orientador');
+    });
   }
 
   save() {
@@ -74,8 +86,19 @@ export class UsuarioComponent implements OnInit {
       this.usuarioEdit.situacaoCadastro = this.statusCadastro[0];
     }
 
+    if (!!this.usuarioEdit.orientador && !this.usuarioEdit.orientador.id) {
+      delete this.usuarioEdit.orientador;
+    }
+
+    this.usuarioEdit.permissoes = [this.permiss];
+    // this.usuarioEdit.permissoes = [{ id: this.usuarioEdit.id , nome: this.permissao1[0].nome }];
+    // this.usuarioEdit.permissoes.push(this.permiss);
+
+    // console.log(this.usuarioEdit)
+
     this.usuarioService.save(this.usuarioEdit).subscribe(e => {
         this.usuarioEdit = new Usuario();
+        this.usuarioEdit.orientador = new Usuario();
         this.dataTable.reset();
         this.findAll();
         this.showDialog = false;
@@ -98,7 +121,7 @@ export class UsuarioComponent implements OnInit {
     this.usuarioEdit.tipoPessoa = this.tipoPessoa1[0].value;
     this.usuarioEdit.status = this.status1[0].value;
     this.usuarioEdit.instituicao = this.instituicoes[0];
-    this.usuarioEdit.orientador = this.usuarios[0];
+    this.usuarioEdit.orientador = new Usuario();
   }
 
   edit(usuario: Usuario) {
@@ -151,7 +174,6 @@ export class UsuarioComponent implements OnInit {
       this.usuarioEdit.status = '';
     }
   }
-
 }
 
 

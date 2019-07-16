@@ -22,5 +22,5 @@ export class Usuario {
   cep: string;
   instituicao: Instituicao;
   situacaoCadastro: string;
-  permissao: Array<Permissao>;
+  permissoes: Array<Permissao>;
 }

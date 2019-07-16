@@ -1,4 +1,4 @@
-<div class="container-fluid py-5">
+<div class="container-fluid pt-5" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
   <h3 class="card-header text-center font-weight-bold text-uppercase py-4">RESULTADOS DAS ANÁLISES</h3>
   <button class="btn btn-primary m-3" (click)="newEntity()">INSERIR</button>
   <p-table #dt [value]="resultados" [paginator]="true" [rows]="5"
@@ -23,13 +23,17 @@
           <div>{{resultado.arquivo ? resultado.arquivo.fileName : 'Não possui arquivo' }}</div>
           <div>
             <button *ngIf="resultado.arquivo"
-              (click)="fazerDownload(resultado.arquivo.id, resultado.arquivo.contentType, resultado.arquivo.fileName)">
+                    (click)="fazerDownload(resultado.arquivo.id, resultado.arquivo.contentType, resultado.arquivo.fileName)">
               Baixar
             </button>
           </div>
         </td>
         <td class="text-center">{{resultado.formulario.id}}</td>
-        <td class="text-center">{{resultado.laudo}}</td>
+        <td class="text-center">
+          <div>
+            <button type="button" class="btn btn-dark m-2" (click)="visualizarLaudo(resultado)">Visualizar</button>
+          </div>
+        </td>
         <td class="text-center">
           <button type="button" class="btn btn-dark m-2" (click)="edit(resultado)">
             <i class="fa fa-edit"></i>
@@ -47,8 +51,14 @@
 <p-growl [(value)]="msgs"></p-growl>
 <p-confirmDialog></p-confirmDialog>
 
-<div>
-<p-dialog header="INSERÇÃO DE RESULTADOS" [(visible)]="showDialog" modal="modal" [responsive]="true" [width]="500">
+
+<p-dialog modal="modal"
+          [width]="900"
+          header="INSERÇÂO DE RESULTADOS"
+          [responsive]="true"
+          [(visible)]="showDialog"
+          [style]="{'min-height': '900px'}"
+>
   <p-tabView>
     <p-tabPanel header="Dados">
       <div class="row">
@@ -59,7 +69,7 @@
             <p-dropdown id="usuario" name="usuario" [style]="{'width':'100%'}" [options]="usuarios"
                         [(ngModel)]="resultadoEdit.usuario" optionLabel="nome"></p-dropdown>
           </div>
-
+          <br>
           <div class="ui-g-12 ui-fluid">
             <label for="today">Data</label>
             <textarea pInputTextarea id="today" name="today" class="form-control"
@@ -72,11 +82,15 @@
                         [options]="formularios" [(ngModel)]="resultadoEdit.formulario" optionLabel="id"></p-dropdown>
           </div>
 
-          <div class="ui-g-12 ui-fluid">
-            <label for="laudo">Laudo</label>
-            <textarea pInputTextarea id="laudo" name="laudo" class="form-control"
-                      [(ngModel)]="resultadoEdit.laudo"></textarea>
-          </div>
+            <label for="laudo-editor">Laudo</label>
+            <br>
+            <ckeditor
+              [data]="resultadoEdit.laudo"
+              [editor]="editor"
+              [(ngModel)]="resultadoEdit.laudo"
+              id="laudo-editor"
+              name="laudo-editor">
+            </ckeditor>
 
         </div>
       </div>
@@ -98,13 +112,37 @@
             </ng-template>
           </p-fileUpload>
         </div>
-            </div>
+      </div>
     </p-tabPanel>
 
-   </p-tabView>
+  </p-tabView>
   <p-footer>
     <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
     <button type="button" class="btn btn-success" (click)="save()">Salvar</button>
   </p-footer>
 </p-dialog>
-</div>
+
+
+<p-dialog modal="modal" [width]="900" header="Laudo" [responsive]="true"
+          [(visible)]="visualizaLaudo" [style]="{'min-height': '600px'}">
+  <p-tabView>
+    <p-tabPanel header="Laudo">
+      <div class="row">
+        <div class="ui-g-12 ui-fluid">
+
+            <br>
+            <ckeditor
+              [data]="resultadoEdit.laudo"
+              [editor]="editor"
+              [(ngModel)]="resultadoEdit.laudo"
+              id="laudo-visualizar"
+              name="laudo-visualizar">
+            </ckeditor>
+
+        </div>
+      </div>
+    </p-tabPanel>
+
+     </p-tabView>
+
+</p-dialog>

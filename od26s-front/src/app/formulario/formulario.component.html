@@ -147,7 +147,7 @@
       <input
         readonly
         class="form-control"
-        [(ngModel)]="formularioEdit.usuario.orientador"
+        [(ngModel)]="formularioEdit.usuario.orientador.nome"
       >
     </div>
 
@@ -180,8 +180,10 @@
         class="mb-3"
       ></p-dropdown>
       <ckeditor
+        *ngIf="formularioEdit"
         [editor]="editor"
-        [(ngModel)]="formularioEdit.modelo.metodologia"
+        [(ngModel)]="formularioEdit.metodologia"
+        [data]="formularioEdit.metodologia"
         class="w-100"
         id="metodologia-editor"
         name="metodologia-editor">
@@ -274,7 +276,7 @@
         optionLabel="nome"
         [options]="orientadores"
         [style]="{'width': '100%'}"
-        [(ngModel)]="usuarioEdit.orientador"
+        [(ngModel)]="usuarioEdit.orientador.nome"
       ></p-dropdown>
     </div>
 

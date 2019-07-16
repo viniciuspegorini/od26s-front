@@ -22,12 +22,29 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.items = [
       {
+        label: 'Amostra',
+        icon: 'pi pi-pw pi-globe',
+        items: [
+          //   {
+          //   label: 'Novo',
+          //   icon: 'pi pi-fw pi-plus'
+          // },
+          {
+            label: 'Procurar',
+            icon: 'pi pi-fw pi-search',
+            routerLink: 'amostra',
+          },
+        ]
+      }
+      ,
+      {
         label: 'Instituição',
         icon: 'pi pi-pw pi-globe',
-        items: [{
-          label: 'Novo',
-          icon: 'pi pi-fw pi-plus'
-        },
+        items: [
+        //   {
+        //   label: 'Novo',
+        //   icon: 'pi pi-fw pi-plus'
+        // },
           {
             label: 'Procurar',
             icon: 'pi pi-fw pi-search',
@@ -39,10 +56,11 @@ export class MenuComponent implements OnInit {
       {
         label: 'Equipamentos',
         icon: 'pi pi-pw pi-sitemap',
-        items: [{
-          label: 'Novo',
-          icon: 'pi pi-fw pi-plus'
-        },
+        items: [
+        //   {
+        //   label: 'Novo',
+        //   icon: 'pi pi-fw pi-plus'
+        // },
           {
             label: 'Procurar',
             icon: 'pi pi-fw pi-search',
@@ -53,10 +71,11 @@ export class MenuComponent implements OnInit {
       {
         label: 'Formulários',
         icon: 'pi pi-pw pi-file',
-        items: [{
-          label: 'Novo',
-          icon: 'pi pi-fw pi-plus'
-        },
+        items: [
+        //   {
+        //   label: 'Novo',
+        //   icon: 'pi pi-fw pi-plus'
+        // },
           {
             label: 'Procurar',
             icon: 'pi pi-fw pi-search',
@@ -67,10 +86,11 @@ export class MenuComponent implements OnInit {
       {
         label: 'Modelo',
         icon: 'pi pi-pw pi-paperclip',
-        items: [{
-          label: 'Novo',
-          icon: 'pi pi-fw pi-plus'
-        },
+        items: [
+        //   {
+        //   label: 'Novo',
+        //   icon: 'pi pi-fw pi-plus'
+        // },
           {
             label: 'Procurar',
             icon: 'pi pi-fw pi-search',
@@ -81,10 +101,11 @@ export class MenuComponent implements OnInit {
       {
         label: 'Notas',
         icon: 'pi pi-pw pi-chart-bar',
-        items: [{
-          label: 'Novo',
-          icon: 'pi pi-fw pi-plus',
-        },
+        items: [
+        //   {
+        //   label: 'Novo',
+        //   icon: 'pi pi-fw pi-plus',
+        // },
           {
             label: 'Procurar',
             icon: 'pi pi-fw pi-search',
@@ -95,10 +116,11 @@ export class MenuComponent implements OnInit {
       {
         label: 'Resultado',
         icon: 'pi pi-pw pi-filter',
-        items: [{
-          label: 'Novo',
-          icon: 'pi pi-fw pi-plus',
-        },
+        items: [
+        //   {
+        //   label: 'Novo',
+        //   icon: 'pi pi-fw pi-plus',
+        // },
           {
             label: 'Procurar',
             icon: 'pi pi-fw pi-search',
@@ -109,10 +131,11 @@ export class MenuComponent implements OnInit {
       {
         label: 'Usuários',
         icon: 'pi pi-pw pi-user',
-        items: [{
-          label: 'Novo',
-          icon: 'pi pi-fw pi-plus',
-        },
+        items: [
+        //   {
+        //   label: 'Novo',
+        //   icon: 'pi pi-fw pi-plus',
+        // },
           {
             label: 'Procurar',
             icon: 'pi pi-fw pi-search',
@@ -127,10 +150,11 @@ export class MenuComponent implements OnInit {
       {
         label: 'Formulários',
         icon: 'pi pi-pw pi-file',
-        items: [{
-          label: 'Novo',
-          icon: 'pi pi-fw pi-plus',
-        },
+        items: [
+        //   {
+        //   label: 'Novo',
+        //   icon: 'pi pi-fw pi-plus',
+        // },
           {
             label: 'Procurar',
             icon: 'pi pi-fw pi-search',
@@ -142,10 +166,11 @@ export class MenuComponent implements OnInit {
       {
         label: 'Usuários',
         icon: 'pi pi-pw pi-user',
-        items: [{
-          label: 'Novo',
-          icon: 'pi pi-fw pi-plus',
-        },
+        items: [
+        //   {
+        //   label: 'Novo',
+        //   icon: 'pi pi-fw pi-plus',
+        // },
           {
             label: 'Procurar',
             icon: 'pi pi-fw pi-search',
@@ -160,10 +185,11 @@ export class MenuComponent implements OnInit {
       {
         label: 'Resultado',
         icon: 'pi pi-pw pi-filter',
-        items: [{
-          label: 'Novo',
-          icon: 'pi pi-fw pi-plus',
-        },
+        items: [
+        //   {
+        //   label: 'Novo',
+        //   icon: 'pi pi-fw pi-plus',
+        // },
           {
             label: 'Procurar',
             icon: 'pi pi-fw pi-search',
@@ -177,10 +203,11 @@ export class MenuComponent implements OnInit {
       {
         label: 'Formulários',
         icon: 'pi pi-pw pi-file',
-        items: [{
-          label: 'Novo',
-          icon: 'pi pi-fw pi-plus',
-        },
+        items: [
+        //   {
+        //   label: 'Novo',
+        //   icon: 'pi pi-fw pi-plus',
+        // },
           {
             label: 'Procurar',
             icon: 'pi pi-fw pi-search',
