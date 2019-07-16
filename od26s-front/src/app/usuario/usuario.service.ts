@@ -23,7 +23,8 @@ export class UsuarioService extends CrudService<Usuario, number> {
   }
 
   save(t: Usuario): Observable<void> {
-    const url = `${this.getUrl()}/salvar`;
+    // const url = `${this.getUrl()}/salvar`;
+    const url = `${this.getUrl()}`;
     return this.http.post<void>(url, JSON.stringify(t), httpOptions);
   }
 

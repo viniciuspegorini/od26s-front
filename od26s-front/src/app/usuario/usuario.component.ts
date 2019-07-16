@@ -90,9 +90,11 @@ export class UsuarioComponent implements OnInit {
       delete this.usuarioEdit.orientador;
     }
 
-    this.usuarioEdit.permissoes = [];
-    this.usuarioEdit.permissoes = [{ id: this.usuarioEdit.id , nome: this.permissao1[0].nome }];
-    this.usuarioEdit.permissoes.push(this.permiss);
+    this.usuarioEdit.permissoes = [this.permiss];
+    // this.usuarioEdit.permissoes = [{ id: this.usuarioEdit.id , nome: this.permissao1[0].nome }];
+    // this.usuarioEdit.permissoes.push(this.permiss);
+
+    // console.log(this.usuarioEdit)
 
     this.usuarioService.save(this.usuarioEdit).subscribe(e => {
         this.usuarioEdit = new Usuario();
