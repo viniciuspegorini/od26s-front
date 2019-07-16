@@ -282,6 +282,11 @@ export class FormularioComponent implements OnInit {
     if (this.isAdmin()) {
       if (usuario) {
         this.usuarioEdit = JSON.parse(JSON.stringify(usuario));
+
+        if (!this.usuarioEdit.orientador) {
+          this.usuarioEdit.orientador = new Usuario();
+        }
+
         this.selectedUserStatus = this.situacoesCadastro.find(sc => sc.value === this.usuarioEdit.situacaoCadastro);
       }
       this.dialogUsuario = true;
