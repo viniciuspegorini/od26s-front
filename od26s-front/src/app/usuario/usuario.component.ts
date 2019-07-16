@@ -87,7 +87,10 @@ export class UsuarioComponent implements OnInit {
     if (!this.usuarioEdit.orientador.id) {
       delete this.usuarioEdit.orientador;
     }
-
+    if(this.usuarioEdit.tipoPessoa === 'Externo' || this.usuarioEdit.tipoPessoa === 'Orientador') {
+      this.usuarioEdit.orientador = null;
+    }
+  
     this.usuarioEdit.permissoes = [];
     this.usuarioEdit.permissoes.push(this.permiss);
 
