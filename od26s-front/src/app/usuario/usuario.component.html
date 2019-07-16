@@ -89,6 +89,16 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Permissão</label>
+          <p-dropdown id="permissao" [options]="permissao1"
+                      [(ngModel)]="permiss" optionLabel="nome"
+          ></p-dropdown>
+        </div>
+      </div>
+    </div>
     <div class="row" *ngIf="usuarioEdit.tipoPessoa != 'Externo' ">
       <div class="col-sm-12">
         <div class="form-group">

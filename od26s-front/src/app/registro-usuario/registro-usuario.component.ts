@@ -44,7 +44,7 @@ export class RegistroUsuarioComponent implements OnInit {
     this.usuario = new Usuario();
     this.usuario.orientador = new Usuario();
     this.usuario.instituicao = new Instituicao();
-    this.usuario.permissao = [{ id: 2, nome: 'ROLE_SOLICITANTE' }];
+    this.usuario.permissoes = [{ id: 2, nome: 'ROLE_SOLICITANTE' }];
   }
 
   findOrientadores() {

@@ -199,7 +199,7 @@ export class FormularioComponent implements OnInit {
     this.usuarioEdit = new Usuario();
     this.usuarioEdit.orientador = new Usuario();
     this.usuarioEdit.instituicao = new Instituicao();
-    this.usuarioEdit.permissao = [];
+    this.usuarioEdit.permissoes = [];
   }
 
   showDialogFormulario(form: Formulario = null) {
