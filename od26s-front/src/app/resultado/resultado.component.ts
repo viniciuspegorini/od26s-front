@@ -7,6 +7,7 @@ import {Usuario} from '../model/usuario';
 import {UsuarioService} from '../services/usuario.service';
 import {Formulario} from '../model/formulario';
 import {FormularioService} from '../services/formulario.service';
+import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-resultado',
@@ -14,6 +15,8 @@ import {FormularioService} from '../services/formulario.service';
   styleUrls: ['./resultado.component.css']
 })
 export class ResultadoComponent implements OnInit {
+
+  public editor = ClassicEditorBuild;
 
   @ViewChild('dt') dataTable: DataTable;
 
@@ -76,14 +79,23 @@ export class ResultadoComponent implements OnInit {
     this.resultadoEdit.today = new Date();
     this.resultadoEdit.formulario = this.formularios[0];
     this.resultadoEdit.usuario = this.usuarios[0];
+    this.resultadoEdit.laudo = '';
   }
 
 
   save() {
     this.resultadoService.save(this.resultadoEdit).subscribe(e => {
-        this.resultadoEdit = new Resultado();
-        this.dataTable.reset();
         this.showDialog = false;
+        this.dataTable.reset();
+
+        this.resultadoEdit = new Resultado();
+        this.resultadoEdit.today = new Date();
+        this.resultadoEdit.formulario = this.formularios[0];
+        this.resultadoEdit.usuario = this.usuarios[0];
+        this.resultadoEdit.laudo = '';
+
+        // this.editor = ClassicEditorBuild;
+
         this.msgs = [{severity: 'success', summary: 'Confirmado', detail: 'Registro salvo com sucesso!'}];
       },
       error => {
@@ -97,8 +109,14 @@ export class ResultadoComponent implements OnInit {
   }
 
   edit(resultado: Resultado) {
-    this.resultadoEdit = resultado;
-    this.resultadoEdit = Object.assign({}, resultado);
+    if (!!resultado) {
+      this.resultadoEdit = JSON.parse(JSON.stringify(resultado));
+    }
+
+    if (!this.resultadoEdit.laudo) {
+      this.resultadoEdit.laudo = '';
+    }
+
     this.showDialog = true;
   }
 

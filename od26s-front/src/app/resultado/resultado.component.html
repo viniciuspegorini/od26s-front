@@ -73,9 +73,15 @@
           </div>
 
           <div class="ui-g-12 ui-fluid">
-            <label for="laudo">Laudo</label>
-            <textarea pInputTextarea id="laudo" name="laudo" class="form-control"
-                      [(ngModel)]="resultadoEdit.laudo"></textarea>
+            <label>Laudo</label>
+            <br>
+            <ckeditor
+              [data]="resultadoEdit.laudo"
+              [editor]="editor"
+              [(ngModel)]="resultadoEdit.laudo"
+              id="laudo-editor"
+              name="laudo-editor">
+            </ckeditor>
           </div>
 
         </div>
