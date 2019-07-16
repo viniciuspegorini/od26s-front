@@ -180,8 +180,10 @@
         class="mb-3"
       ></p-dropdown>
       <ckeditor
+        *ngIf="formularioEdit"
         [editor]="editor"
         [(ngModel)]="formularioEdit.metodologia"
+        [data]="formularioEdit.metodologia"
         class="w-100"
         id="metodologia-editor"
         name="metodologia-editor">
