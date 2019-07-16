@@ -6,6 +6,8 @@ import {DataTable} from 'primeng/components/datatable/datatable';
 import {InstituicaoService} from '../services/instituicao.service';
 import {UsuarioService} from './usuario.service';
 import {LoginService} from '../login/login.service';
+import {PermissaoService} from '../services/permissao.service';
+import{Permissao} from '../model/permissao';
 
 @Component({
   selector: 'app-usuario',
@@ -25,6 +27,8 @@ export class UsuarioComponent implements OnInit {
   instituicoes: Instituicao[];
   tipoPessoa1: any[];
   tipoPess: string;
+  permissao1: Permissao[];
+  permiss: Permissao;
   status1: any[];
   tipoStatus: string;
   status: string;
@@ -32,7 +36,8 @@ export class UsuarioComponent implements OnInit {
   statusCadastro = ['A', '', ''];
 
   constructor(private usuarioService: UsuarioService, private confirmationService: ConfirmationService,
-              private instituicaoService: InstituicaoService,  private loginService: LoginService
+              private instituicaoService: InstituicaoService,  private loginService: LoginService,
+              private permissaoService: PermissaoService
   ) {
     this.status1 = [
       {label: 'Ativo', value: 'Ativo'},
@@ -45,6 +50,8 @@ export class UsuarioComponent implements OnInit {
       {label: 'Orientador', value: 'Orientador'},
       {label: 'Pesquisador', value: 'Pesquisador'},
     ];
+
+    
   }
 
   hasRole(permissao: string) {
@@ -62,6 +69,9 @@ export class UsuarioComponent implements OnInit {
     this.instituicaoService.findAll().subscribe(e => {
       this.instituicoes = e;
     });
+    this.permissaoService.findAll().subscribe(e =>{
+      this.permissao1 = e;
+    });
   }
 
   findAll() {
@@ -74,9 +84,8 @@ export class UsuarioComponent implements OnInit {
       this.usuarioEdit.situacaoCadastro = this.statusCadastro[0];
     }
 
-    if(this.usuarioEdit.tipoPessoa === 'Externo' || this.usuarioEdit.tipoPessoa === 'Orientador'){
-      this.usuarioEdit.orientador = null;
-    }
+    this.usuarioEdit.permissoes = [];
+    this.usuarioEdit.permissoes.push(this.permiss);
 
     this.usuarioService.save(this.usuarioEdit).subscribe(e => {
         this.usuarioEdit = new Usuario();
@@ -155,6 +164,7 @@ export class UsuarioComponent implements OnInit {
       this.usuarioEdit.status = '';
     }
   }
+
 
 }
 
