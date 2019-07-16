@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  // api:  'https://chemistsincontrol.herokuapp.com'
-  api:  'http://localhost:8085'
+  api:  'https://chemistsincontrol.herokuapp.com'
 };
 
 /*
