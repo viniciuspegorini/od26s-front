@@ -26,6 +26,7 @@ export class ResultadoComponent implements OnInit {
   currentPage = 1;
   resultadoEdit = new Resultado();
   showDialog = false;
+  visualizaLaudo = false;
   msgs: Message[] = [];
   uploadedFiles: any[] = [];
   urlApi: string = environment.api;
@@ -118,6 +119,19 @@ export class ResultadoComponent implements OnInit {
     }
 
     this.showDialog = true;
+  }
+
+  visualizarLaudo(resultado: Resultado) {
+
+    if (!!resultado) {
+      this.resultadoEdit = JSON.parse(JSON.stringify(resultado));
+    }
+
+    if (!this.resultadoEdit.laudo) {
+      this.resultadoEdit.laudo = '';
+    }
+
+    this.visualizaLaudo = true;
   }
 
 
