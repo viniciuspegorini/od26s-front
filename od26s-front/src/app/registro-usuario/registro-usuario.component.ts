@@ -30,7 +30,7 @@ export class RegistroUsuarioComponent implements OnInit {
     localStorage.clear(); 
     this.initUsuario();
     this.findOrientadores();
-    // this.findAllInstituicoes();
+    this.findAllInstituicoes();
 
     this.tiposPessoa = [
       { text: '', value: 'externo' },
